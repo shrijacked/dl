@@ -1,0 +1,8 @@
+{
+  "dataset": "val",
+  "mean_of_means": 119.89671667131616,
+  "std_of_means": 38.83622185983735,
+  "overall_std": 58.55688908691124,
+  "min_pixel": 0,
+  "max_pixel": 255
+}

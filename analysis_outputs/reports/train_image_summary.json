@@ -1,0 +1,8 @@
+{
+  "dataset": "train",
+  "mean_of_means": 119.39705833970214,
+  "std_of_means": 39.07733255186564,
+  "overall_std": 57.82924329512946,
+  "min_pixel": 0,
+  "max_pixel": 255
+}
