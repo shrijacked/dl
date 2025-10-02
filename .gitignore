@@ -1,0 +1,66 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS artifacts
+.DS_Store
+
+# Logs
+*.log
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+*.cover
+coverage.xml
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data artifacts
+IS 2025 OrganAMNIST/train/
+IS 2025 OrganAMNIST/val/
+IS 2025 OrganAMNIST/test/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
