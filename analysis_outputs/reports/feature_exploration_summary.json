@@ -1,0 +1,7 @@
+{
+  "multiscale_samples": 1000,
+  "train_samples": 6000,
+  "val_samples": 2000,
+  "epochs": 3,
+  "final_val_accuracy": 0.927
+}
