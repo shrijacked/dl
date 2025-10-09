@@ -1,0 +1,18 @@
+{
+  "duplicates": [
+    {
+      "split": "train",
+      "total_images": 34561,
+      "duplicate_pairs": 921,
+      "unique_hashes": 33525
+    },
+    {
+      "split": "val",
+      "total_images": 6491,
+      "duplicate_pairs": 134,
+      "unique_hashes": 6343
+    }
+  ],
+  "suspect_count": 0,
+  "suspect_threshold": 0.2
+}

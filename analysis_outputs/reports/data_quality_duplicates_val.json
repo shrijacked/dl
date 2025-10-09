@@ -1,0 +1,556 @@
+{
+  "split": "val",
+  "duplicate_groups": 134,
+  "duplicate_examples": {
+    "805f3f786179b063": [
+      "val/images_val/val_00045.png",
+      "val/images_val/val_00587.png"
+    ],
+    "c8c2b53fc5685a36": [
+      "val/images_val/val_00069.png",
+      "val/images_val/val_01539.png"
+    ],
+    "af20851f978d5a9c": [
+      "val/images_val/val_00091.png",
+      "val/images_val/val_02173.png",
+      "val/images_val/val_05494.png"
+    ],
+    "eaca953d87a48cb4": [
+      "val/images_val/val_00106.png",
+      "val/images_val/val_04936.png"
+    ],
+    "84c21e815f5cb74f": [
+      "val/images_val/val_00117.png",
+      "val/images_val/val_03035.png"
+    ],
+    "dce1d2156dc21f68": [
+      "val/images_val/val_00126.png",
+      "val/images_val/val_04627.png"
+    ],
+    "94c11f8c5f1d964b": [
+      "val/images_val/val_00142.png",
+      "val/images_val/val_00507.png"
+    ],
+    "80bf4e9e2dc03dd1": [
+      "val/images_val/val_00148.png",
+      "val/images_val/val_04547.png",
+      "val/images_val/val_05749.png"
+    ],
+    "8bf45e9b70ca6168": [
+      "val/images_val/val_00195.png",
+      "val/images_val/val_04574.png"
+    ],
+    "c9c0b42f8535cf65": [
+      "val/images_val/val_00204.png",
+      "val/images_val/val_00774.png"
+    ],
+    "c2caa52fc43d4fe0": [
+      "val/images_val/val_00233.png",
+      "val/images_val/val_01405.png"
+    ],
+    "af7081d691879e8b": [
+      "val/images_val/val_00256.png",
+      "val/images_val/val_05099.png"
+    ],
+    "c247252977a52eb6": [
+      "val/images_val/val_00330.png",
+      "val/images_val/val_05028.png"
+    ],
+    "c03527903e8f9fc9": [
+      "val/images_val/val_00399.png",
+      "val/images_val/val_02162.png"
+    ],
+    "8f52a564c587728f": [
+      "val/images_val/val_00410.png",
+      "val/images_val/val_03698.png"
+    ],
+    "e63ba44195c4cb9e": [
+      "val/images_val/val_00418.png",
+      "val/images_val/val_00439.png",
+      "val/images_val/val_01685.png"
+    ],
+    "c3ca843c9737c734": [
+      "val/images_val/val_00432.png",
+      "val/images_val/val_04081.png"
+    ],
+    "84c31e851f54b76e": [
+      "val/images_val/val_00443.png",
+      "val/images_val/val_05121.png"
+    ],
+    "d1c65a514bda27d2": [
+      "val/images_val/val_00470.png",
+      "val/images_val/val_05194.png"
+    ],
+    "a137955a125d7933": [
+      "val/images_val/val_00490.png",
+      "val/images_val/val_03844.png"
+    ],
+    "b8da9da11cc5656c": [
+      "val/images_val/val_00498.png",
+      "val/images_val/val_05878.png"
+    ],
+    "a863859f579c1a65": [
+      "val/images_val/val_00593.png",
+      "val/images_val/val_03989.png"
+    ],
+    "bf8f846ec3315a30": [
+      "val/images_val/val_00607.png",
+      "val/images_val/val_03504.png"
+    ],
+    "da5e2d7920e033e6": [
+      "val/images_val/val_00674.png",
+      "val/images_val/val_04557.png"
+    ],
+    "8b885eca78db7078": [
+      "val/images_val/val_00678.png",
+      "val/images_val/val_02860.png"
+    ],
+    "bede87a466a72188": [
+      "val/images_val/val_00734.png",
+      "val/images_val/val_02500.png"
+    ],
+    "9f8bc168543e9725": [
+      "val/images_val/val_00798.png",
+      "val/images_val/val_04099.png"
+    ],
+    "c0145f386fa06fe3": [
+      "val/images_val/val_00815.png",
+      "val/images_val/val_03563.png",
+      "val/images_val/val_05324.png"
+    ],
+    "812a7af27a1471d7": [
+      "val/images_val/val_00830.png",
+      "val/images_val/val_00848.png"
+    ],
+    "af308546918dde97": [
+      "val/images_val/val_00880.png",
+      "val/images_val/val_05202.png"
+    ],
+    "c0c8b6afc03dcb3c": [
+      "val/images_val/val_00891.png",
+      "val/images_val/val_04053.png"
+    ],
+    "94c54b1e2ef8b929": [
+      "val/images_val/val_00944.png",
+      "val/images_val/val_01415.png"
+    ],
+    "a86385df968e58b1": [
+      "val/images_val/val_00956.png",
+      "val/images_val/val_05262.png"
+    ],
+    "e2c4953bd16a5b68": [
+      "val/images_val/val_00998.png",
+      "val/images_val/val_03285.png"
+    ],
+    "a0c4876e5ee1999d": [
+      "val/images_val/val_01039.png",
+      "val/images_val/val_01197.png",
+      "val/images_val/val_02048.png"
+    ],
+    "e63fa4439584cb96": [
+      "val/images_val/val_01056.png",
+      "val/images_val/val_06216.png"
+    ],
+    "8f208187d58fdaba": [
+      "val/images_val/val_01065.png",
+      "val/images_val/val_02625.png"
+    ],
+    "d7de78684a356912": [
+      "val/images_val/val_01076.png",
+      "val/images_val/val_02623.png"
+    ],
+    "9f83c16c543e9725": [
+      "val/images_val/val_01087.png",
+      "val/images_val/val_05565.png"
+    ],
+    "ae31458d0f17de46": [
+      "val/images_val/val_01100.png",
+      "val/images_val/val_06320.png"
+    ],
+    "9015135f3f5e334c": [
+      "val/images_val/val_01130.png",
+      "val/images_val/val_05349.png"
+    ],
+    "af708186d4cf4a1f": [
+      "val/images_val/val_01150.png",
+      "val/images_val/val_04570.png"
+    ],
+    "af60855793ce4a8d": [
+      "val/images_val/val_01217.png",
+      "val/images_val/val_02163.png"
+    ],
+    "809d161f3b5d5cb4": [
+      "val/images_val/val_01274.png",
+      "val/images_val/val_05381.png"
+    ],
+    "d0550a0d6f2d7db4": [
+      "val/images_val/val_01292.png",
+      "val/images_val/val_01825.png"
+    ],
+    "bede85e466a72188": [
+      "val/images_val/val_01299.png",
+      "val/images_val/val_05392.png"
+    ],
+    "eacac4ba9b3193a1": [
+      "val/images_val/val_01319.png",
+      "val/images_val/val_01369.png",
+      "val/images_val/val_05364.png",
+      "val/images_val/val_05525.png",
+      "val/images_val/val_06031.png"
+    ],
+    "be9e84acce644a72": [
+      "val/images_val/val_01428.png",
+      "val/images_val/val_03299.png"
+    ],
+    "8dc01f845f56b54b": [
+      "val/images_val/val_01440.png",
+      "val/images_val/val_02236.png"
+    ],
+    "c0550a0d6fad7db4": [
+      "val/images_val/val_01490.png",
+      "val/images_val/val_03375.png",
+      "val/images_val/val_04061.png"
+    ],
+    "810a7fe87e3431d5": [
+      "val/images_val/val_01491.png",
+      "val/images_val/val_02887.png"
+    ],
+    "c2c0a52fc63d4fe2": [
+      "val/images_val/val_01510.png",
+      "val/images_val/val_01601.png",
+      "val/images_val/val_06408.png"
+    ],
+    "a86085d997ced89d": [
+      "val/images_val/val_01511.png",
+      "val/images_val/val_03671.png"
+    ],
+    "c0c4b72fc03dcb3c": [
+      "val/images_val/val_01573.png",
+      "val/images_val/val_04603.png"
+    ],
+    "c0bf4ebe6dc0a4d0": [
+      "val/images_val/val_01583.png",
+      "val/images_val/val_05857.png"
+    ],
+    "abcb81e19e351c36": [
+      "val/images_val/val_01594.png",
+      "val/images_val/val_04579.png"
+    ],
+    "a27f844399c4cb9e": [
+      "val/images_val/val_01599.png",
+      "val/images_val/val_03908.png"
+    ],
+    "e2c29d3b41ea943d": [
+      "val/images_val/val_01600.png",
+      "val/images_val/val_02618.png"
+    ],
+    "af708544918fd69d": [
+      "val/images_val/val_01606.png",
+      "val/images_val/val_02603.png"
+    ],
+    "bede85a94c65305a": [
+      "val/images_val/val_01627.png",
+      "val/images_val/val_05709.png"
+    ],
+    "aaee95e096c73432": [
+      "val/images_val/val_01683.png",
+      "val/images_val/val_02355.png"
+    ],
+    "dcf5604a346b7269": [
+      "val/images_val/val_01721.png",
+      "val/images_val/val_01819.png"
+    ],
+    "af7085c4918fd699": [
+      "val/images_val/val_01722.png",
+      "val/images_val/val_02437.png"
+    ],
+    "a863859f57bc1a25": [
+      "val/images_val/val_01741.png",
+      "val/images_val/val_05820.png"
+    ],
+    "a08c856e5fe19b95": [
+      "val/images_val/val_01744.png",
+      "val/images_val/val_02566.png"
+    ],
+    "bada95a48cc565c9": [
+      "val/images_val/val_01761.png",
+      "val/images_val/val_05870.png"
+    ],
+    "97d062466f60dc6d": [
+      "val/images_val/val_01813.png",
+      "val/images_val/val_03764.png"
+    ],
+    "9cd587c448173f0f": [
+      "val/images_val/val_01831.png",
+      "val/images_val/val_05167.png"
+    ],
+    "d83c2de034c796ce": [
+      "val/images_val/val_01834.png",
+      "val/images_val/val_03253.png"
+    ],
+    "c0db2f5c3e60d433": [
+      "val/images_val/val_01870.png",
+      "val/images_val/val_03457.png"
+    ],
+    "e2c1953a43ee963c": [
+      "val/images_val/val_01954.png",
+      "val/images_val/val_06293.png"
+    ],
+    "d2165fb06d882fc9": [
+      "val/images_val/val_02069.png",
+      "val/images_val/val_04545.png"
+    ],
+    "b8f895a56cc465c9": [
+      "val/images_val/val_02131.png",
+      "val/images_val/val_02273.png",
+      "val/images_val/val_03079.png"
+    ],
+    "83cb85a91f252dc7": [
+      "val/images_val/val_02136.png",
+      "val/images_val/val_03705.png"
+    ],
+    "a0c4876e5ea1999f": [
+      "val/images_val/val_02164.png",
+      "val/images_val/val_03508.png"
+    ],
+    "bade95a42ce5298a": [
+      "val/images_val/val_02229.png",
+      "val/images_val/val_04644.png"
+    ],
+    "86cf85a81bb23b8e": [
+      "val/images_val/val_02261.png",
+      "val/images_val/val_05065.png"
+    ],
+    "801c5f387fa06de3": [
+      "val/images_val/val_02297.png",
+      "val/images_val/val_06477.png"
+    ],
+    "8e73815cd34fc20f": [
+      "val/images_val/val_02331.png",
+      "val/images_val/val_03051.png",
+      "val/images_val/val_03291.png"
+    ],
+    "af70814791cf5a9c": [
+      "val/images_val/val_02414.png",
+      "val/images_val/val_02732.png"
+    ],
+    "c0b54b9a65ce265b": [
+      "val/images_val/val_02420.png",
+      "val/images_val/val_05954.png"
+    ],
+    "c0b54b9b65cc265b": [
+      "val/images_val/val_02434.png",
+      "val/images_val/val_02585.png"
+    ],
+    "bade95a46ce72182": [
+      "val/images_val/val_02457.png",
+      "val/images_val/val_03807.png"
+    ],
+    "aac280ab97315f67": [
+      "val/images_val/val_02525.png",
+      "val/images_val/val_03076.png"
+    ],
+    "84c01f8c5f5f946b": [
+      "val/images_val/val_02572.png",
+      "val/images_val/val_05994.png"
+    ],
+    "bfdf85a80aa1329a": [
+      "val/images_val/val_02813.png",
+      "val/images_val/val_03588.png"
+    ],
+    "af708186d5cf4a17": [
+      "val/images_val/val_02824.png",
+      "val/images_val/val_05000.png"
+    ],
+    "8f955e9f70482371": [
+      "val/images_val/val_02838.png",
+      "val/images_val/val_04667.png"
+    ],
+    "903b4ff46dc02d93": [
+      "val/images_val/val_02951.png",
+      "val/images_val/val_03841.png"
+    ],
+    "e63ba4419784cb9e": [
+      "val/images_val/val_02966.png",
+      "val/images_val/val_05582.png"
+    ],
+    "af728107938f129f": [
+      "val/images_val/val_03055.png",
+      "val/images_val/val_04266.png"
+    ],
+    "a718910fdad70cba": [
+      "val/images_val/val_03198.png",
+      "val/images_val/val_03341.png"
+    ],
+    "948b5c3f397225b8": [
+      "val/images_val/val_03217.png",
+      "val/images_val/val_05966.png"
+    ],
+    "9f9f846b53389425": [
+      "val/images_val/val_03232.png",
+      "val/images_val/val_05272.png"
+    ],
+    "c2c4953f43ea943d": [
+      "val/images_val/val_03249.png",
+      "val/images_val/val_05516.png"
+    ],
+    "c7715a226dea24cd": [
+      "val/images_val/val_03306.png",
+      "val/images_val/val_04962.png"
+    ],
+    "af39a44194c3d2cf": [
+      "val/images_val/val_03342.png",
+      "val/images_val/val_04553.png"
+    ],
+    "b530931e1b9f7c11": [
+      "val/images_val/val_03411.png",
+      "val/images_val/val_05958.png"
+    ],
+    "e2c69519c1eb4f68": [
+      "val/images_val/val_03428.png",
+      "val/images_val/val_04349.png"
+    ],
+    "c0c8b62fc23dcb3c": [
+      "val/images_val/val_03437.png",
+      "val/images_val/val_05181.png"
+    ],
+    "d09d0f7b3d60b138": [
+      "val/images_val/val_03438.png",
+      "val/images_val/val_05834.png"
+    ],
+    "a6962f6b35925a49": [
+      "val/images_val/val_03451.png",
+      "val/images_val/val_03979.png"
+    ],
+    "c0550a2d6fac7db4": [
+      "val/images_val/val_03498.png",
+      "val/images_val/val_04100.png"
+    ],
+    "c2cb992f8fa419d2": [
+      "val/images_val/val_03515.png",
+      "val/images_val/val_06451.png"
+    ],
+    "ba7a95a11cc565cc": [
+      "val/images_val/val_03622.png",
+      "val/images_val/val_03854.png"
+    ],
+    "801c5f707fa07da3": [
+      "val/images_val/val_03623.png",
+      "val/images_val/val_05465.png"
+    ],
+    "c3c9d17a42ea853d": [
+      "val/images_val/val_03688.png",
+      "val/images_val/val_03803.png"
+    ],
+    "c6cb912f8fa45992": [
+      "val/images_val/val_03743.png",
+      "val/images_val/val_04194.png"
+    ],
+    "af70850795cf1a99": [
+      "val/images_val/val_03777.png",
+      "val/images_val/val_04850.png",
+      "val/images_val/val_05011.png"
+    ],
+    "c5715a6261fa274d": [
+      "val/images_val/val_03792.png",
+      "val/images_val/val_06055.png"
+    ],
+    "eecac4fa93319321": [
+      "val/images_val/val_03798.png",
+      "val/images_val/val_04323.png"
+    ],
+    "e63ba44115c5c39f": [
+      "val/images_val/val_03971.png",
+      "val/images_val/val_05480.png"
+    ],
+    "eacac0399f3193e1": [
+      "val/images_val/val_03983.png",
+      "val/images_val/val_05234.png"
+    ],
+    "91791fae348598dc": [
+      "val/images_val/val_04154.png",
+      "val/images_val/val_04331.png"
+    ],
+    "c7150f2952357d1b": [
+      "val/images_val/val_04183.png",
+      "val/images_val/val_05894.png"
+    ],
+    "e2c2b13fd56c066c": [
+      "val/images_val/val_04234.png",
+      "val/images_val/val_06319.png"
+    ],
+    "af608599568c5ade": [
+      "val/images_val/val_04238.png",
+      "val/images_val/val_05329.png"
+    ],
+    "e2c89c3a93f49734": [
+      "val/images_val/val_04367.png",
+      "val/images_val/val_04558.png"
+    ],
+    "81af4f95685a3c5a": [
+      "val/images_val/val_04437.png",
+      "val/images_val/val_04478.png"
+    ],
+    "cbc5913b42ea943d": [
+      "val/images_val/val_04487.png",
+      "val/images_val/val_05790.png",
+      "val/images_val/val_05974.png"
+    ],
+    "87cf852c5e054ecb": [
+      "val/images_val/val_04517.png",
+      "val/images_val/val_05464.png"
+    ],
+    "bade95a09c8d654c": [
+      "val/images_val/val_04529.png",
+      "val/images_val/val_04781.png"
+    ],
+    "d05d0a0d2bad3db5": [
+      "val/images_val/val_04566.png",
+      "val/images_val/val_04926.png"
+    ],
+    "d0570f5a3d6d3864": [
+      "val/images_val/val_04660.png",
+      "val/images_val/val_05122.png"
+    ],
+    "eacac0a89f3d1a33": [
+      "val/images_val/val_04698.png",
+      "val/images_val/val_05626.png"
+    ],
+    "b8da9da19cc5654c": [
+      "val/images_val/val_04734.png",
+      "val/images_val/val_05455.png"
+    ],
+    "bc8c846e57e29395": [
+      "val/images_val/val_05139.png",
+      "val/images_val/val_05676.png"
+    ],
+    "c013ad4b952cf7a6": [
+      "val/images_val/val_05242.png",
+      "val/images_val/val_05967.png"
+    ],
+    "d5de786a4a356892": [
+      "val/images_val/val_05668.png",
+      "val/images_val/val_06152.png"
+    ],
+    "a83385df968e4875": [
+      "val/images_val/val_05759.png",
+      "val/images_val/val_05805.png"
+    ],
+    "eecac078973993a1": [
+      "val/images_val/val_05763.png",
+      "val/images_val/val_06458.png"
+    ],
+    "dada35691170672d": [
+      "val/images_val/val_05915.png",
+      "val/images_val/val_06476.png"
+    ],
+    "a8f89da5bc85652c": [
+      "val/images_val/val_05981.png",
+      "val/images_val/val_06153.png"
+    ],
+    "85d4062d5e354f7a": [
+      "val/images_val/val_06027.png",
+      "val/images_val/val_06061.png"
+    ]
+  }
+}

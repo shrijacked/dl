@@ -1,0 +1,3805 @@
+{
+  "split": "train",
+  "duplicate_groups": 921,
+  "duplicate_examples": {
+    "997a60a12e2cb73e": [
+      "train/images_train/train_00014.png",
+      "train/images_train/train_26030.png"
+    ],
+    "c2c69535c63c9be1": [
+      "train/images_train/train_00016.png",
+      "train/images_train/train_24836.png"
+    ],
+    "dd069e3167095f23": [
+      "train/images_train/train_00025.png",
+      "train/images_train/train_14677.png"
+    ],
+    "b4e19bbee11e0968": [
+      "train/images_train/train_00032.png",
+      "train/images_train/train_06392.png"
+    ],
+    "d5d5d330c81ae639": [
+      "train/images_train/train_00036.png",
+      "train/images_train/train_15827.png",
+      "train/images_train/train_31786.png"
+    ],
+    "878776fc1fc0d038": [
+      "train/images_train/train_00042.png",
+      "train/images_train/train_23801.png"
+    ],
+    "800715bf1e5b2e79": [
+      "train/images_train/train_00051.png",
+      "train/images_train/train_19392.png"
+    ],
+    "af308453948f7b2d": [
+      "train/images_train/train_00061.png",
+      "train/images_train/train_11850.png"
+    ],
+    "aa4d029f39f1d8b1": [
+      "train/images_train/train_00084.png",
+      "train/images_train/train_19064.png"
+    ],
+    "da61fc62f413311d": [
+      "train/images_train/train_00088.png",
+      "train/images_train/train_16688.png"
+    ],
+    "c419b7729112db97": [
+      "train/images_train/train_00118.png",
+      "train/images_train/train_10618.png"
+    ],
+    "d585f232ec9be418": [
+      "train/images_train/train_00119.png",
+      "train/images_train/train_13532.png"
+    ],
+    "8590063f4bb1c67f": [
+      "train/images_train/train_00124.png",
+      "train/images_train/train_20807.png",
+      "train/images_train/train_25906.png"
+    ],
+    "fd84563e30565e58": [
+      "train/images_train/train_00142.png",
+      "train/images_train/train_00177.png"
+    ],
+    "c259b74d956692a6": [
+      "train/images_train/train_00161.png",
+      "train/images_train/train_07536.png"
+    ],
+    "af8f8524d5391879": [
+      "train/images_train/train_00195.png",
+      "train/images_train/train_28757.png"
+    ],
+    "ddc5f230c81be439": [
+      "train/images_train/train_00207.png",
+      "train/images_train/train_19097.png"
+    ],
+    "c4de4e826fc52da8": [
+      "train/images_train/train_00222.png",
+      "train/images_train/train_04202.png"
+    ],
+    "d639ce61fc06e138": [
+      "train/images_train/train_00238.png",
+      "train/images_train/train_33973.png"
+    ],
+    "eac8843f95b196b4": [
+      "train/images_train/train_00271.png",
+      "train/images_train/train_30383.png"
+    ],
+    "c41327a94bb62d5d": [
+      "train/images_train/train_00284.png",
+      "train/images_train/train_03435.png"
+    ],
+    "ae21851f34da7867": [
+      "train/images_train/train_00285.png",
+      "train/images_train/train_13371.png",
+      "train/images_train/train_15514.png"
+    ],
+    "e659b04fd084cb97": [
+      "train/images_train/train_00295.png",
+      "train/images_train/train_18062.png"
+    ],
+    "9e9e85ec06213bd3": [
+      "train/images_train/train_00328.png",
+      "train/images_train/train_18989.png",
+      "train/images_train/train_26315.png"
+    ],
+    "aecf85a687a59891": [
+      "train/images_train/train_00332.png",
+      "train/images_train/train_12863.png",
+      "train/images_train/train_14701.png"
+    ],
+    "f906e1fd00f81f83": [
+      "train/images_train/train_00353.png",
+      "train/images_train/train_18914.png"
+    ],
+    "c0152f347f686af1": [
+      "train/images_train/train_00371.png",
+      "train/images_train/train_07147.png"
+    ],
+    "af30855f9648396d": [
+      "train/images_train/train_00380.png",
+      "train/images_train/train_05941.png"
+    ],
+    "8fcf85ad1f311846": [
+      "train/images_train/train_00391.png",
+      "train/images_train/train_12426.png"
+    ],
+    "ad5a855e551ea81e": [
+      "train/images_train/train_00411.png",
+      "train/images_train/train_26299.png"
+    ],
+    "be9f8564c4655931": [
+      "train/images_train/train_00437.png",
+      "train/images_train/train_30453.png",
+      "train/images_train/train_32723.png"
+    ],
+    "af30855f954e1aac": [
+      "train/images_train/train_00489.png",
+      "train/images_train/train_07528.png"
+    ],
+    "aa9e95e48c666c66": [
+      "train/images_train/train_00533.png",
+      "train/images_train/train_14392.png",
+      "train/images_train/train_33153.png"
+    ],
+    "953190d87fcc07a7": [
+      "train/images_train/train_00542.png",
+      "train/images_train/train_00979.png"
+    ],
+    "e0e195bc95f09e2c": [
+      "train/images_train/train_00548.png",
+      "train/images_train/train_09862.png"
+    ],
+    "af72858eb708d839": [
+      "train/images_train/train_00577.png",
+      "train/images_train/train_27367.png"
+    ],
+    "aa9a85e5e56471e2": [
+      "train/images_train/train_00580.png",
+      "train/images_train/train_20238.png"
+    ],
+    "8f72855a974a1c6d": [
+      "train/images_train/train_00592.png",
+      "train/images_train/train_31740.png"
+    ],
+    "a11d97591a536997": [
+      "train/images_train/train_00597.png",
+      "train/images_train/train_20936.png"
+    ],
+    "83bf5e8068d87959": [
+      "train/images_train/train_00619.png",
+      "train/images_train/train_06046.png",
+      "train/images_train/train_06421.png"
+    ],
+    "9dddf234c906463a": [
+      "train/images_train/train_00627.png",
+      "train/images_train/train_08935.png"
+    ],
+    "cb7ce6331f803dc0": [
+      "train/images_train/train_00633.png",
+      "train/images_train/train_24707.png"
+    ],
+    "e619c40395cf9f8c": [
+      "train/images_train/train_00671.png",
+      "train/images_train/train_12442.png"
+    ],
+    "ef79a421d1c56392": [
+      "train/images_train/train_00682.png",
+      "train/images_train/train_04629.png",
+      "train/images_train/train_07388.png"
+    ],
+    "a8179758b16933e3": [
+      "train/images_train/train_00696.png",
+      "train/images_train/train_06216.png"
+    ],
+    "85ad0fd07d4a784b": [
+      "train/images_train/train_00697.png",
+      "train/images_train/train_22898.png"
+    ],
+    "952e2bf571a5211e": [
+      "train/images_train/train_00699.png",
+      "train/images_train/train_23275.png"
+    ],
+    "81170f0f385776ad": [
+      "train/images_train/train_00708.png",
+      "train/images_train/train_25493.png",
+      "train/images_train/train_31310.png"
+    ],
+    "d52a6ab125d6f09a": [
+      "train/images_train/train_00713.png",
+      "train/images_train/train_11223.png"
+    ],
+    "823d2f5c635a5965": [
+      "train/images_train/train_00733.png",
+      "train/images_train/train_05744.png"
+    ],
+    "c0150b3f1e7b956c": [
+      "train/images_train/train_00734.png",
+      "train/images_train/train_19235.png"
+    ],
+    "fd52c825843f13f8": [
+      "train/images_train/train_00766.png",
+      "train/images_train/train_15199.png"
+    ],
+    "d23f6ff0253016c3": [
+      "train/images_train/train_00767.png",
+      "train/images_train/train_10841.png"
+    ],
+    "d5e442853bc16f1e": [
+      "train/images_train/train_00780.png",
+      "train/images_train/train_02098.png"
+    ],
+    "bfaf96a46cc66028": [
+      "train/images_train/train_00787.png",
+      "train/images_train/train_28131.png"
+    ],
+    "b9f3610c47e76438": [
+      "train/images_train/train_00831.png",
+      "train/images_train/train_12782.png",
+      "train/images_train/train_16907.png"
+    ],
+    "af32854393cdda98": [
+      "train/images_train/train_00843.png",
+      "train/images_train/train_03425.png"
+    ],
+    "b591d22f3c6592c3": [
+      "train/images_train/train_00845.png",
+      "train/images_train/train_30877.png"
+    ],
+    "85161daa2b5676ad": [
+      "train/images_train/train_00847.png",
+      "train/images_train/train_24393.png"
+    ],
+    "d292ecc9c38f0f0b": [
+      "train/images_train/train_00851.png",
+      "train/images_train/train_12054.png"
+    ],
+    "d5c5cb12661e26cd": [
+      "train/images_train/train_00859.png",
+      "train/images_train/train_09803.png"
+    ],
+    "ef3881c795cb9289": [
+      "train/images_train/train_00873.png",
+      "train/images_train/train_15329.png"
+    ],
+    "eac2953fd2b49b20": [
+      "train/images_train/train_00879.png",
+      "train/images_train/train_13319.png"
+    ],
+    "f20dd00a8f5bad6c": [
+      "train/images_train/train_00930.png",
+      "train/images_train/train_14757.png"
+    ],
+    "a813959e328c7b67": [
+      "train/images_train/train_00931.png",
+      "train/images_train/train_07723.png"
+    ],
+    "c5985f106f886de9": [
+      "train/images_train/train_00957.png",
+      "train/images_train/train_06898.png"
+    ],
+    "ed52a5a552b7601e": [
+      "train/images_train/train_00978.png",
+      "train/images_train/train_32569.png"
+    ],
+    "85d2253f9eea4cc1": [
+      "train/images_train/train_01004.png",
+      "train/images_train/train_27364.png"
+    ],
+    "d5cfdb306c90e618": [
+      "train/images_train/train_01034.png",
+      "train/images_train/train_22562.png"
+    ],
+    "878f852d1d345ec6": [
+      "train/images_train/train_01039.png",
+      "train/images_train/train_21166.png"
+    ],
+    "c585ecd834dcb913": [
+      "train/images_train/train_01051.png",
+      "train/images_train/train_27676.png"
+    ],
+    "ae31871f979e5830": [
+      "train/images_train/train_01062.png",
+      "train/images_train/train_21477.png"
+    ],
+    "ac33859f522e5927": [
+      "train/images_train/train_01089.png",
+      "train/images_train/train_25576.png"
+    ],
+    "80885f557ecf648d": [
+      "train/images_train/train_01114.png",
+      "train/images_train/train_17964.png"
+    ],
+    "c33cc43338f33d1c": [
+      "train/images_train/train_01122.png",
+      "train/images_train/train_01369.png",
+      "train/images_train/train_24513.png"
+    ],
+    "859715ab2b5a38ad": [
+      "train/images_train/train_01130.png",
+      "train/images_train/train_03659.png"
+    ],
+    "e2c2953bd2bc1b32": [
+      "train/images_train/train_01131.png",
+      "train/images_train/train_12317.png"
+    ],
+    "8f8d5f48684a4c6f": [
+      "train/images_train/train_01155.png",
+      "train/images_train/train_17213.png",
+      "train/images_train/train_19053.png"
+    ],
+    "ca59a54993655ba6": [
+      "train/images_train/train_01170.png",
+      "train/images_train/train_33643.png"
+    ],
+    "dd22cb0df0cd80f6": [
+      "train/images_train/train_01174.png",
+      "train/images_train/train_20448.png"
+    ],
+    "9451514a4b3a3f5f": [
+      "train/images_train/train_01266.png",
+      "train/images_train/train_09312.png"
+    ],
+    "cb7cc63238803ecf": [
+      "train/images_train/train_01273.png",
+      "train/images_train/train_19015.png"
+    ],
+    "9597ece69279c230": [
+      "train/images_train/train_01303.png",
+      "train/images_train/train_09301.png",
+      "train/images_train/train_15249.png"
+    ],
+    "ee61870d96dc58d2": [
+      "train/images_train/train_01320.png",
+      "train/images_train/train_05934.png"
+    ],
+    "95f766cad6618a22": [
+      "train/images_train/train_01353.png",
+      "train/images_train/train_16980.png"
+    ],
+    "c0bd4f5c6dca7460": [
+      "train/images_train/train_01356.png",
+      "train/images_train/train_09086.png"
+    ],
+    "af3085c596c75e94": [
+      "train/images_train/train_01374.png",
+      "train/images_train/train_21091.png"
+    ],
+    "90380ba53fb69cd6": [
+      "train/images_train/train_01377.png",
+      "train/images_train/train_15843.png"
+    ],
+    "af30871d93b45867": [
+      "train/images_train/train_01378.png",
+      "train/images_train/train_11480.png"
+    ],
+    "d0974a1c2de96d69": [
+      "train/images_train/train_01402.png",
+      "train/images_train/train_26326.png"
+    ],
+    "9595083e5e354d7a": [
+      "train/images_train/train_01425.png",
+      "train/images_train/train_11502.png"
+    ],
+    "b89c31c33157cf26": [
+      "train/images_train/train_01438.png",
+      "train/images_train/train_13720.png"
+    ],
+    "af3097075aa75ab0": [
+      "train/images_train/train_01441.png",
+      "train/images_train/train_06997.png"
+    ],
+    "915956c3b25a6d27": [
+      "train/images_train/train_01443.png",
+      "train/images_train/train_07710.png"
+    ],
+    "9595e56fc2b4883a": [
+      "train/images_train/train_01445.png",
+      "train/images_train/train_24705.png"
+    ],
+    "d7cfd230ec18e330": [
+      "train/images_train/train_01476.png",
+      "train/images_train/train_16754.png"
+    ],
+    "e2e2853f91b59334": [
+      "train/images_train/train_01537.png",
+      "train/images_train/train_10452.png",
+      "train/images_train/train_27547.png"
+    ],
+    "eb8b803895379667": [
+      "train/images_train/train_01553.png",
+      "train/images_train/train_21006.png"
+    ],
+    "c2cc953985619f75": [
+      "train/images_train/train_01554.png",
+      "train/images_train/train_29280.png"
+    ],
+    "a65cb57190c7da86": [
+      "train/images_train/train_01574.png",
+      "train/images_train/train_29138.png"
+    ],
+    "99817a0f785f6469": [
+      "train/images_train/train_01584.png",
+      "train/images_train/train_08086.png"
+    ],
+    "a01f953d98b34973": [
+      "train/images_train/train_01656.png",
+      "train/images_train/train_04625.png",
+      "train/images_train/train_30545.png"
+    ],
+    "d53addc1f88ce20c": [
+      "train/images_train/train_01671.png",
+      "train/images_train/train_25763.png"
+    ],
+    "d474cada750a16e9": [
+      "train/images_train/train_01692.png",
+      "train/images_train/train_26205.png"
+    ],
+    "bcf5310545e14cbe": [
+      "train/images_train/train_01704.png",
+      "train/images_train/train_11426.png"
+    ],
+    "ca49a5699365db26": [
+      "train/images_train/train_01750.png",
+      "train/images_train/train_10303.png"
+    ],
+    "a8fc95e04ec764c6": [
+      "train/images_train/train_01752.png",
+      "train/images_train/train_33264.png"
+    ],
+    "d787eb30fc18e038": [
+      "train/images_train/train_01790.png",
+      "train/images_train/train_02564.png"
+    ],
+    "daa54f923c1338cb": [
+      "train/images_train/train_01807.png",
+      "train/images_train/train_07561.png"
+    ],
+    "e67994c01ae24bbd": [
+      "train/images_train/train_01823.png",
+      "train/images_train/train_25562.png"
+    ],
+    "c4a59bd13d14cace": [
+      "train/images_train/train_01827.png",
+      "train/images_train/train_23893.png"
+    ],
+    "d585f232ec9be428": [
+      "train/images_train/train_01841.png",
+      "train/images_train/train_13003.png",
+      "train/images_train/train_26679.png"
+    ],
+    "cf9a281a870fd4d9": [
+      "train/images_train/train_01853.png",
+      "train/images_train/train_07480.png"
+    ],
+    "d11f4b982a4a3de9": [
+      "train/images_train/train_01878.png",
+      "train/images_train/train_05906.png"
+    ],
+    "cac9056d1f26ec3c": [
+      "train/images_train/train_01888.png",
+      "train/images_train/train_29196.png"
+    ],
+    "d785cf9ec6c830e0": [
+      "train/images_train/train_01912.png",
+      "train/images_train/train_32040.png"
+    ],
+    "d5d562ca1429e2ed": [
+      "train/images_train/train_01915.png",
+      "train/images_train/train_03325.png",
+      "train/images_train/train_11997.png"
+    ],
+    "c8c93f64fc3062e3": [
+      "train/images_train/train_01964.png",
+      "train/images_train/train_20175.png"
+    ],
+    "95c11f26490fb74b": [
+      "train/images_train/train_01972.png",
+      "train/images_train/train_17794.png"
+    ],
+    "85e164df0b3a3762": [
+      "train/images_train/train_01976.png",
+      "train/images_train/train_23433.png"
+    ],
+    "9f9f973462317118": [
+      "train/images_train/train_02005.png",
+      "train/images_train/train_09264.png"
+    ],
+    "af70858f548d7a1a": [
+      "train/images_train/train_02056.png",
+      "train/images_train/train_19164.png"
+    ],
+    "caff0b5d2d983c80": [
+      "train/images_train/train_02081.png",
+      "train/images_train/train_04635.png",
+      "train/images_train/train_06891.png"
+    ],
+    "b9ec663f44814b8d": [
+      "train/images_train/train_02083.png",
+      "train/images_train/train_08979.png"
+    ],
+    "9e827235ce77011f": [
+      "train/images_train/train_02089.png",
+      "train/images_train/train_08671.png",
+      "train/images_train/train_24667.png"
+    ],
+    "dd32cb4cf1c700f2": [
+      "train/images_train/train_02121.png",
+      "train/images_train/train_10422.png"
+    ],
+    "d638cf61fcc4628c": [
+      "train/images_train/train_02122.png",
+      "train/images_train/train_14029.png",
+      "train/images_train/train_32174.png"
+    ],
+    "ca0b246d16367eb6": [
+      "train/images_train/train_02123.png",
+      "train/images_train/train_12441.png"
+    ],
+    "a75890c29ae14ff5": [
+      "train/images_train/train_02135.png",
+      "train/images_train/train_18940.png"
+    ],
+    "c8c80f27653b37a6": [
+      "train/images_train/train_02160.png",
+      "train/images_train/train_12149.png"
+    ],
+    "b8fc95c01c4f6a5c": [
+      "train/images_train/train_02181.png",
+      "train/images_train/train_02865.png",
+      "train/images_train/train_22831.png"
+    ],
+    "caa5b592d25b4768": [
+      "train/images_train/train_02221.png",
+      "train/images_train/train_26241.png"
+    ],
+    "8bca95e43eb53059": [
+      "train/images_train/train_02263.png",
+      "train/images_train/train_25073.png"
+    ],
+    "a833951dd29c6b87": [
+      "train/images_train/train_02266.png",
+      "train/images_train/train_10529.png",
+      "train/images_train/train_18223.png"
+    ],
+    "af10971d92593973": [
+      "train/images_train/train_02274.png",
+      "train/images_train/train_26002.png"
+    ],
+    "a71097439e6b8d3c": [
+      "train/images_train/train_02286.png",
+      "train/images_train/train_07522.png",
+      "train/images_train/train_10233.png",
+      "train/images_train/train_17751.png"
+    ],
+    "ee3184d816ca9ee9": [
+      "train/images_train/train_02330.png",
+      "train/images_train/train_13995.png"
+    ],
+    "80173f07767d8c3c": [
+      "train/images_train/train_02366.png",
+      "train/images_train/train_24358.png"
+    ],
+    "d6e6cf0f060c31f2": [
+      "train/images_train/train_02372.png",
+      "train/images_train/train_19905.png"
+    ],
+    "940e73e00f712cbf": [
+      "train/images_train/train_02373.png",
+      "train/images_train/train_30224.png"
+    ],
+    "85961f403d522dbf": [
+      "train/images_train/train_02398.png",
+      "train/images_train/train_02452.png"
+    ],
+    "ca8adbb70af04f18": [
+      "train/images_train/train_02422.png",
+      "train/images_train/train_14888.png"
+    ],
+    "c532cbc8e5cdc463": [
+      "train/images_train/train_02453.png",
+      "train/images_train/train_03133.png",
+      "train/images_train/train_32104.png"
+    ],
+    "d1984b983bcb3dc8": [
+      "train/images_train/train_02480.png",
+      "train/images_train/train_13883.png"
+    ],
+    "ae1b854390c7db9c": [
+      "train/images_train/train_02484.png",
+      "train/images_train/train_09773.png",
+      "train/images_train/train_26378.png",
+      "train/images_train/train_28082.png"
+    ],
+    "c0c03f07c43fe79c": [
+      "train/images_train/train_02486.png",
+      "train/images_train/train_08800.png",
+      "train/images_train/train_23216.png"
+    ],
+    "f976d90ac10f2633": [
+      "train/images_train/train_02492.png",
+      "train/images_train/train_28035.png"
+    ],
+    "85d507aa5b0ead2b": [
+      "train/images_train/train_02527.png",
+      "train/images_train/train_27085.png"
+    ],
+    "c080c1bd47776fd2": [
+      "train/images_train/train_02533.png",
+      "train/images_train/train_09558.png"
+    ],
+    "d09fe370dcd1e418": [
+      "train/images_train/train_02534.png",
+      "train/images_train/train_16544.png"
+    ],
+    "d529ca963296cce6": [
+      "train/images_train/train_02553.png",
+      "train/images_train/train_27625.png"
+    ],
+    "af30870f97965ab0": [
+      "train/images_train/train_02583.png",
+      "train/images_train/train_17540.png"
+    ],
+    "ca9b55daa0ed514c": [
+      "train/images_train/train_02610.png",
+      "train/images_train/train_20201.png"
+    ],
+    "cfb820328717d2cf": [
+      "train/images_train/train_02637.png",
+      "train/images_train/train_12159.png"
+    ],
+    "833f1c7879996552": [
+      "train/images_train/train_02655.png",
+      "train/images_train/train_17122.png"
+    ],
+    "b07a9781b19c666d": [
+      "train/images_train/train_02657.png",
+      "train/images_train/train_17521.png"
+    ],
+    "b9f1300c67e7683a": [
+      "train/images_train/train_02673.png",
+      "train/images_train/train_17641.png"
+    ],
+    "ae10975bbe493067": [
+      "train/images_train/train_02681.png",
+      "train/images_train/train_04982.png"
+    ],
+    "9c011fc3467bce4e": [
+      "train/images_train/train_02688.png",
+      "train/images_train/train_24359.png"
+    ],
+    "d02f0f323e9a8ce3": [
+      "train/images_train/train_02701.png",
+      "train/images_train/train_08440.png"
+    ],
+    "b9e4643f0883cbad": [
+      "train/images_train/train_02723.png",
+      "train/images_train/train_16052.png"
+    ],
+    "ae70a5cc93c78a96": [
+      "train/images_train/train_02800.png",
+      "train/images_train/train_13578.png"
+    ],
+    "ae11971a9659336d": [
+      "train/images_train/train_02829.png",
+      "train/images_train/train_16262.png"
+    ],
+    "d18e42f52b5ae499": [
+      "train/images_train/train_02890.png",
+      "train/images_train/train_10976.png"
+    ],
+    "a89885e2c667eb65": [
+      "train/images_train/train_02906.png",
+      "train/images_train/train_05099.png",
+      "train/images_train/train_26678.png"
+    ],
+    "85d30551551f7b4e": [
+      "train/images_train/train_02913.png",
+      "train/images_train/train_06953.png"
+    ],
+    "e23b84439f84cf9c": [
+      "train/images_train/train_02926.png",
+      "train/images_train/train_27472.png"
+    ],
+    "8fbf7a5260585561": [
+      "train/images_train/train_02944.png",
+      "train/images_train/train_29934.png"
+    ],
+    "c2bfc6a92c45f6c0": [
+      "train/images_train/train_03063.png",
+      "train/images_train/train_21213.png"
+    ],
+    "ef32854395cdda18": [
+      "train/images_train/train_03119.png",
+      "train/images_train/train_10467.png",
+      "train/images_train/train_32592.png"
+    ],
+    "a06c94a55396b773": [
+      "train/images_train/train_03122.png",
+      "train/images_train/train_22200.png"
+    ],
+    "c2cac0bc99359f93": [
+      "train/images_train/train_03124.png",
+      "train/images_train/train_06210.png"
+    ],
+    "a831855e9f4e3c66": [
+      "train/images_train/train_03125.png",
+      "train/images_train/train_16290.png"
+    ],
+    "d2d506ab4aeaad49": [
+      "train/images_train/train_03137.png",
+      "train/images_train/train_06095.png"
+    ],
+    "ca5ba56d12260bf6": [
+      "train/images_train/train_03145.png",
+      "train/images_train/train_26561.png"
+    ],
+    "bebe94a44ec4698a": [
+      "train/images_train/train_03171.png",
+      "train/images_train/train_07345.png"
+    ],
+    "e2e0853f95b19335": [
+      "train/images_train/train_03177.png",
+      "train/images_train/train_17894.png"
+    ],
+    "9c95c16bdaf45930": [
+      "train/images_train/train_03191.png",
+      "train/images_train/train_25723.png"
+    ],
+    "d09fe370ccd1e419": [
+      "train/images_train/train_03206.png",
+      "train/images_train/train_31679.png"
+    ],
+    "ef78a42193856f92": [
+      "train/images_train/train_03245.png",
+      "train/images_train/train_19729.png"
+    ],
+    "d44943653476333f": [
+      "train/images_train/train_03251.png",
+      "train/images_train/train_06646.png"
+    ],
+    "e6c6953981e51f61": [
+      "train/images_train/train_03290.png",
+      "train/images_train/train_22131.png"
+    ],
+    "b0f895c11d8f69d4": [
+      "train/images_train/train_03296.png",
+      "train/images_train/train_15751.png"
+    ],
+    "85f00f266c173f87": [
+      "train/images_train/train_03300.png",
+      "train/images_train/train_07725.png"
+    ],
+    "bcf4350561e16eb8": [
+      "train/images_train/train_03306.png",
+      "train/images_train/train_33870.png"
+    ],
+    "e2ce953dc5641e61": [
+      "train/images_train/train_03326.png",
+      "train/images_train/train_17182.png",
+      "train/images_train/train_20657.png",
+      "train/images_train/train_20935.png",
+      "train/images_train/train_25418.png"
+    ],
+    "eacbc0b8953097a7": [
+      "train/images_train/train_03336.png",
+      "train/images_train/train_22207.png"
+    ],
+    "e23dc14195c3974f": [
+      "train/images_train/train_03388.png",
+      "train/images_train/train_03892.png",
+      "train/images_train/train_15765.png"
+    ],
+    "8017150f3bdd3aae": [
+      "train/images_train/train_03446.png",
+      "train/images_train/train_11331.png"
+    ],
+    "988721e1385fcf33": [
+      "train/images_train/train_03455.png",
+      "train/images_train/train_10793.png"
+    ],
+    "a976818d97e51a99": [
+      "train/images_train/train_03522.png",
+      "train/images_train/train_25800.png"
+    ],
+    "af50975f5aa64834": [
+      "train/images_train/train_03527.png",
+      "train/images_train/train_18046.png"
+    ],
+    "f24dc10e8f6d1c36": [
+      "train/images_train/train_03556.png",
+      "train/images_train/train_18792.png"
+    ],
+    "c2c6bd2fc07e1364": [
+      "train/images_train/train_03582.png",
+      "train/images_train/train_21402.png"
+    ],
+    "e0ccbd3bc13595b0": [
+      "train/images_train/train_03613.png",
+      "train/images_train/train_20229.png"
+    ],
+    "ca59356d33265936": [
+      "train/images_train/train_03620.png",
+      "train/images_train/train_27433.png"
+    ],
+    "da69fe60f403311d": [
+      "train/images_train/train_03645.png",
+      "train/images_train/train_33760.png"
+    ],
+    "c09778af6b58a529": [
+      "train/images_train/train_03718.png",
+      "train/images_train/train_09348.png"
+    ],
+    "e3c0853c95b1d3b5": [
+      "train/images_train/train_03722.png",
+      "train/images_train/train_19474.png"
+    ],
+    "ac239519929973d7": [
+      "train/images_train/train_03746.png",
+      "train/images_train/train_27382.png"
+    ],
+    "c80b242d16b77eb6": [
+      "train/images_train/train_03751.png",
+      "train/images_train/train_14230.png"
+    ],
+    "851f40d01f3fba6c": [
+      "train/images_train/train_03756.png",
+      "train/images_train/train_24137.png"
+    ],
+    "a8da97e394e661a4": [
+      "train/images_train/train_03765.png",
+      "train/images_train/train_33014.png"
+    ],
+    "deecf433061278b1": [
+      "train/images_train/train_03781.png",
+      "train/images_train/train_17006.png"
+    ],
+    "dc63d965e8e42239": [
+      "train/images_train/train_03798.png",
+      "train/images_train/train_24314.png"
+    ],
+    "855517213e552eb7": [
+      "train/images_train/train_03829.png",
+      "train/images_train/train_20581.png"
+    ],
+    "ca2725b098dbedc1": [
+      "train/images_train/train_03832.png",
+      "train/images_train/train_16430.png"
+    ],
+    "d27e4bed3f102c06": [
+      "train/images_train/train_03833.png",
+      "train/images_train/train_13254.png"
+    ],
+    "af10864a96ef1c7c": [
+      "train/images_train/train_03839.png",
+      "train/images_train/train_28048.png"
+    ],
+    "c03d2fb032d9d8cd": [
+      "train/images_train/train_03841.png",
+      "train/images_train/train_15016.png"
+    ],
+    "ac11875fb3683167": [
+      "train/images_train/train_03889.png",
+      "train/images_train/train_31469.png"
+    ],
+    "d5846b0c43fd0f4b": [
+      "train/images_train/train_03891.png",
+      "train/images_train/train_31771.png"
+    ],
+    "8501477f5a27f83c": [
+      "train/images_train/train_03893.png",
+      "train/images_train/train_21639.png",
+      "train/images_train/train_21669.png"
+    ],
+    "fd52d846606e22f9": [
+      "train/images_train/train_03916.png",
+      "train/images_train/train_04658.png"
+    ],
+    "aa9c95e48e666566": [
+      "train/images_train/train_03968.png",
+      "train/images_train/train_19393.png"
+    ],
+    "eb89803897379667": [
+      "train/images_train/train_03969.png",
+      "train/images_train/train_32467.png"
+    ],
+    "979f5ed1684a212d": [
+      "train/images_train/train_03970.png",
+      "train/images_train/train_19258.png"
+    ],
+    "bfbf806847e11b21": [
+      "train/images_train/train_03975.png",
+      "train/images_train/train_31453.png"
+    ],
+    "d54dd24a6f6a0965": [
+      "train/images_train/train_03991.png",
+      "train/images_train/train_11979.png"
+    ],
+    "ef30851fb5ca9861": [
+      "train/images_train/train_04001.png",
+      "train/images_train/train_25916.png"
+    ],
+    "d8b2c6dc62c13f1c": [
+      "train/images_train/train_04009.png",
+      "train/images_train/train_05089.png"
+    ],
+    "968e84e447f16ada": [
+      "train/images_train/train_04016.png",
+      "train/images_train/train_17633.png"
+    ],
+    "a75994c21ae34fb1": [
+      "train/images_train/train_04020.png",
+      "train/images_train/train_14622.png"
+    ],
+    "c03fe628c86e7a66": [
+      "train/images_train/train_04037.png",
+      "train/images_train/train_30318.png"
+    ],
+    "d11d4b982bc83de9": [
+      "train/images_train/train_04038.png",
+      "train/images_train/train_33300.png"
+    ],
+    "8f30855a834f9a6f": [
+      "train/images_train/train_04074.png",
+      "train/images_train/train_23014.png",
+      "train/images_train/train_30155.png"
+    ],
+    "85171d2f385674ad": [
+      "train/images_train/train_04100.png",
+      "train/images_train/train_12901.png",
+      "train/images_train/train_24792.png"
+    ],
+    "aace87a574b63898": [
+      "train/images_train/train_04136.png",
+      "train/images_train/train_19430.png"
+    ],
+    "d59deb2a0ad23529": [
+      "train/images_train/train_04166.png",
+      "train/images_train/train_28485.png"
+    ],
+    "ca0d54be7d0606fa": [
+      "train/images_train/train_04178.png",
+      "train/images_train/train_07618.png"
+    ],
+    "819d0b2e3b5c2d9b": [
+      "train/images_train/train_04198.png",
+      "train/images_train/train_29697.png"
+    ],
+    "c906e3333ef90e1c": [
+      "train/images_train/train_04268.png",
+      "train/images_train/train_27392.png"
+    ],
+    "ae1185df145e38e5": [
+      "train/images_train/train_04303.png",
+      "train/images_train/train_29473.png"
+    ],
+    "8f70850f958f3ab8": [
+      "train/images_train/train_04320.png",
+      "train/images_train/train_22437.png"
+    ],
+    "a73a850797c71a9c": [
+      "train/images_train/train_04321.png",
+      "train/images_train/train_25420.png"
+    ],
+    "aa3b854197ce978c": [
+      "train/images_train/train_04328.png",
+      "train/images_train/train_05913.png"
+    ],
+    "e8f895af94b582b0": [
+      "train/images_train/train_04335.png",
+      "train/images_train/train_05450.png"
+    ],
+    "9072e2e23b2bfd81": [
+      "train/images_train/train_04378.png",
+      "train/images_train/train_17179.png"
+    ],
+    "99c712e90f55a754": [
+      "train/images_train/train_04390.png",
+      "train/images_train/train_26734.png"
+    ],
+    "9ce1451f5d38974a": [
+      "train/images_train/train_04432.png",
+      "train/images_train/train_08321.png"
+    ],
+    "c638cf41f8c663cc": [
+      "train/images_train/train_04457.png",
+      "train/images_train/train_31177.png"
+    ],
+    "908117aa5f5fb50e": [
+      "train/images_train/train_04481.png",
+      "train/images_train/train_27645.png"
+    ],
+    "9686703dda360d9e": [
+      "train/images_train/train_04488.png",
+      "train/images_train/train_33813.png"
+    ],
+    "b8fa95a54d4565c8": [
+      "train/images_train/train_04521.png",
+      "train/images_train/train_10294.png"
+    ],
+    "e0c4b43fc56c4e6c": [
+      "train/images_train/train_04523.png",
+      "train/images_train/train_20787.png"
+    ],
+    "9e9fd46dc2701a34": [
+      "train/images_train/train_04528.png",
+      "train/images_train/train_06690.png"
+    ],
+    "afcf85a02cbd3838": [
+      "train/images_train/train_04547.png",
+      "train/images_train/train_13536.png"
+    ],
+    "d09fe270dcd1e419": [
+      "train/images_train/train_04548.png",
+      "train/images_train/train_11894.png"
+    ],
+    "c79f0f8068c86dd9": [
+      "train/images_train/train_04613.png",
+      "train/images_train/train_17768.png",
+      "train/images_train/train_23559.png"
+    ],
+    "9c9f84502dc976e5": [
+      "train/images_train/train_04649.png",
+      "train/images_train/train_10031.png"
+    ],
+    "af728519978f18a5": [
+      "train/images_train/train_04661.png",
+      "train/images_train/train_11061.png"
+    ],
+    "81ce36a00f535cbf": [
+      "train/images_train/train_04681.png",
+      "train/images_train/train_23250.png"
+    ],
+    "d5f54a166ad225ca": [
+      "train/images_train/train_04709.png",
+      "train/images_train/train_10875.png"
+    ],
+    "aafa97c0d1946665": [
+      "train/images_train/train_04717.png",
+      "train/images_train/train_32614.png"
+    ],
+    "c71f3e30e13ec10e": [
+      "train/images_train/train_04725.png",
+      "train/images_train/train_11460.png"
+    ],
+    "c09d0f966a4a6dea": [
+      "train/images_train/train_04730.png",
+      "train/images_train/train_30403.png"
+    ],
+    "eb8385e095359a3e": [
+      "train/images_train/train_04761.png",
+      "train/images_train/train_31036.png",
+      "train/images_train/train_34344.png"
+    ],
+    "ae7885c59ec65e90": [
+      "train/images_train/train_04771.png",
+      "train/images_train/train_25122.png"
+    ],
+    "e2c6953fc56c4e60": [
+      "train/images_train/train_04774.png",
+      "train/images_train/train_24444.png",
+      "train/images_train/train_24640.png",
+      "train/images_train/train_32497.png"
+    ],
+    "b58c4e4554abd572": [
+      "train/images_train/train_04817.png",
+      "train/images_train/train_11299.png"
+    ],
+    "c0cabc3fc3b489b2": [
+      "train/images_train/train_04825.png",
+      "train/images_train/train_32606.png"
+    ],
+    "d292e6c9c38e0f9a": [
+      "train/images_train/train_04833.png",
+      "train/images_train/train_18089.png"
+    ],
+    "eb31e46390c5d39a": [
+      "train/images_train/train_04834.png",
+      "train/images_train/train_23167.png",
+      "train/images_train/train_28902.png"
+    ],
+    "af10971d924b3973": [
+      "train/images_train/train_04859.png",
+      "train/images_train/train_29507.png"
+    ],
+    "988c31c139cfc73b": [
+      "train/images_train/train_04878.png",
+      "train/images_train/train_32930.png"
+    ],
+    "873e78cc61539b61": [
+      "train/images_train/train_04904.png",
+      "train/images_train/train_20426.png"
+    ],
+    "81d043fcf21f5ec1": [
+      "train/images_train/train_04914.png",
+      "train/images_train/train_28864.png"
+    ],
+    "d639ce60fc06613e": [
+      "train/images_train/train_04946.png",
+      "train/images_train/train_07367.png"
+    ],
+    "a97ac025da859b9e": [
+      "train/images_train/train_04947.png",
+      "train/images_train/train_12466.png"
+    ],
+    "d6d96d6c366c7006": [
+      "train/images_train/train_04953.png",
+      "train/images_train/train_06010.png",
+      "train/images_train/train_21802.png",
+      "train/images_train/train_29032.png"
+    ],
+    "ac31855f974e3d48": [
+      "train/images_train/train_04958.png",
+      "train/images_train/train_07012.png"
+    ],
+    "f25a10e33acae6e4": [
+      "train/images_train/train_04978.png",
+      "train/images_train/train_15006.png"
+    ],
+    "c8c0b03ea7651f37": [
+      "train/images_train/train_04997.png",
+      "train/images_train/train_28501.png"
+    ],
+    "83c081bd9fa70ea7": [
+      "train/images_train/train_05031.png",
+      "train/images_train/train_10444.png"
+    ],
+    "ae30855f964a356d": [
+      "train/images_train/train_05043.png",
+      "train/images_train/train_12617.png"
+    ],
+    "d3d72a4a1e29ca27": [
+      "train/images_train/train_05079.png",
+      "train/images_train/train_31585.png"
+    ],
+    "dbd3e38f07070c38": [
+      "train/images_train/train_05105.png",
+      "train/images_train/train_06957.png"
+    ],
+    "984ff133d2ca83d8": [
+      "train/images_train/train_05110.png",
+      "train/images_train/train_08230.png"
+    ],
+    "dd89cb9e34e531c0": [
+      "train/images_train/train_05138.png",
+      "train/images_train/train_26970.png"
+    ],
+    "d639ce61fcc6601c": [
+      "train/images_train/train_05174.png",
+      "train/images_train/train_11708.png"
+    ],
+    "f5add23c0972698c": [
+      "train/images_train/train_05215.png",
+      "train/images_train/train_26307.png"
+    ],
+    "9cc1551f5d3a874a": [
+      "train/images_train/train_05232.png",
+      "train/images_train/train_28913.png"
+    ],
+    "e63be44394c2975a": [
+      "train/images_train/train_05272.png",
+      "train/images_train/train_08165.png",
+      "train/images_train/train_16948.png"
+    ],
+    "c0c43f07c43be6d9": [
+      "train/images_train/train_05294.png",
+      "train/images_train/train_06370.png",
+      "train/images_train/train_30641.png"
+    ],
+    "fa0bc12f8be44c2e": [
+      "train/images_train/train_05307.png",
+      "train/images_train/train_14097.png"
+    ],
+    "ac72859f529c6873": [
+      "train/images_train/train_05336.png",
+      "train/images_train/train_21352.png"
+    ],
+    "c1160e0a5f96af5b": [
+      "train/images_train/train_05341.png",
+      "train/images_train/train_12870.png"
+    ],
+    "9e88f731c83c893e": [
+      "train/images_train/train_05403.png",
+      "train/images_train/train_25114.png"
+    ],
+    "852d0fc171d7708f": [
+      "train/images_train/train_05431.png",
+      "train/images_train/train_14122.png",
+      "train/images_train/train_18870.png",
+      "train/images_train/train_34094.png"
+    ],
+    "9f1807e0e11fe3c3": [
+      "train/images_train/train_05458.png",
+      "train/images_train/train_21377.png"
+    ],
+    "c2c2f93be618644f": [
+      "train/images_train/train_05476.png",
+      "train/images_train/train_29244.png"
+    ],
+    "d679cfe0f880613c": [
+      "train/images_train/train_05478.png",
+      "train/images_train/train_30704.png"
+    ],
+    "a8179758316933e7": [
+      "train/images_train/train_05485.png",
+      "train/images_train/train_11552.png",
+      "train/images_train/train_28535.png"
+    ],
+    "fe75d64ac10805f6": [
+      "train/images_train/train_05505.png",
+      "train/images_train/train_31824.png"
+    ],
+    "caca056d3f26ec38": [
+      "train/images_train/train_05536.png",
+      "train/images_train/train_23712.png"
+    ],
+    "9323cb89597236b6": [
+      "train/images_train/train_05589.png",
+      "train/images_train/train_25586.png"
+    ],
+    "bd300ee0e31de2e6": [
+      "train/images_train/train_05616.png",
+      "train/images_train/train_19311.png"
+    ],
+    "e31ac48758974f9a": [
+      "train/images_train/train_05687.png",
+      "train/images_train/train_20119.png"
+    ],
+    "8ade87e296676125": [
+      "train/images_train/train_05688.png",
+      "train/images_train/train_11021.png"
+    ],
+    "9fcf605c5c23d225": [
+      "train/images_train/train_05689.png",
+      "train/images_train/train_25245.png"
+    ],
+    "c9b536823a0f3b1e": [
+      "train/images_train/train_05699.png",
+      "train/images_train/train_15378.png"
+    ],
+    "e422398c368bf69e": [
+      "train/images_train/train_05721.png",
+      "train/images_train/train_18923.png"
+    ],
+    "af30855f944e1a75": [
+      "train/images_train/train_05725.png",
+      "train/images_train/train_27730.png"
+    ],
+    "9686703dda364d9a": [
+      "train/images_train/train_05731.png",
+      "train/images_train/train_24277.png"
+    ],
+    "dd1f970b0853313b": [
+      "train/images_train/train_05764.png",
+      "train/images_train/train_27960.png"
+    ],
+    "af11875a9b4e38a5": [
+      "train/images_train/train_05792.png",
+      "train/images_train/train_30246.png"
+    ],
+    "d4d506aa5c72af4a": [
+      "train/images_train/train_05795.png",
+      "train/images_train/train_20081.png"
+    ],
+    "c7df0f8029ca6d49": [
+      "train/images_train/train_05813.png",
+      "train/images_train/train_07099.png"
+    ],
+    "eb30c4c39e4f930d": [
+      "train/images_train/train_05855.png",
+      "train/images_train/train_12369.png"
+    ],
+    "af30854390cfd39d": [
+      "train/images_train/train_05882.png",
+      "train/images_train/train_26063.png"
+    ],
+    "eb8a81b8953596a7": [
+      "train/images_train/train_05920.png",
+      "train/images_train/train_31014.png"
+    ],
+    "ca59a5499364dba6": [
+      "train/images_train/train_05921.png",
+      "train/images_train/train_09430.png"
+    ],
+    "d23dcce477003f31": [
+      "train/images_train/train_05976.png",
+      "train/images_train/train_22146.png"
+    ],
+    "c5cc4f826fc72d88": [
+      "train/images_train/train_06016.png",
+      "train/images_train/train_27586.png"
+    ],
+    "c3c3f81c1fc70ee0": [
+      "train/images_train/train_06058.png",
+      "train/images_train/train_22841.png"
+    ],
+    "bdf3300c47e1647a": [
+      "train/images_train/train_06069.png",
+      "train/images_train/train_17979.png"
+    ],
+    "9df7350160e466bc": [
+      "train/images_train/train_06075.png",
+      "train/images_train/train_11380.png"
+    ],
+    "c06b4b1576e62cba": [
+      "train/images_train/train_06086.png",
+      "train/images_train/train_13856.png"
+    ],
+    "957e4ee060313cde": [
+      "train/images_train/train_06123.png",
+      "train/images_train/train_23955.png",
+      "train/images_train/train_30880.png"
+    ],
+    "f8fac2a18a93272b": [
+      "train/images_train/train_06164.png",
+      "train/images_train/train_15185.png"
+    ],
+    "a03d955b9e6b5861": [
+      "train/images_train/train_06207.png",
+      "train/images_train/train_07084.png"
+    ],
+    "e2e2853f91b193b4": [
+      "train/images_train/train_06253.png",
+      "train/images_train/train_08247.png",
+      "train/images_train/train_16911.png",
+      "train/images_train/train_23029.png"
+    ],
+    "c94a3fec3c70e431": [
+      "train/images_train/train_06273.png",
+      "train/images_train/train_09576.png"
+    ],
+    "aade97c0d2876561": [
+      "train/images_train/train_06298.png",
+      "train/images_train/train_10942.png"
+    ],
+    "85804fd76aca2d6b": [
+      "train/images_train/train_06304.png",
+      "train/images_train/train_07782.png",
+      "train/images_train/train_33943.png"
+    ],
+    "87813e9f61bc4e31": [
+      "train/images_train/train_06394.png",
+      "train/images_train/train_10586.png"
+    ],
+    "989c31c33857cf33": [
+      "train/images_train/train_06407.png",
+      "train/images_train/train_31684.png"
+    ],
+    "9b248197b5cf1c5a": [
+      "train/images_train/train_06431.png",
+      "train/images_train/train_17748.png"
+    ],
+    "cc7c1f4707e1130f": [
+      "train/images_train/train_06478.png",
+      "train/images_train/train_21059.png"
+    ],
+    "d5b92a2729d63529": [
+      "train/images_train/train_06525.png",
+      "train/images_train/train_30884.png"
+    ],
+    "8f30855a874e9c6f": [
+      "train/images_train/train_06529.png",
+      "train/images_train/train_28519.png"
+    ],
+    "ae8f84a55f711952": [
+      "train/images_train/train_06620.png",
+      "train/images_train/train_14618.png"
+    ],
+    "d596d9da724a0179": [
+      "train/images_train/train_06640.png",
+      "train/images_train/train_15120.png"
+    ],
+    "e23b84431fd44b9e": [
+      "train/images_train/train_06692.png",
+      "train/images_train/train_27554.png"
+    ],
+    "d52b515c7a7ec068": [
+      "train/images_train/train_06696.png",
+      "train/images_train/train_34259.png"
+    ],
+    "e3e3951e9474c626": [
+      "train/images_train/train_06733.png",
+      "train/images_train/train_33824.png"
+    ],
+    "dfdf82e2d3e108c0": [
+      "train/images_train/train_06736.png",
+      "train/images_train/train_15104.png"
+    ],
+    "dac22f6b1c65893c": [
+      "train/images_train/train_06760.png",
+      "train/images_train/train_08095.png"
+    ],
+    "e619d44392c0cbbf": [
+      "train/images_train/train_06762.png",
+      "train/images_train/train_15401.png",
+      "train/images_train/train_17635.png"
+    ],
+    "aedf85a484e53998": [
+      "train/images_train/train_06855.png",
+      "train/images_train/train_25635.png"
+    ],
+    "94811fa25f1f974a": [
+      "train/images_train/train_06893.png",
+      "train/images_train/train_08960.png"
+    ],
+    "d5b703b87f032ad0": [
+      "train/images_train/train_06896.png",
+      "train/images_train/train_11097.png"
+    ],
+    "99c516f10719a75e": [
+      "train/images_train/train_06911.png",
+      "train/images_train/train_30469.png"
+    ],
+    "82c4816f3f334fc6": [
+      "train/images_train/train_06912.png",
+      "train/images_train/train_11214.png"
+    ],
+    "af8f8d681f303496": [
+      "train/images_train/train_06969.png",
+      "train/images_train/train_22607.png"
+    ],
+    "e63dc45294c29bce": [
+      "train/images_train/train_07056.png",
+      "train/images_train/train_09306.png"
+    ],
+    "d5c5cd9e0e0333e2": [
+      "train/images_train/train_07076.png",
+      "train/images_train/train_30961.png"
+    ],
+    "bf8e856851787664": [
+      "train/images_train/train_07089.png",
+      "train/images_train/train_22185.png"
+    ],
+    "be8ea46c4569b278": [
+      "train/images_train/train_07110.png",
+      "train/images_train/train_12790.png"
+    ],
+    "cf30c4c392c8cb5f": [
+      "train/images_train/train_07114.png",
+      "train/images_train/train_15857.png"
+    ],
+    "bcfe94a46cc6644a": [
+      "train/images_train/train_07129.png",
+      "train/images_train/train_12274.png",
+      "train/images_train/train_18698.png"
+    ],
+    "852d0bc3f397509e": [
+      "train/images_train/train_07146.png",
+      "train/images_train/train_13442.png"
+    ],
+    "dc0d4ba414fd46cb": [
+      "train/images_train/train_07211.png",
+      "train/images_train/train_19454.png"
+    ],
+    "ae72958cda874a99": [
+      "train/images_train/train_07226.png",
+      "train/images_train/train_25268.png",
+      "train/images_train/train_32893.png"
+    ],
+    "ca88251efe39d171": [
+      "train/images_train/train_07282.png",
+      "train/images_train/train_12166.png"
+    ],
+    "d785f030cc9be439": [
+      "train/images_train/train_07299.png",
+      "train/images_train/train_18118.png",
+      "train/images_train/train_21348.png"
+    ],
+    "94d24b8b6335b61d": [
+      "train/images_train/train_07316.png",
+      "train/images_train/train_19206.png"
+    ],
+    "81bec221572fbd4a": [
+      "train/images_train/train_07356.png",
+      "train/images_train/train_10312.png"
+    ],
+    "96f7370160f16c74": [
+      "train/images_train/train_07361.png",
+      "train/images_train/train_13857.png"
+    ],
+    "c78cfac2dc1161b3": [
+      "train/images_train/train_07420.png",
+      "train/images_train/train_24151.png"
+    ],
+    "b9d87d130d074f26": [
+      "train/images_train/train_07478.png",
+      "train/images_train/train_08013.png"
+    ],
+    "dddff230c8126478": [
+      "train/images_train/train_07511.png",
+      "train/images_train/train_13614.png"
+    ],
+    "83c969e3c63e2dc4": [
+      "train/images_train/train_07621.png",
+      "train/images_train/train_27347.png"
+    ],
+    "ad708547958e5abc": [
+      "train/images_train/train_07659.png",
+      "train/images_train/train_28812.png"
+    ],
+    "afdf978504c66624": [
+      "train/images_train/train_07669.png",
+      "train/images_train/train_10662.png"
+    ],
+    "c2b5b592d25a466d": [
+      "train/images_train/train_07682.png",
+      "train/images_train/train_31226.png"
+    ],
+    "b5b5c4e6827dc330": [
+      "train/images_train/train_07749.png",
+      "train/images_train/train_27680.png"
+    ],
+    "91d57e7a3069c9a1": [
+      "train/images_train/train_07756.png",
+      "train/images_train/train_13186.png"
+    ],
+    "ca75d8ced30904db": [
+      "train/images_train/train_07763.png",
+      "train/images_train/train_29904.png"
+    ],
+    "ac13953fd0654be4": [
+      "train/images_train/train_07766.png",
+      "train/images_train/train_33924.png"
+    ],
+    "e6c6943d91b59634": [
+      "train/images_train/train_07775.png",
+      "train/images_train/train_16106.png"
+    ],
+    "819d2fce335c9866": [
+      "train/images_train/train_07794.png",
+      "train/images_train/train_21868.png"
+    ],
+    "ce1bf47095c23387": [
+      "train/images_train/train_07840.png",
+      "train/images_train/train_09872.png"
+    ],
+    "baae97e4466660b2": [
+      "train/images_train/train_07861.png",
+      "train/images_train/train_24652.png"
+    ],
+    "e0c4bd3bc13597b0": [
+      "train/images_train/train_07922.png",
+      "train/images_train/train_26172.png",
+      "train/images_train/train_27671.png"
+    ],
+    "c5f852674ec8689b": [
+      "train/images_train/train_07930.png",
+      "train/images_train/train_18857.png"
+    ],
+    "e23fc4039e864b9e": [
+      "train/images_train/train_07939.png",
+      "train/images_train/train_08810.png"
+    ],
+    "813e3c6475db3392": [
+      "train/images_train/train_07941.png",
+      "train/images_train/train_15288.png"
+    ],
+    "807e5ee84ac10faf": [
+      "train/images_train/train_07963.png",
+      "train/images_train/train_23363.png"
+    ],
+    "8518073f1e7bb274": [
+      "train/images_train/train_07970.png",
+      "train/images_train/train_31443.png"
+    ],
+    "c0ca9d3b97e51c25": [
+      "train/images_train/train_08114.png",
+      "train/images_train/train_11962.png"
+    ],
+    "81db45067cc33f87": [
+      "train/images_train/train_08142.png",
+      "train/images_train/train_27237.png"
+    ],
+    "aa9e95e4c4666c66": [
+      "train/images_train/train_08152.png",
+      "train/images_train/train_20686.png",
+      "train/images_train/train_27615.png"
+    ],
+    "b1d978330d055f1e": [
+      "train/images_train/train_08169.png",
+      "train/images_train/train_28676.png"
+    ],
+    "c13c0325575fb64b": [
+      "train/images_train/train_08205.png",
+      "train/images_train/train_28379.png"
+    ],
+    "87102f6857ae6d4b": [
+      "train/images_train/train_08208.png",
+      "train/images_train/train_13559.png"
+    ],
+    "ab76851b9ec918c9": [
+      "train/images_train/train_08237.png",
+      "train/images_train/train_33274.png"
+    ],
+    "98c21fa20f5ea71d": [
+      "train/images_train/train_08255.png",
+      "train/images_train/train_24851.png"
+    ],
+    "878754f01fc5b178": [
+      "train/images_train/train_08301.png",
+      "train/images_train/train_16875.png",
+      "train/images_train/train_29541.png"
+    ],
+    "d5b55a12c4780fd9": [
+      "train/images_train/train_08305.png",
+      "train/images_train/train_15160.png",
+      "train/images_train/train_27052.png"
+    ],
+    "c2c4903f97658c6f": [
+      "train/images_train/train_08328.png",
+      "train/images_train/train_29789.png"
+    ],
+    "e21dc54395cb934b": [
+      "train/images_train/train_08329.png",
+      "train/images_train/train_18456.png",
+      "train/images_train/train_28543.png"
+    ],
+    "d47640553f82b4f3": [
+      "train/images_train/train_08331.png",
+      "train/images_train/train_31485.png"
+    ],
+    "b2ce8f6e1ba3805c": [
+      "train/images_train/train_08332.png",
+      "train/images_train/train_32646.png"
+    ],
+    "8536152a2f5676ad": [
+      "train/images_train/train_08345.png",
+      "train/images_train/train_31842.png"
+    ],
+    "ef3084c79dce9618": [
+      "train/images_train/train_08353.png",
+      "train/images_train/train_19735.png"
+    ],
+    "b7bbc06887a15b25": [
+      "train/images_train/train_08355.png",
+      "train/images_train/train_12802.png",
+      "train/images_train/train_31970.png"
+    ],
+    "c2c0803d9fa16bdf": [
+      "train/images_train/train_08373.png",
+      "train/images_train/train_14186.png"
+    ],
+    "a89a85e4c6675373": [
+      "train/images_train/train_08387.png",
+      "train/images_train/train_09550.png"
+    ],
+    "8519060d3e5f3eae": [
+      "train/images_train/train_08398.png",
+      "train/images_train/train_23576.png"
+    ],
+    "8aca95ac3e2531cf": [
+      "train/images_train/train_08432.png",
+      "train/images_train/train_18894.png"
+    ],
+    "c00e4f1f2de43d78": [
+      "train/images_train/train_08471.png",
+      "train/images_train/train_22007.png"
+    ],
+    "ab3481439ecb1e9d": [
+      "train/images_train/train_08476.png",
+      "train/images_train/train_28400.png"
+    ],
+    "ca5b356d13262b36": [
+      "train/images_train/train_08486.png",
+      "train/images_train/train_10806.png"
+    ],
+    "af30854794cb8f1e": [
+      "train/images_train/train_08512.png",
+      "train/images_train/train_12815.png"
+    ],
+    "8b8385bd1d254e67": [
+      "train/images_train/train_08515.png",
+      "train/images_train/train_11645.png"
+    ],
+    "ba7e95a09e8561ac": [
+      "train/images_train/train_08551.png",
+      "train/images_train/train_32662.png"
+    ],
+    "d639cf41fcc66244": [
+      "train/images_train/train_08592.png",
+      "train/images_train/train_33171.png"
+    ],
+    "c06e4b1d6ab72eb0": [
+      "train/images_train/train_08617.png",
+      "train/images_train/train_24428.png"
+    ],
+    "d09fe270ccd1e499": [
+      "train/images_train/train_08644.png",
+      "train/images_train/train_14958.png"
+    ],
+    "c2c69d31c73c9bd0": [
+      "train/images_train/train_08684.png",
+      "train/images_train/train_32529.png"
+    ],
+    "a893951e966963e5": [
+      "train/images_train/train_08689.png",
+      "train/images_train/train_21993.png"
+    ],
+    "8fbb784661725561": [
+      "train/images_train/train_08694.png",
+      "train/images_train/train_12513.png"
+    ],
+    "e0ccbd3bc0359db0": [
+      "train/images_train/train_08726.png",
+      "train/images_train/train_21221.png",
+      "train/images_train/train_21999.png"
+    ],
+    "aac1f4ce4ab3f064": [
+      "train/images_train/train_08728.png",
+      "train/images_train/train_10739.png"
+    ],
+    "e2e69539c1e50f61": [
+      "train/images_train/train_08753.png",
+      "train/images_train/train_28228.png",
+      "train/images_train/train_30254.png"
+    ],
+    "d2dad0f9c2646d19": [
+      "train/images_train/train_08780.png",
+      "train/images_train/train_26208.png"
+    ],
+    "81ce10651f7dae5a": [
+      "train/images_train/train_08781.png",
+      "train/images_train/train_21797.png"
+    ],
+    "b3a787e54e60681b": [
+      "train/images_train/train_08822.png",
+      "train/images_train/train_19277.png"
+    ],
+    "ce5233ed0cf0c61d": [
+      "train/images_train/train_08847.png",
+      "train/images_train/train_16170.png"
+    ],
+    "d5c5cb92641d26cd": [
+      "train/images_train/train_08856.png",
+      "train/images_train/train_15685.png",
+      "train/images_train/train_17065.png"
+    ],
+    "aecb84a6c7a59994": [
+      "train/images_train/train_08865.png",
+      "train/images_train/train_29494.png"
+    ],
+    "dd0e7138c3db81cc": [
+      "train/images_train/train_08869.png",
+      "train/images_train/train_20826.png"
+    ],
+    "b0bfd2f06bc26168": [
+      "train/images_train/train_08871.png",
+      "train/images_train/train_32463.png"
+    ],
+    "9fddf970f848e010": [
+      "train/images_train/train_08884.png",
+      "train/images_train/train_26760.png"
+    ],
+    "81becc23513e3d4b": [
+      "train/images_train/train_08889.png",
+      "train/images_train/train_20261.png"
+    ],
+    "c4c0913b9fc7398e": [
+      "train/images_train/train_08897.png",
+      "train/images_train/train_13171.png"
+    ],
+    "d5807b144bff0e07": [
+      "train/images_train/train_08899.png",
+      "train/images_train/train_24067.png"
+    ],
+    "c0120fad4b7ead2d": [
+      "train/images_train/train_08923.png",
+      "train/images_train/train_19573.png"
+    ],
+    "8bcac0a4da349f9b": [
+      "train/images_train/train_08924.png",
+      "train/images_train/train_30940.png"
+    ],
+    "dade25693860ed70": [
+      "train/images_train/train_08932.png",
+      "train/images_train/train_31613.png"
+    ],
+    "d679cf60fe436110": [
+      "train/images_train/train_08942.png",
+      "train/images_train/train_19032.png",
+      "train/images_train/train_27745.png"
+    ],
+    "ef708509d7c78896": [
+      "train/images_train/train_09049.png",
+      "train/images_train/train_12674.png"
+    ],
+    "8bd1b27e87601f25": [
+      "train/images_train/train_09090.png",
+      "train/images_train/train_14648.png",
+      "train/images_train/train_19173.png"
+    ],
+    "d5bc5ed16b433148": [
+      "train/images_train/train_09120.png",
+      "train/images_train/train_31472.png"
+    ],
+    "d5c5cd92763036cc": [
+      "train/images_train/train_09140.png",
+      "train/images_train/train_14731.png"
+    ],
+    "c0de4e846fc52de8": [
+      "train/images_train/train_09146.png",
+      "train/images_train/train_18583.png",
+      "train/images_train/train_31641.png",
+      "train/images_train/train_32213.png",
+      "train/images_train/train_32704.png"
+    ],
+    "840f08d03f3cbb6f": [
+      "train/images_train/train_09211.png",
+      "train/images_train/train_17581.png"
+    ],
+    "d4ca4b6534367b07": [
+      "train/images_train/train_09218.png",
+      "train/images_train/train_16455.png"
+    ],
+    "d528555c6b7ec12a": [
+      "train/images_train/train_09243.png",
+      "train/images_train/train_16142.png",
+      "train/images_train/train_20513.png"
+    ],
+    "d61d49432a5e7a71": [
+      "train/images_train/train_09279.png",
+      "train/images_train/train_16387.png"
+    ],
+    "ac31855e9a4e3967": [
+      "train/images_train/train_09375.png",
+      "train/images_train/train_19873.png"
+    ],
+    "989721c1385fcf33": [
+      "train/images_train/train_09399.png",
+      "train/images_train/train_15983.png",
+      "train/images_train/train_23577.png"
+    ],
+    "d02a4fa53c87d387": [
+      "train/images_train/train_09460.png",
+      "train/images_train/train_09926.png"
+    ],
+    "a89395589e6962e7": [
+      "train/images_train/train_09518.png",
+      "train/images_train/train_15853.png"
+    ],
+    "9b20859b954f9a6b": [
+      "train/images_train/train_09525.png",
+      "train/images_train/train_14229.png",
+      "train/images_train/train_31751.png"
+    ],
+    "c8b027933a1f78cd": [
+      "train/images_train/train_09560.png",
+      "train/images_train/train_15154.png"
+    ],
+    "c40e4f946de16d5a": [
+      "train/images_train/train_09573.png",
+      "train/images_train/train_13557.png"
+    ],
+    "ae8e85a534f73158": [
+      "train/images_train/train_09602.png",
+      "train/images_train/train_27064.png"
+    ],
+    "8794072f5a17a55b": [
+      "train/images_train/train_09692.png",
+      "train/images_train/train_22121.png"
+    ],
+    "ac6c9585d2966733": [
+      "train/images_train/train_09695.png",
+      "train/images_train/train_30033.png"
+    ],
+    "c8de91e69835c734": [
+      "train/images_train/train_09698.png",
+      "train/images_train/train_23404.png"
+    ],
+    "87c7589e6a7c6628": [
+      "train/images_train/train_09714.png",
+      "train/images_train/train_20880.png"
+    ],
+    "e2e4b53dc56c0e29": [
+      "train/images_train/train_09719.png",
+      "train/images_train/train_30529.png"
+    ],
+    "c44bb70193954bd7": [
+      "train/images_train/train_09728.png",
+      "train/images_train/train_31369.png"
+    ],
+    "e2c6953dd16c4f60": [
+      "train/images_train/train_09744.png",
+      "train/images_train/train_23747.png"
+    ],
+    "eadf11e398318734": [
+      "train/images_train/train_09757.png",
+      "train/images_train/train_28608.png"
+    ],
+    "bbfe95e596852050": [
+      "train/images_train/train_09807.png",
+      "train/images_train/train_11147.png"
+    ],
+    "ac31855e974e1d6a": [
+      "train/images_train/train_09878.png",
+      "train/images_train/train_12391.png"
+    ],
+    "dd22da0de0cdc0f6": [
+      "train/images_train/train_09970.png",
+      "train/images_train/train_12334.png",
+      "train/images_train/train_13650.png",
+      "train/images_train/train_16898.png",
+      "train/images_train/train_25041.png"
+    ],
+    "97f7270160f16c5c": [
+      "train/images_train/train_09980.png",
+      "train/images_train/train_13723.png"
+    ],
+    "e2c4b53dc56c0f29": [
+      "train/images_train/train_09990.png",
+      "train/images_train/train_15035.png",
+      "train/images_train/train_21914.png",
+      "train/images_train/train_31351.png"
+    ],
+    "e6c69539c1e50f61": [
+      "train/images_train/train_10005.png",
+      "train/images_train/train_13167.png",
+      "train/images_train/train_13735.png",
+      "train/images_train/train_28719.png"
+    ],
+    "ac6b850d92d4d9d3": [
+      "train/images_train/train_10011.png",
+      "train/images_train/train_24398.png"
+    ],
+    "cd9b338f17070707": [
+      "train/images_train/train_10060.png",
+      "train/images_train/train_19626.png"
+    ],
+    "83d81f277c6778a0": [
+      "train/images_train/train_10095.png",
+      "train/images_train/train_16129.png"
+    ],
+    "c0ad962c0df1c9d7": [
+      "train/images_train/train_10207.png",
+      "train/images_train/train_27147.png"
+    ],
+    "9595003f5e354d7a": [
+      "train/images_train/train_10247.png",
+      "train/images_train/train_33705.png"
+    ],
+    "abb49a4aab55a5a4": [
+      "train/images_train/train_10248.png",
+      "train/images_train/train_16534.png"
+    ],
+    "af32850d91c7da95": [
+      "train/images_train/train_10249.png",
+      "train/images_train/train_11414.png"
+    ],
+    "a01b9439d2bc6bd6": [
+      "train/images_train/train_10299.png",
+      "train/images_train/train_21773.png"
+    ],
+    "d0312fa63c9ad8da": [
+      "train/images_train/train_10382.png",
+      "train/images_train/train_30484.png"
+    ],
+    "c1e1e61e3b0fe1c2": [
+      "train/images_train/train_10415.png",
+      "train/images_train/train_17457.png"
+    ],
+    "81171f2b2e5876ad": [
+      "train/images_train/train_10473.png",
+      "train/images_train/train_25099.png",
+      "train/images_train/train_26643.png"
+    ],
+    "d522dc65e9ec22b8": [
+      "train/images_train/train_10488.png",
+      "train/images_train/train_13737.png"
+    ],
+    "9c81e279cdde2788": [
+      "train/images_train/train_10497.png",
+      "train/images_train/train_14669.png"
+    ],
+    "c84f376c3c30e639": [
+      "train/images_train/train_10541.png",
+      "train/images_train/train_14401.png"
+    ],
+    "8d32de0be0cd64cd": [
+      "train/images_train/train_10573.png",
+      "train/images_train/train_24152.png"
+    ],
+    "d2fb3f19331f0106": [
+      "train/images_train/train_10597.png",
+      "train/images_train/train_16581.png"
+    ],
+    "9583304f1fc31c6f": [
+      "train/images_train/train_10619.png",
+      "train/images_train/train_31593.png"
+    ],
+    "d0df2e78f960f009": [
+      "train/images_train/train_10624.png",
+      "train/images_train/train_18230.png"
+    ],
+    "af72851a964e98d9": [
+      "train/images_train/train_10645.png",
+      "train/images_train/train_25138.png"
+    ],
+    "fe75d64ae10805f4": [
+      "train/images_train/train_10649.png",
+      "train/images_train/train_19376.png"
+    ],
+    "a13b96631a666b36": [
+      "train/images_train/train_10669.png",
+      "train/images_train/train_24000.png"
+    ],
+    "ae30855f964a396d": [
+      "train/images_train/train_10673.png",
+      "train/images_train/train_28383.png"
+    ],
+    "97f7350060f06e7c": [
+      "train/images_train/train_10691.png",
+      "train/images_train/train_28682.png"
+    ],
+    "8b20859bb75e1a73": [
+      "train/images_train/train_10699.png",
+      "train/images_train/train_28742.png"
+    ],
+    "e10d3ce38aa40ffc": [
+      "train/images_train/train_10711.png",
+      "train/images_train/train_20645.png"
+    ],
+    "c4c09d2b4f679f30": [
+      "train/images_train/train_10714.png",
+      "train/images_train/train_21338.png"
+    ],
+    "9750450f032f7eb9": [
+      "train/images_train/train_10737.png",
+      "train/images_train/train_33299.png"
+    ],
+    "fd72d825f00c3279": [
+      "train/images_train/train_10744.png",
+      "train/images_train/train_17740.png"
+    ],
+    "ac23951992997bc7": [
+      "train/images_train/train_10784.png",
+      "train/images_train/train_26177.png"
+    ],
+    "c4c8993b96a43ba7": [
+      "train/images_train/train_10787.png",
+      "train/images_train/train_15874.png"
+    ],
+    "c6e0e1031d071ffe": [
+      "train/images_train/train_10801.png",
+      "train/images_train/train_15228.png"
+    ],
+    "e2c6b43f456c0e69": [
+      "train/images_train/train_10851.png",
+      "train/images_train/train_26649.png"
+    ],
+    "e71ac48758874b9e": [
+      "train/images_train/train_10876.png",
+      "train/images_train/train_11227.png"
+    ],
+    "9d1c52a3692db669": [
+      "train/images_train/train_10883.png",
+      "train/images_train/train_15950.png",
+      "train/images_train/train_29516.png"
+    ],
+    "951f781ee1786361": [
+      "train/images_train/train_10931.png",
+      "train/images_train/train_32259.png"
+    ],
+    "f4a4ef0e0e8f1ec0": [
+      "train/images_train/train_10932.png",
+      "train/images_train/train_29101.png"
+    ],
+    "af20851f945e3c6b": [
+      "train/images_train/train_10941.png",
+      "train/images_train/train_20179.png"
+    ],
+    "b9fb210c47e36c38": [
+      "train/images_train/train_10962.png",
+      "train/images_train/train_31587.png"
+    ],
+    "a0f89681c09e6f6f": [
+      "train/images_train/train_10982.png",
+      "train/images_train/train_33609.png"
+    ],
+    "c5c5f232ecd96238": [
+      "train/images_train/train_10992.png",
+      "train/images_train/train_20687.png"
+    ],
+    "81bc0a2d5ea53f5a": [
+      "train/images_train/train_11035.png",
+      "train/images_train/train_19477.png",
+      "train/images_train/train_32209.png"
+    ],
+    "9cf5310563e066be": [
+      "train/images_train/train_11134.png",
+      "train/images_train/train_30595.png"
+    ],
+    "b7bdc06887a15b61": [
+      "train/images_train/train_11144.png",
+      "train/images_train/train_26721.png"
+    ],
+    "e2c2953dc56c4e2d": [
+      "train/images_train/train_11188.png",
+      "train/images_train/train_13178.png",
+      "train/images_train/train_26192.png"
+    ],
+    "d09620cb37e51ff0": [
+      "train/images_train/train_11191.png",
+      "train/images_train/train_25153.png"
+    ],
+    "f83a95a59cc548ec": [
+      "train/images_train/train_11255.png",
+      "train/images_train/train_23701.png"
+    ],
+    "81d042fcf31f5ec1": [
+      "train/images_train/train_11289.png",
+      "train/images_train/train_24215.png"
+    ],
+    "e931c4c39f4e911d": [
+      "train/images_train/train_11309.png",
+      "train/images_train/train_25286.png"
+    ],
+    "cf3084c392c8cbbf": [
+      "train/images_train/train_11360.png",
+      "train/images_train/train_19201.png"
+    ],
+    "858d4f4169ca6c5f": [
+      "train/images_train/train_11364.png",
+      "train/images_train/train_34103.png"
+    ],
+    "af31878c52875abc": [
+      "train/images_train/train_11382.png",
+      "train/images_train/train_26061.png"
+    ],
+    "e2ca953dc5645e61": [
+      "train/images_train/train_11435.png",
+      "train/images_train/train_33291.png"
+    ],
+    "c29a2f793b21c03f": [
+      "train/images_train/train_11470.png",
+      "train/images_train/train_27046.png"
+    ],
+    "9f1c0770f11f43c3": [
+      "train/images_train/train_11567.png",
+      "train/images_train/train_21671.png"
+    ],
+    "d3954752e01f2ac7": [
+      "train/images_train/train_11577.png",
+      "train/images_train/train_22530.png",
+      "train/images_train/train_29110.png"
+    ],
+    "85d0072a79c7b55e": [
+      "train/images_train/train_11585.png",
+      "train/images_train/train_20820.png"
+    ],
+    "c1e143c123036fff": [
+      "train/images_train/train_11601.png",
+      "train/images_train/train_13538.png"
+    ],
+    "e239944fd0c0cb3f": [
+      "train/images_train/train_11611.png",
+      "train/images_train/train_33637.png"
+    ],
+    "953f3bf57081251c": [
+      "train/images_train/train_11628.png",
+      "train/images_train/train_31939.png"
+    ],
+    "a00f079d31f7acb4": [
+      "train/images_train/train_11642.png",
+      "train/images_train/train_21185.png",
+      "train/images_train/train_22701.png",
+      "train/images_train/train_25316.png"
+    ],
+    "e619c44394cf1bbc": [
+      "train/images_train/train_11646.png",
+      "train/images_train/train_30278.png"
+    ],
+    "c95b366d3970ce30": [
+      "train/images_train/train_11665.png",
+      "train/images_train/train_28155.png"
+    ],
+    "845b5fe00f2b1c37": [
+      "train/images_train/train_11685.png",
+      "train/images_train/train_12299.png"
+    ],
+    "dd22db8ce0cf40e6": [
+      "train/images_train/train_11692.png",
+      "train/images_train/train_12842.png"
+    ],
+    "c2960fd22de9345b": [
+      "train/images_train/train_11714.png",
+      "train/images_train/train_16239.png",
+      "train/images_train/train_27604.png"
+    ],
+    "a501971d9a656b76": [
+      "train/images_train/train_11715.png",
+      "train/images_train/train_32037.png"
+    ],
+    "cb24e47338e07f1c": [
+      "train/images_train/train_11802.png",
+      "train/images_train/train_29593.png"
+    ],
+    "97c130b8643c7e1f": [
+      "train/images_train/train_11965.png",
+      "train/images_train/train_15045.png"
+    ],
+    "853e7ae0ef80add0": [
+      "train/images_train/train_11980.png",
+      "train/images_train/train_31753.png"
+    ],
+    "c8e0c001331ffdfb": [
+      "train/images_train/train_12005.png",
+      "train/images_train/train_24554.png"
+    ],
+    "d23dcce677003b31": [
+      "train/images_train/train_12030.png",
+      "train/images_train/train_24783.png"
+    ],
+    "cad16d2e70378738": [
+      "train/images_train/train_12061.png",
+      "train/images_train/train_15798.png"
+    ],
+    "ccf8e00011177eff": [
+      "train/images_train/train_12066.png",
+      "train/images_train/train_19495.png"
+    ],
+    "cf887a5675713132": [
+      "train/images_train/train_12078.png",
+      "train/images_train/train_16152.png"
+    ],
+    "953f48a12ef4d8c6": [
+      "train/images_train/train_12089.png",
+      "train/images_train/train_17947.png"
+    ],
+    "cc33f01d0f7707e0": [
+      "train/images_train/train_12090.png",
+      "train/images_train/train_16858.png"
+    ],
+    "d432cb4cf3c6c073": [
+      "train/images_train/train_12114.png",
+      "train/images_train/train_33167.png"
+    ],
+    "d5d402ab5a6aad4b": [
+      "train/images_train/train_12126.png",
+      "train/images_train/train_15134.png"
+    ],
+    "ac13953fd0674b64": [
+      "train/images_train/train_12140.png",
+      "train/images_train/train_17156.png"
+    ],
+    "ef708589d78588d6": [
+      "train/images_train/train_12162.png",
+      "train/images_train/train_23675.png"
+    ],
+    "d82f05b09fcbccd0": [
+      "train/images_train/train_12217.png",
+      "train/images_train/train_27332.png"
+    ],
+    "d4401f953e37686b": [
+      "train/images_train/train_12227.png",
+      "train/images_train/train_18477.png"
+    ],
+    "b4c3bb35e53e0149": [
+      "train/images_train/train_12257.png",
+      "train/images_train/train_12679.png"
+    ],
+    "e045c75a4f3179a6": [
+      "train/images_train/train_12281.png",
+      "train/images_train/train_21843.png"
+    ],
+    "8e8b150d3e6bc473": [
+      "train/images_train/train_12303.png",
+      "train/images_train/train_32820.png"
+    ],
+    "851b067f593669a5": [
+      "train/images_train/train_12381.png",
+      "train/images_train/train_31896.png"
+    ],
+    "84d1430f7e1bbd68": [
+      "train/images_train/train_12385.png",
+      "train/images_train/train_15333.png"
+    ],
+    "96bd29a13866739a": [
+      "train/images_train/train_12456.png",
+      "train/images_train/train_21163.png"
+    ],
+    "d432cbccf3c4c073": [
+      "train/images_train/train_12462.png",
+      "train/images_train/train_33678.png"
+    ],
+    "e639d44316864b9f": [
+      "train/images_train/train_12647.png",
+      "train/images_train/train_21234.png"
+    ],
+    "ac11851bd27b7327": [
+      "train/images_train/train_12684.png",
+      "train/images_train/train_18979.png"
+    ],
+    "81171d2f385774ad": [
+      "train/images_train/train_12693.png",
+      "train/images_train/train_12703.png",
+      "train/images_train/train_21778.png"
+    ],
+    "fd76d807700622f9": [
+      "train/images_train/train_12699.png",
+      "train/images_train/train_14333.png"
+    ],
+    "f6a4ed0e0e8e1ec4": [
+      "train/images_train/train_12715.png",
+      "train/images_train/train_27948.png"
+    ],
+    "9a65dc1be49a61cc": [
+      "train/images_train/train_12722.png",
+      "train/images_train/train_24756.png"
+    ],
+    "d08f0650a1fc1efd": [
+      "train/images_train/train_12735.png",
+      "train/images_train/train_16593.png"
+    ],
+    "a831855e9b4e3c67": [
+      "train/images_train/train_12851.png",
+      "train/images_train/train_20941.png"
+    ],
+    "c79f5e5028e83d49": [
+      "train/images_train/train_12895.png",
+      "train/images_train/train_17539.png"
+    ],
+    "d03616362a7b6d78": [
+      "train/images_train/train_12935.png",
+      "train/images_train/train_19604.png"
+    ],
+    "dd22db8cf0cd40e6": [
+      "train/images_train/train_12952.png",
+      "train/images_train/train_15614.png",
+      "train/images_train/train_26060.png"
+    ],
+    "d49243f9b5c5c686": [
+      "train/images_train/train_12975.png",
+      "train/images_train/train_20778.png"
+    ],
+    "dd22cb0cf0cd6476": [
+      "train/images_train/train_12986.png",
+      "train/images_train/train_22039.png"
+    ],
+    "dfd324f8700ebb02": [
+      "train/images_train/train_12992.png",
+      "train/images_train/train_26853.png"
+    ],
+    "cf3284cb12c8cb9f": [
+      "train/images_train/train_13001.png",
+      "train/images_train/train_18482.png"
+    ],
+    "9eda97a564cc2538": [
+      "train/images_train/train_13032.png",
+      "train/images_train/train_18777.png"
+    ],
+    "811ece23553c3d4f": [
+      "train/images_train/train_13088.png",
+      "train/images_train/train_27163.png"
+    ],
+    "c2d6bd2fc13e9320": [
+      "train/images_train/train_13108.png",
+      "train/images_train/train_20440.png",
+      "train/images_train/train_30770.png"
+    ],
+    "9d62da0cc9ddc4e8": [
+      "train/images_train/train_13149.png",
+      "train/images_train/train_20733.png"
+    ],
+    "e8c8b13fc53d0365": [
+      "train/images_train/train_13168.png",
+      "train/images_train/train_13327.png"
+    ],
+    "a881975a9669b76c": [
+      "train/images_train/train_13210.png",
+      "train/images_train/train_34387.png"
+    ],
+    "aa5ac425da859b9e": [
+      "train/images_train/train_13269.png",
+      "train/images_train/train_32630.png"
+    ],
+    "e2e2b53dc56c0e29": [
+      "train/images_train/train_13313.png",
+      "train/images_train/train_16347.png"
+    ],
+    "85921f22dc5ab4dd": [
+      "train/images_train/train_13318.png",
+      "train/images_train/train_27521.png",
+      "train/images_train/train_31275.png"
+    ],
+    "85181f3f3c6778a4": [
+      "train/images_train/train_13417.png",
+      "train/images_train/train_17139.png"
+    ],
+    "d9b02f903e1b7c0d": [
+      "train/images_train/train_13428.png",
+      "train/images_train/train_25817.png"
+    ],
+    "c01f4f386ef86ae0": [
+      "train/images_train/train_13500.png",
+      "train/images_train/train_34182.png"
+    ],
+    "c639cf61fcc6610c": [
+      "train/images_train/train_13503.png",
+      "train/images_train/train_31452.png"
+    ],
+    "eee885a9982d9593": [
+      "train/images_train/train_13517.png",
+      "train/images_train/train_22361.png"
+    ],
+    "a83b854f91479e99": [
+      "train/images_train/train_13545.png",
+      "train/images_train/train_21517.png"
+    ],
+    "e8c8b13fc53d1361": [
+      "train/images_train/train_13562.png",
+      "train/images_train/train_14283.png"
+    ],
+    "919b2ece33c8d866": [
+      "train/images_train/train_13619.png",
+      "train/images_train/train_31035.png"
+    ],
+    "e67db525f084c3c2": [
+      "train/images_train/train_13629.png",
+      "train/images_train/train_17456.png"
+    ],
+    "cab5b592d25b4668": [
+      "train/images_train/train_13704.png",
+      "train/images_train/train_28259.png"
+    ],
+    "af30855491cf5a9b": [
+      "train/images_train/train_13711.png",
+      "train/images_train/train_32365.png"
+    ],
+    "f6e6e583c2060f8e": [
+      "train/images_train/train_13783.png",
+      "train/images_train/train_30711.png"
+    ],
+    "9e827035ce77051f": [
+      "train/images_train/train_13846.png",
+      "train/images_train/train_19078.png"
+    ],
+    "80070dbf1e5b366d": [
+      "train/images_train/train_13882.png",
+      "train/images_train/train_28986.png"
+    ],
+    "ea35c4439ece934c": [
+      "train/images_train/train_13903.png",
+      "train/images_train/train_32788.png"
+    ],
+    "d5e4428c3bc16f1e": [
+      "train/images_train/train_13944.png",
+      "train/images_train/train_24111.png"
+    ],
+    "a811951fd66863e7": [
+      "train/images_train/train_13970.png",
+      "train/images_train/train_24254.png"
+    ],
+    "c0bd4b5c2fca2ce8": [
+      "train/images_train/train_14003.png",
+      "train/images_train/train_28325.png"
+    ],
+    "c43acde1fcc6624c": [
+      "train/images_train/train_14022.png",
+      "train/images_train/train_17173.png"
+    ],
+    "8d72858d179d58f1": [
+      "train/images_train/train_14049.png",
+      "train/images_train/train_27390.png"
+    ],
+    "a01f9758b16933e6": [
+      "train/images_train/train_14089.png",
+      "train/images_train/train_17529.png"
+    ],
+    "fcc91ef023e6221b": [
+      "train/images_train/train_14096.png",
+      "train/images_train/train_16853.png"
+    ],
+    "ef70850d97855e92": [
+      "train/images_train/train_14101.png",
+      "train/images_train/train_29308.png"
+    ],
+    "be9ea464676ac291": [
+      "train/images_train/train_14103.png",
+      "train/images_train/train_31406.png"
+    ],
+    "ed30851e95da986b": [
+      "train/images_train/train_14197.png",
+      "train/images_train/train_29396.png"
+    ],
+    "a86b952d9a9499b3": [
+      "train/images_train/train_14297.png",
+      "train/images_train/train_20203.png"
+    ],
+    "d07ac69766622db8": [
+      "train/images_train/train_14363.png",
+      "train/images_train/train_15974.png"
+    ],
+    "ff00ff00fe07e007": [
+      "train/images_train/train_14367.png",
+      "train/images_train/train_18126.png"
+    ],
+    "c90ee13b383b3e07": [
+      "train/images_train/train_14467.png",
+      "train/images_train/train_23553.png"
+    ],
+    "c3bf945a21390f72": [
+      "train/images_train/train_14487.png",
+      "train/images_train/train_19241.png"
+    ],
+    "8119177a3d4f38ad": [
+      "train/images_train/train_14505.png",
+      "train/images_train/train_28722.png"
+    ],
+    "d5856b0443fd1f43": [
+      "train/images_train/train_14651.png",
+      "train/images_train/train_29788.png"
+    ],
+    "d5953c723063cb1b": [
+      "train/images_train/train_14776.png",
+      "train/images_train/train_16580.png"
+    ],
+    "b7bbc06cc5a04b65": [
+      "train/images_train/train_14827.png",
+      "train/images_train/train_20590.png"
+    ],
+    "cada93a296358f31": [
+      "train/images_train/train_14848.png",
+      "train/images_train/train_21618.png",
+      "train/images_train/train_23030.png",
+      "train/images_train/train_24925.png"
+    ],
+    "85901fa45b16ad7b": [
+      "train/images_train/train_14933.png",
+      "train/images_train/train_22383.png"
+    ],
+    "c78fc0fdc9d03093": [
+      "train/images_train/train_14962.png",
+      "train/images_train/train_32462.png"
+    ],
+    "ef78a423d4852796": [
+      "train/images_train/train_15002.png",
+      "train/images_train/train_25770.png"
+    ],
+    "c2ec29923ff2b498": [
+      "train/images_train/train_15007.png",
+      "train/images_train/train_27415.png"
+    ],
+    "af30815794cb8f1e": [
+      "train/images_train/train_15010.png",
+      "train/images_train/train_15817.png"
+    ],
+    "d5f54a1668da25ca": [
+      "train/images_train/train_15046.png",
+      "train/images_train/train_18412.png"
+    ],
+    "dbb6ef89e08208e3": [
+      "train/images_train/train_15055.png",
+      "train/images_train/train_23689.png"
+    ],
+    "e2e2853f91b19335": [
+      "train/images_train/train_15057.png",
+      "train/images_train/train_26591.png"
+    ],
+    "f956d92ac13d2631": [
+      "train/images_train/train_15081.png",
+      "train/images_train/train_15613.png"
+    ],
+    "92c0ffd515b4e06a": [
+      "train/images_train/train_15097.png",
+      "train/images_train/train_29438.png"
+    ],
+    "85ad0fd079ca784b": [
+      "train/images_train/train_15102.png",
+      "train/images_train/train_16514.png",
+      "train/images_train/train_24355.png"
+    ],
+    "bfaf96e46cc46028": [
+      "train/images_train/train_15178.png",
+      "train/images_train/train_29576.png"
+    ],
+    "d3bc28c39e2ccb16": [
+      "train/images_train/train_15388.png",
+      "train/images_train/train_27368.png"
+    ],
+    "d7c5e030ec9be438": [
+      "train/images_train/train_15439.png",
+      "train/images_train/train_24539.png"
+    ],
+    "c49f4f5a2de82c61": [
+      "train/images_train/train_15467.png",
+      "train/images_train/train_24938.png"
+    ],
+    "c93ba1cc91e59a96": [
+      "train/images_train/train_15501.png",
+      "train/images_train/train_17017.png"
+    ],
+    "df9e5fd468c32028": [
+      "train/images_train/train_15547.png",
+      "train/images_train/train_26493.png"
+    ],
+    "b81d25c3314f873b": [
+      "train/images_train/train_15565.png",
+      "train/images_train/train_15941.png"
+    ],
+    "94a6d4b4f467489b": [
+      "train/images_train/train_15628.png",
+      "train/images_train/train_24638.png"
+    ],
+    "e8c4b537c53d0365": [
+      "train/images_train/train_15642.png",
+      "train/images_train/train_18273.png"
+    ],
+    "d5f54a146aca1dca": [
+      "train/images_train/train_15670.png",
+      "train/images_train/train_26978.png"
+    ],
+    "dbf3e78f01070c38": [
+      "train/images_train/train_15693.png",
+      "train/images_train/train_24234.png"
+    ],
+    "fb0f87e6862590b4": [
+      "train/images_train/train_15729.png",
+      "train/images_train/train_25347.png"
+    ],
+    "85170f0b3c5f72aa": [
+      "train/images_train/train_15763.png",
+      "train/images_train/train_25335.png"
+    ],
+    "83d81e277c6778a1": [
+      "train/images_train/train_15773.png",
+      "train/images_train/train_26941.png"
+    ],
+    "9b6acb5d313aaa90": [
+      "train/images_train/train_15804.png",
+      "train/images_train/train_19246.png"
+    ],
+    "9547603a0fc339cf": [
+      "train/images_train/train_15969.png",
+      "train/images_train/train_27069.png"
+    ],
+    "aacb81a895b49f35": [
+      "train/images_train/train_15972.png",
+      "train/images_train/train_16288.png"
+    ],
+    "afb0871e9748316d": [
+      "train/images_train/train_16000.png",
+      "train/images_train/train_21998.png"
+    ],
+    "97735a8a282f70b5": [
+      "train/images_train/train_16037.png",
+      "train/images_train/train_25279.png"
+    ],
+    "cc19e473b6c29b86": [
+      "train/images_train/train_16055.png",
+      "train/images_train/train_32898.png"
+    ],
+    "a6c381e999b93993": [
+      "train/images_train/train_16072.png",
+      "train/images_train/train_26201.png"
+    ],
+    "b9c87e130f076f06": [
+      "train/images_train/train_16092.png",
+      "train/images_train/train_21142.png"
+    ],
+    "e67fb524f084c386": [
+      "train/images_train/train_16154.png",
+      "train/images_train/train_17866.png"
+    ],
+    "ee31845c97ca1e69": [
+      "train/images_train/train_16163.png",
+      "train/images_train/train_31081.png"
+    ],
+    "a77985079b871a9c": [
+      "train/images_train/train_16207.png",
+      "train/images_train/train_26906.png"
+    ],
+    "c09d0f9e6a4a6dc9": [
+      "train/images_train/train_16301.png",
+      "train/images_train/train_20167.png"
+    ],
+    "cab405823e1b3f1f": [
+      "train/images_train/train_16344.png",
+      "train/images_train/train_25659.png"
+    ],
+    "d5236fa743c0ad98": [
+      "train/images_train/train_16362.png",
+      "train/images_train/train_18318.png"
+    ],
+    "d5bdab222ad23529": [
+      "train/images_train/train_16377.png",
+      "train/images_train/train_31835.png"
+    ],
+    "cadb95228435cf35": [
+      "train/images_train/train_16383.png",
+      "train/images_train/train_28621.png"
+    ],
+    "cd403622333ff1bc": [
+      "train/images_train/train_16423.png",
+      "train/images_train/train_30535.png"
+    ],
+    "d59f4b152a7a2958": [
+      "train/images_train/train_16431.png",
+      "train/images_train/train_30817.png"
+    ],
+    "d01d4b5e2fa82575": [
+      "train/images_train/train_16448.png",
+      "train/images_train/train_29271.png"
+    ],
+    "ae01851f9ad558f3": [
+      "train/images_train/train_16486.png",
+      "train/images_train/train_32781.png"
+    ],
+    "f7688016c5975ec3": [
+      "train/images_train/train_16613.png",
+      "train/images_train/train_17749.png"
+    ],
+    "d10ada1d36633e0f": [
+      "train/images_train/train_16616.png",
+      "train/images_train/train_24185.png"
+    ],
+    "d65b65f408f30e26": [
+      "train/images_train/train_16617.png",
+      "train/images_train/train_28316.png"
+    ],
+    "b8fa9685d0cc6565": [
+      "train/images_train/train_16622.png",
+      "train/images_train/train_20354.png"
+    ],
+    "d74a6d6a6d366026": [
+      "train/images_train/train_16724.png",
+      "train/images_train/train_18171.png"
+    ],
+    "870e5b50ef68ad25": [
+      "train/images_train/train_16855.png",
+      "train/images_train/train_29083.png"
+    ],
+    "e2e2b1bd85298d65": [
+      "train/images_train/train_16874.png",
+      "train/images_train/train_24176.png"
+    ],
+    "ee3184dc97ca1e61": [
+      "train/images_train/train_16998.png",
+      "train/images_train/train_19878.png",
+      "train/images_train/train_29663.png"
+    ],
+    "c58dc9963ee73c80": [
+      "train/images_train/train_17053.png",
+      "train/images_train/train_28624.png"
+    ],
+    "94c1438659173f7e": [
+      "train/images_train/train_17072.png",
+      "train/images_train/train_26586.png"
+    ],
+    "94d4d14a4f3b334e": [
+      "train/images_train/train_17165.png",
+      "train/images_train/train_27644.png"
+    ],
+    "a413971af26923f6": [
+      "train/images_train/train_17229.png",
+      "train/images_train/train_19039.png"
+    ],
+    "ba9f85e4c6654263": [
+      "train/images_train/train_17230.png",
+      "train/images_train/train_31356.png"
+    ],
+    "d585f232ec9be218": [
+      "train/images_train/train_17249.png",
+      "train/images_train/train_20217.png"
+    ],
+    "85a80fc36bce3e1a": [
+      "train/images_train/train_17325.png",
+      "train/images_train/train_24561.png",
+      "train/images_train/train_30901.png"
+    ],
+    "d6d96d6c326d7006": [
+      "train/images_train/train_17341.png",
+      "train/images_train/train_18529.png"
+    ],
+    "ae71858f9597d890": [
+      "train/images_train/train_17361.png",
+      "train/images_train/train_17758.png"
+    ],
+    "d2570f483871ef31": [
+      "train/images_train/train_17500.png",
+      "train/images_train/train_33882.png"
+    ],
+    "a09f97785161b6c6": [
+      "train/images_train/train_17531.png",
+      "train/images_train/train_34546.png"
+    ],
+    "92362fb10cb374d3": [
+      "train/images_train/train_17542.png",
+      "train/images_train/train_34242.png"
+    ],
+    "bade95a4d4c564c8": [
+      "train/images_train/train_17574.png",
+      "train/images_train/train_19620.png",
+      "train/images_train/train_24606.png",
+      "train/images_train/train_26080.png"
+    ],
+    "8b30845f97ca1f6c": [
+      "train/images_train/train_17655.png",
+      "train/images_train/train_33704.png"
+    ],
+    "dad2ee13e68ccc0c": [
+      "train/images_train/train_17656.png",
+      "train/images_train/train_18599.png"
+    ],
+    "f6a6ed83c6c607c0": [
+      "train/images_train/train_17679.png",
+      "train/images_train/train_22425.png"
+    ],
+    "ae30879d944f386b": [
+      "train/images_train/train_17715.png",
+      "train/images_train/train_29479.png"
+    ],
+    "b6f649074bcdc069": [
+      "train/images_train/train_17724.png",
+      "train/images_train/train_21024.png"
+    ],
+    "af1085df954e581d": [
+      "train/images_train/train_17752.png",
+      "train/images_train/train_26156.png"
+    ],
+    "8f30878c5ba75ab8": [
+      "train/images_train/train_17769.png",
+      "train/images_train/train_32693.png"
+    ],
+    "c43acbcce4c5e463": [
+      "train/images_train/train_17790.png",
+      "train/images_train/train_22492.png"
+    ],
+    "e2e3953990fc8e68": [
+      "train/images_train/train_17815.png",
+      "train/images_train/train_32162.png",
+      "train/images_train/train_33875.png"
+    ],
+    "fec0542932b6966d": [
+      "train/images_train/train_17822.png",
+      "train/images_train/train_27846.png"
+    ],
+    "e2e69c3991e10fe1": [
+      "train/images_train/train_17850.png",
+      "train/images_train/train_34010.png"
+    ],
+    "819e1b473a5f249b": [
+      "train/images_train/train_17920.png",
+      "train/images_train/train_21674.png"
+    ],
+    "c0c82f6dcd3666ac": [
+      "train/images_train/train_17980.png",
+      "train/images_train/train_29674.png"
+    ],
+    "d5c7db36e490e019": [
+      "train/images_train/train_18021.png",
+      "train/images_train/train_26989.png",
+      "train/images_train/train_31269.png"
+    ],
+    "c585cd983efc3b02": [
+      "train/images_train/train_18053.png",
+      "train/images_train/train_22049.png"
+    ],
+    "89658a7bad796458": [
+      "train/images_train/train_18056.png",
+      "train/images_train/train_19055.png"
+    ],
+    "d189e3356d9b16c2": [
+      "train/images_train/train_18103.png",
+      "train/images_train/train_21398.png"
+    ],
+    "e65bb413d0861bc7": [
+      "train/images_train/train_18166.png",
+      "train/images_train/train_18859.png"
+    ],
+    "8f70850f918f7ab8": [
+      "train/images_train/train_18196.png",
+      "train/images_train/train_31875.png"
+    ],
+    "83c047fcf21e6ee0": [
+      "train/images_train/train_18220.png",
+      "train/images_train/train_27026.png"
+    ],
+    "d585f332ecd96218": [
+      "train/images_train/train_18247.png",
+      "train/images_train/train_33060.png"
+    ],
+    "e2e2ad38c13587f4": [
+      "train/images_train/train_18253.png",
+      "train/images_train/train_31029.png"
+    ],
+    "e4c4953dc36c4f68": [
+      "train/images_train/train_18255.png",
+      "train/images_train/train_32402.png"
+    ],
+    "e2e2953981e1cf74": [
+      "train/images_train/train_18293.png",
+      "train/images_train/train_34520.png"
+    ],
+    "c9b126813f0939ef": [
+      "train/images_train/train_18303.png",
+      "train/images_train/train_32010.png"
+    ],
+    "c1153b2c5166376f": [
+      "train/images_train/train_18339.png",
+      "train/images_train/train_30572.png"
+    ],
+    "943f2fed44c42a8e": [
+      "train/images_train/train_18368.png",
+      "train/images_train/train_27049.png"
+    ],
+    "d4f74a083af16a0f": [
+      "train/images_train/train_18407.png",
+      "train/images_train/train_21267.png"
+    ],
+    "ff00ff00ff00ff00": [
+      "train/images_train/train_18452.png",
+      "train/images_train/train_20388.png",
+      "train/images_train/train_22422.png",
+      "train/images_train/train_26478.png",
+      "train/images_train/train_29029.png"
+    ],
+    "c0de4a942fe52de8": [
+      "train/images_train/train_18469.png",
+      "train/images_train/train_31231.png"
+    ],
+    "cb24e67318f03e1e": [
+      "train/images_train/train_18528.png",
+      "train/images_train/train_20436.png",
+      "train/images_train/train_33980.png"
+    ],
+    "c432cbc8f7c58473": [
+      "train/images_train/train_18562.png",
+      "train/images_train/train_24001.png"
+    ],
+    "c2c2943c1fc1fa9b": [
+      "train/images_train/train_18572.png",
+      "train/images_train/train_29897.png"
+    ],
+    "cef91f209b00e0fe": [
+      "train/images_train/train_18587.png",
+      "train/images_train/train_25178.png"
+    ],
+    "bebe94a44ec5688a": [
+      "train/images_train/train_18606.png",
+      "train/images_train/train_19459.png"
+    ],
+    "ef32844395c55a9d": [
+      "train/images_train/train_18692.png",
+      "train/images_train/train_22199.png"
+    ],
+    "ccf8e10111077ff9": [
+      "train/images_train/train_18744.png",
+      "train/images_train/train_22319.png"
+    ],
+    "d685cf96ce8033f0": [
+      "train/images_train/train_18838.png",
+      "train/images_train/train_24040.png"
+    ],
+    "959163caf46d7a24": [
+      "train/images_train/train_18915.png",
+      "train/images_train/train_28246.png"
+    ],
+    "915a5683b4596767": [
+      "train/images_train/train_18917.png",
+      "train/images_train/train_23234.png"
+    ],
+    "989c31c33955cfa3": [
+      "train/images_train/train_18927.png",
+      "train/images_train/train_21110.png"
+    ],
+    "82897f5ee4584d65": [
+      "train/images_train/train_18992.png",
+      "train/images_train/train_31963.png"
+    ],
+    "af7a850e918f7a90": [
+      "train/images_train/train_19029.png",
+      "train/images_train/train_32356.png"
+    ],
+    "d7c7e330fc18e038": [
+      "train/images_train/train_19040.png",
+      "train/images_train/train_33165.png"
+    ],
+    "e6e69531d6644e62": [
+      "train/images_train/train_19049.png",
+      "train/images_train/train_32586.png"
+    ],
+    "d40e6ae2638b679c": [
+      "train/images_train/train_19079.png",
+      "train/images_train/train_31150.png"
+    ],
+    "d1c77a40614a27ef": [
+      "train/images_train/train_19093.png",
+      "train/images_train/train_21668.png"
+    ],
+    "af30879d96351867": [
+      "train/images_train/train_19109.png",
+      "train/images_train/train_21360.png"
+    ],
+    "ddc5c913661e26cc": [
+      "train/images_train/train_19144.png",
+      "train/images_train/train_23671.png"
+    ],
+    "a33e97e5b096e418": [
+      "train/images_train/train_19178.png",
+      "train/images_train/train_34216.png"
+    ],
+    "c2c2942c1ee1f8df": [
+      "train/images_train/train_19190.png",
+      "train/images_train/train_27233.png"
+    ],
+    "ec75da4cf14c0672": [
+      "train/images_train/train_19247.png",
+      "train/images_train/train_32546.png"
+    ],
+    "c3c3ed392206e61f": [
+      "train/images_train/train_19250.png",
+      "train/images_train/train_24979.png"
+    ],
+    "e619c40395cf5f8c": [
+      "train/images_train/train_19262.png",
+      "train/images_train/train_23877.png"
+    ],
+    "c53addc1f28ce066": [
+      "train/images_train/train_19290.png",
+      "train/images_train/train_26519.png"
+    ],
+    "b89e95a52c6565ca": [
+      "train/images_train/train_19359.png",
+      "train/images_train/train_24409.png"
+    ],
+    "af30878d9f9658b0": [
+      "train/images_train/train_19360.png",
+      "train/images_train/train_30476.png"
+    ],
+    "eac2c4bc94b197a5": [
+      "train/images_train/train_19400.png",
+      "train/images_train/train_25952.png"
+    ],
+    "d0954ad54a0ef34f": [
+      "train/images_train/train_19489.png",
+      "train/images_train/train_21449.png"
+    ],
+    "cacab13d9764ca70": [
+      "train/images_train/train_19519.png",
+      "train/images_train/train_34212.png"
+    ],
+    "d639cd64f4c6f202": [
+      "train/images_train/train_19629.png",
+      "train/images_train/train_30973.png"
+    ],
+    "c95bb429f091c3d5": [
+      "train/images_train/train_19630.png",
+      "train/images_train/train_28219.png"
+    ],
+    "e619c48758876b9e": [
+      "train/images_train/train_19669.png",
+      "train/images_train/train_23104.png"
+    ],
+    "be9f8564c6654931": [
+      "train/images_train/train_19702.png",
+      "train/images_train/train_21384.png"
+    ],
+    "c94d367e7e306238": [
+      "train/images_train/train_19753.png",
+      "train/images_train/train_23439.png",
+      "train/images_train/train_34272.png"
+    ],
+    "e0c1951bd2be9b32": [
+      "train/images_train/train_19787.png",
+      "train/images_train/train_28976.png"
+    ],
+    "d5c5cb92641e26cd": [
+      "train/images_train/train_19800.png",
+      "train/images_train/train_23246.png"
+    ],
+    "a413967bd261e3c6": [
+      "train/images_train/train_19803.png",
+      "train/images_train/train_23361.png"
+    ],
+    "8ec685666d783993": [
+      "train/images_train/train_19886.png",
+      "train/images_train/train_22327.png",
+      "train/images_train/train_23240.png"
+    ],
+    "800047374f379f7b": [
+      "train/images_train/train_19935.png",
+      "train/images_train/train_20636.png"
+    ],
+    "cc19c473b6c29b8e": [
+      "train/images_train/train_19989.png",
+      "train/images_train/train_20162.png"
+    ],
+    "d27b68a80c6e6fc1": [
+      "train/images_train/train_20049.png",
+      "train/images_train/train_24901.png"
+    ],
+    "9df961432e29e50d": [
+      "train/images_train/train_20068.png",
+      "train/images_train/train_21889.png"
+    ],
+    "d5941aac5a7ab469": [
+      "train/images_train/train_20102.png",
+      "train/images_train/train_29515.png"
+    ],
+    "ef30814790ced3cb": [
+      "train/images_train/train_20125.png",
+      "train/images_train/train_27450.png"
+    ],
+    "ac13951e528c6b77": [
+      "train/images_train/train_20205.png",
+      "train/images_train/train_28154.png"
+    ],
+    "99f1310c67e36c78": [
+      "train/images_train/train_20212.png",
+      "train/images_train/train_33158.png"
+    ],
+    "c2c4b13f47e52a96": [
+      "train/images_train/train_20241.png",
+      "train/images_train/train_33490.png"
+    ],
+    "8e944b39bc3774c4": [
+      "train/images_train/train_20280.png",
+      "train/images_train/train_23398.png"
+    ],
+    "d43e06362a7b6d70": [
+      "train/images_train/train_20320.png",
+      "train/images_train/train_23239.png"
+    ],
+    "904b851f76b66d68": [
+      "train/images_train/train_20334.png",
+      "train/images_train/train_22219.png"
+    ],
+    "d03f0fb4359036cb": [
+      "train/images_train/train_20374.png",
+      "train/images_train/train_20591.png"
+    ],
+    "8f7284839785da9e": [
+      "train/images_train/train_20494.png",
+      "train/images_train/train_23975.png"
+    ],
+    "d585cd92763232ec": [
+      "train/images_train/train_20562.png",
+      "train/images_train/train_24118.png"
+    ],
+    "abfe95e514876130": [
+      "train/images_train/train_20594.png",
+      "train/images_train/train_25774.png"
+    ],
+    "b790d70bb8653263": [
+      "train/images_train/train_20602.png",
+      "train/images_train/train_25840.png"
+    ],
+    "a48debd62ab13a54": [
+      "train/images_train/train_20617.png",
+      "train/images_train/train_28449.png"
+    ],
+    "8016152bb87a5f77": [
+      "train/images_train/train_20724.png",
+      "train/images_train/train_21253.png"
+    ],
+    "e63da40195cb9b9c": [
+      "train/images_train/train_20747.png",
+      "train/images_train/train_34323.png",
+      "train/images_train/train_34346.png"
+    ],
+    "caca9d3bc5609e61": [
+      "train/images_train/train_20774.png",
+      "train/images_train/train_32003.png"
+    ],
+    "dce1536c4895b993": [
+      "train/images_train/train_20823.png",
+      "train/images_train/train_28038.png"
+    ],
+    "ac1684ca9f6b9c78": [
+      "train/images_train/train_20861.png",
+      "train/images_train/train_26131.png"
+    ],
+    "ae31955e92ca9a65": [
+      "train/images_train/train_20864.png",
+      "train/images_train/train_23131.png"
+    ],
+    "c0c8bc3bc3b49bb2": [
+      "train/images_train/train_20865.png",
+      "train/images_train/train_33730.png"
+    ],
+    "9591ec6e93794ab0": [
+      "train/images_train/train_20917.png",
+      "train/images_train/train_28237.png"
+    ],
+    "b9997e1313043e1f": [
+      "train/images_train/train_21056.png",
+      "train/images_train/train_22552.png"
+    ],
+    "87c75a9e686c670c": [
+      "train/images_train/train_21073.png",
+      "train/images_train/train_31006.png"
+    ],
+    "c59507aa5a4ead2b": [
+      "train/images_train/train_21168.png",
+      "train/images_train/train_23773.png"
+    ],
+    "d5f54a146ada29ca": [
+      "train/images_train/train_21262.png",
+      "train/images_train/train_21665.png",
+      "train/images_train/train_22941.png"
+    ],
+    "ae11975a366c3965": [
+      "train/images_train/train_21272.png",
+      "train/images_train/train_23952.png"
+    ],
+    "97a768f871c16545": [
+      "train/images_train/train_21305.png",
+      "train/images_train/train_33784.png"
+    ],
+    "bf9041dada8999b4": [
+      "train/images_train/train_21311.png",
+      "train/images_train/train_27660.png"
+    ],
+    "c904e67338fb1e1c": [
+      "train/images_train/train_21324.png",
+      "train/images_train/train_21677.png"
+    ],
+    "c1940f2a5a37bd4e": [
+      "train/images_train/train_21332.png",
+      "train/images_train/train_23227.png"
+    ],
+    "aa9f85e4c6654e62": [
+      "train/images_train/train_21340.png",
+      "train/images_train/train_22959.png"
+    ],
+    "ec07f03f0e331f81": [
+      "train/images_train/train_21368.png",
+      "train/images_train/train_24086.png"
+    ],
+    "97b163c2f525ab24": [
+      "train/images_train/train_21392.png",
+      "train/images_train/train_33960.png"
+    ],
+    "e639e44390c7d2b6": [
+      "train/images_train/train_21615.png",
+      "train/images_train/train_31495.png"
+    ],
+    "80970c1f5d57bd4a": [
+      "train/images_train/train_21692.png",
+      "train/images_train/train_29381.png"
+    ],
+    "c5ad4f0569fe2a60": [
+      "train/images_train/train_21722.png",
+      "train/images_train/train_24096.png"
+    ],
+    "cb75dc4bc0cb81cc": [
+      "train/images_train/train_21734.png",
+      "train/images_train/train_32493.png"
+    ],
+    "c06e4b156bb62eb2": [
+      "train/images_train/train_21735.png",
+      "train/images_train/train_34048.png"
+    ],
+    "85635e6268e16bc7": [
+      "train/images_train/train_21744.png",
+      "train/images_train/train_29273.png"
+    ],
+    "e23b84439794cf9c": [
+      "train/images_train/train_21785.png",
+      "train/images_train/train_29823.png"
+    ],
+    "b7bb8068c7a15b61": [
+      "train/images_train/train_21795.png",
+      "train/images_train/train_26190.png"
+    ],
+    "d70858e2efcb248d": [
+      "train/images_train/train_21859.png",
+      "train/images_train/train_28843.png"
+    ],
+    "d0ff52287a296a35": [
+      "train/images_train/train_21951.png",
+      "train/images_train/train_33916.png"
+    ],
+    "8f8d4f4068ca6c5f": [
+      "train/images_train/train_21957.png",
+      "train/images_train/train_30178.png"
+    ],
+    "ddcdc993661226cc": [
+      "train/images_train/train_21977.png",
+      "train/images_train/train_32108.png"
+    ],
+    "8fd6856665616993": [
+      "train/images_train/train_22028.png",
+      "train/images_train/train_25965.png"
+    ],
+    "811cc1075f17b74f": [
+      "train/images_train/train_22044.png",
+      "train/images_train/train_22893.png"
+    ],
+    "c63bd44691d84a9f": [
+      "train/images_train/train_22078.png",
+      "train/images_train/train_31331.png"
+    ],
+    "d4d4c912e030e6ff": [
+      "train/images_train/train_22144.png",
+      "train/images_train/train_34309.png"
+    ],
+    "c20e7f102d6175f3": [
+      "train/images_train/train_22243.png",
+      "train/images_train/train_28396.png"
+    ],
+    "a409fcae433c4fa6": [
+      "train/images_train/train_22299.png",
+      "train/images_train/train_31016.png"
+    ],
+    "a7b807c34e72cb31": [
+      "train/images_train/train_22334.png",
+      "train/images_train/train_30158.png"
+    ],
+    "c6c89b3b96a438a7": [
+      "train/images_train/train_22428.png",
+      "train/images_train/train_30639.png"
+    ],
+    "85930c273fd135cd": [
+      "train/images_train/train_22450.png",
+      "train/images_train/train_27983.png"
+    ],
+    "abca81e894a53eb3": [
+      "train/images_train/train_22515.png",
+      "train/images_train/train_32077.png"
+    ],
+    "c8b037803fcfc9c6": [
+      "train/images_train/train_22521.png",
+      "train/images_train/train_24402.png"
+    ],
+    "a89c95a69e666a66": [
+      "train/images_train/train_22539.png",
+      "train/images_train/train_26269.png"
+    ],
+    "90438f1d36b6694f": [
+      "train/images_train/train_22556.png",
+      "train/images_train/train_27670.png"
+    ],
+    "81583ec3b2673da3": [
+      "train/images_train/train_22603.png",
+      "train/images_train/train_24839.png",
+      "train/images_train/train_34373.png"
+    ],
+    "9ada97a56ccd2438": [
+      "train/images_train/train_22910.png",
+      "train/images_train/train_34104.png"
+    ],
+    "b618c03d87d79ec2": [
+      "train/images_train/train_23033.png",
+      "train/images_train/train_34275.png"
+    ],
+    "e63ac45294c29fce": [
+      "train/images_train/train_23035.png",
+      "train/images_train/train_29252.png"
+    ],
+    "915a5683b65b6563": [
+      "train/images_train/train_23099.png",
+      "train/images_train/train_26343.png"
+    ],
+    "c3b2b59bd1684e64": [
+      "train/images_train/train_23198.png",
+      "train/images_train/train_32245.png"
+    ],
+    "dd32cb0de0cce076": [
+      "train/images_train/train_23212.png",
+      "train/images_train/train_25037.png",
+      "train/images_train/train_32032.png"
+    ],
+    "fd27d14ec1494572": [
+      "train/images_train/train_23294.png",
+      "train/images_train/train_28769.png"
+    ],
+    "ae9e95a496e524c3": [
+      "train/images_train/train_23313.png",
+      "train/images_train/train_31041.png"
+    ],
+    "ccf8e000110ffefe": [
+      "train/images_train/train_23330.png",
+      "train/images_train/train_33476.png"
+    ],
+    "83d81e6398677da2": [
+      "train/images_train/train_23343.png",
+      "train/images_train/train_25084.png"
+    ],
+    "80807e07785f756f": [
+      "train/images_train/train_23393.png",
+      "train/images_train/train_30393.png"
+    ],
+    "c3cd813d172d4f61": [
+      "train/images_train/train_23489.png",
+      "train/images_train/train_23513.png"
+    ],
+    "e639d44712864b9f": [
+      "train/images_train/train_23608.png",
+      "train/images_train/train_29881.png",
+      "train/images_train/train_32728.png"
+    ],
+    "c1940f2a5a36fd4e": [
+      "train/images_train/train_23619.png",
+      "train/images_train/train_32136.png"
+    ],
+    "f7688114c5974ecb": [
+      "train/images_train/train_23638.png",
+      "train/images_train/train_27118.png"
+    ],
+    "ed7ac4815a954b1e": [
+      "train/images_train/train_23663.png",
+      "train/images_train/train_32393.png"
+    ],
+    "c4c4b43f43e03ab7": [
+      "train/images_train/train_23706.png",
+      "train/images_train/train_33448.png"
+    ],
+    "c59f4e5a2da82c69": [
+      "train/images_train/train_23739.png",
+      "train/images_train/train_33327.png"
+    ],
+    "9795042a5e370d7e": [
+      "train/images_train/train_23751.png",
+      "train/images_train/train_25108.png"
+    ],
+    "c699cd49037ce0f6": [
+      "train/images_train/train_23757.png",
+      "train/images_train/train_30152.png"
+    ],
+    "d0d23f6b3a60e127": [
+      "train/images_train/train_23767.png",
+      "train/images_train/train_27690.png"
+    ],
+    "d5d4481a77ce1ae1": [
+      "train/images_train/train_24031.png",
+      "train/images_train/train_29997.png"
+    ],
+    "ad708599d7951873": [
+      "train/images_train/train_24091.png",
+      "train/images_train/train_31470.png"
+    ],
+    "949a414753667aed": [
+      "train/images_train/train_24099.png",
+      "train/images_train/train_27485.png"
+    ],
+    "ef79a42191c56792": [
+      "train/images_train/train_24134.png",
+      "train/images_train/train_26537.png"
+    ],
+    "af86a57d152ac664": [
+      "train/images_train/train_24136.png",
+      "train/images_train/train_27629.png"
+    ],
+    "dd22db0ce0cf40f6": [
+      "train/images_train/train_24160.png",
+      "train/images_train/train_27953.png"
+    ],
+    "8ee14a1df127728b": [
+      "train/images_train/train_24200.png",
+      "train/images_train/train_25023.png"
+    ],
+    "c530de4ae8ad66c6": [
+      "train/images_train/train_24251.png",
+      "train/images_train/train_32565.png"
+    ],
+    "a510d64f176f3e60": [
+      "train/images_train/train_24256.png",
+      "train/images_train/train_30568.png"
+    ],
+    "a6f6223458d9526f": [
+      "train/images_train/train_24285.png",
+      "train/images_train/train_31623.png"
+    ],
+    "aac384e397a59995": [
+      "train/images_train/train_24516.png",
+      "train/images_train/train_27529.png"
+    ],
+    "ae8e9564566749c6": [
+      "train/images_train/train_24615.png",
+      "train/images_train/train_31264.png"
+    ],
+    "c253a56b12e54bb6": [
+      "train/images_train/train_24629.png",
+      "train/images_train/train_26398.png"
+    ],
+    "9758050f0b2f7e99": [
+      "train/images_train/train_24709.png",
+      "train/images_train/train_30819.png"
+    ],
+    "871fcaa547301c7b": [
+      "train/images_train/train_24799.png",
+      "train/images_train/train_30131.png"
+    ],
+    "c1560c2a5a97ad5f": [
+      "train/images_train/train_25042.png",
+      "train/images_train/train_33821.png"
+    ],
+    "9293d1794be04f9c": [
+      "train/images_train/train_25067.png",
+      "train/images_train/train_29722.png"
+    ],
+    "dd22dbcdf2c50066": [
+      "train/images_train/train_25124.png",
+      "train/images_train/train_30362.png"
+    ],
+    "95567c1ef0786361": [
+      "train/images_train/train_25147.png",
+      "train/images_train/train_31739.png"
+    ],
+    "ac5a055a555eaa5e": [
+      "train/images_train/train_25189.png",
+      "train/images_train/train_26909.png"
+    ],
+    "e8b90dc535077c71": [
+      "train/images_train/train_25207.png",
+      "train/images_train/train_31761.png"
+    ],
+    "d5c0db366e296e18": [
+      "train/images_train/train_25217.png",
+      "train/images_train/train_29167.png"
+    ],
+    "fd9d81e8476052b5": [
+      "train/images_train/train_25370.png",
+      "train/images_train/train_32713.png"
+    ],
+    "bade85e4ec65280b": [
+      "train/images_train/train_25374.png",
+      "train/images_train/train_33859.png"
+    ],
+    "e2e2953981e50ff4": [
+      "train/images_train/train_25574.png",
+      "train/images_train/train_25653.png"
+    ],
+    "c25ba56b12654bb6": [
+      "train/images_train/train_25671.png",
+      "train/images_train/train_33156.png"
+    ],
+    "a2ca85a03eb76cce": [
+      "train/images_train/train_25753.png",
+      "train/images_train/train_26270.png"
+    ],
+    "85815d5f6c4ace6a": [
+      "train/images_train/train_25917.png",
+      "train/images_train/train_30576.png"
+    ],
+    "9fbf5e5668482129": [
+      "train/images_train/train_25940.png",
+      "train/images_train/train_28448.png"
+    ],
+    "a413965af269a3e6": [
+      "train/images_train/train_26012.png",
+      "train/images_train/train_27890.png"
+    ],
+    "879d5264583e8f47": [
+      "train/images_train/train_26098.png",
+      "train/images_train/train_29340.png"
+    ],
+    "d8c67f7a3c092839": [
+      "train/images_train/train_26135.png",
+      "train/images_train/train_31052.png"
+    ],
+    "c3e205a16fc46f87": [
+      "train/images_train/train_26234.png",
+      "train/images_train/train_27851.png"
+    ],
+    "a89885e6c6676b65": [
+      "train/images_train/train_26252.png",
+      "train/images_train/train_33696.png"
+    ],
+    "857c7a7668638746": [
+      "train/images_train/train_26363.png",
+      "train/images_train/train_28863.png"
+    ],
+    "da570f483861ef31": [
+      "train/images_train/train_26440.png",
+      "train/images_train/train_33649.png"
+    ],
+    "8c8721c23c7bcf33": [
+      "train/images_train/train_26461.png",
+      "train/images_train/train_26629.png"
+    ],
+    "c1960e295a36ed5e": [
+      "train/images_train/train_26585.png",
+      "train/images_train/train_32323.png"
+    ],
+    "c4c2bd29c53596b6": [
+      "train/images_train/train_26706.png",
+      "train/images_train/train_31537.png"
+    ],
+    "8e3ad18552875abe": [
+      "train/images_train/train_26749.png",
+      "train/images_train/train_31137.png"
+    ],
+    "9d22ca0de1cce0f7": [
+      "train/images_train/train_26832.png",
+      "train/images_train/train_30833.png"
+    ],
+    "ab3d840397cb9b8c": [
+      "train/images_train/train_27112.png",
+      "train/images_train/train_28638.png"
+    ],
+    "af11c64a974f1c6c": [
+      "train/images_train/train_27148.png",
+      "train/images_train/train_27543.png"
+    ],
+    "c41718575e729c5b": [
+      "train/images_train/train_27249.png",
+      "train/images_train/train_29304.png"
+    ],
+    "c59d262853b64d5b": [
+      "train/images_train/train_27342.png",
+      "train/images_train/train_33315.png"
+    ],
+    "c0c03f07e43fc79c": [
+      "train/images_train/train_27403.png",
+      "train/images_train/train_30332.png"
+    ],
+    "d6e6cf0f070c31e2": [
+      "train/images_train/train_27447.png",
+      "train/images_train/train_32687.png"
+    ],
+    "ef32844395c7529d": [
+      "train/images_train/train_27479.png",
+      "train/images_train/train_28175.png",
+      "train/images_train/train_29854.png"
+    ],
+    "c7e5cf9e0e8c13c0": [
+      "train/images_train/train_27520.png",
+      "train/images_train/train_34542.png"
+    ],
+    "af30855e974e1c65": [
+      "train/images_train/train_27530.png",
+      "train/images_train/train_33531.png"
+    ],
+    "81bf1e5355688dd2": [
+      "train/images_train/train_27619.png",
+      "train/images_train/train_33991.png"
+    ],
+    "d532cbc8e5c780e6": [
+      "train/images_train/train_27633.png",
+      "train/images_train/train_33235.png"
+    ],
+    "ebc05e3a3396cc15": [
+      "train/images_train/train_27713.png",
+      "train/images_train/train_33963.png"
+    ],
+    "89c2994fceb438ec": [
+      "train/images_train/train_27744.png",
+      "train/images_train/train_31420.png"
+    ],
+    "d0cf2f493c669632": [
+      "train/images_train/train_27772.png",
+      "train/images_train/train_33359.png"
+    ],
+    "848b29cd3c5bcd71": [
+      "train/images_train/train_27785.png",
+      "train/images_train/train_28424.png"
+    ],
+    "aade97e094e56164": [
+      "train/images_train/train_27792.png",
+      "train/images_train/train_32915.png"
+    ],
+    "ab60851dd71c9a9e": [
+      "train/images_train/train_27849.png",
+      "train/images_train/train_30338.png"
+    ],
+    "da92ec89c3ce0f07": [
+      "train/images_train/train_27938.png",
+      "train/images_train/train_28290.png"
+    ],
+    "e3c2843c95b1d7a5": [
+      "train/images_train/train_28006.png",
+      "train/images_train/train_31043.png"
+    ],
+    "c2066f702de87dd1": [
+      "train/images_train/train_28064.png",
+      "train/images_train/train_29337.png"
+    ],
+    "e2c6953995651f68": [
+      "train/images_train/train_28089.png",
+      "train/images_train/train_28815.png"
+    ],
+    "dd22cb0de0cde0f2": [
+      "train/images_train/train_28139.png",
+      "train/images_train/train_31703.png"
+    ],
+    "a0e897a5f2c6626b": [
+      "train/images_train/train_28178.png",
+      "train/images_train/train_33735.png"
+    ],
+    "fe75d648c00864fe": [
+      "train/images_train/train_28458.png",
+      "train/images_train/train_28867.png"
+    ],
+    "aece8560db311cf4": [
+      "train/images_train/train_28636.png",
+      "train/images_train/train_32101.png"
+    ],
+    "91585683b65b2d67": [
+      "train/images_train/train_28710.png",
+      "train/images_train/train_33345.png"
+    ],
+    "d0054cf730de33da": [
+      "train/images_train/train_29060.png",
+      "train/images_train/train_33357.png"
+    ],
+    "ad75da4cf14c063a": [
+      "train/images_train/train_29194.png",
+      "train/images_train/train_31062.png"
+    ],
+    "da5f0f483a21ed31": [
+      "train/images_train/train_29198.png",
+      "train/images_train/train_31992.png"
+    ],
+    "813f1e7831936793": [
+      "train/images_train/train_29617.png",
+      "train/images_train/train_34319.png"
+    ],
+    "ee71850d97c71c92": [
+      "train/images_train/train_30018.png",
+      "train/images_train/train_33108.png"
+    ],
+    "d8596dec3c661a32": [
+      "train/images_train/train_30043.png",
+      "train/images_train/train_33984.png"
+    ],
+    "d23dc6f03b0f390c": [
+      "train/images_train/train_30184.png",
+      "train/images_train/train_32489.png"
+    ],
+    "ee3184dc93ca9e61": [
+      "train/images_train/train_30189.png",
+      "train/images_train/train_30229.png"
+    ],
+    "e2c0913fc52cbe66": [
+      "train/images_train/train_30290.png",
+      "train/images_train/train_33894.png"
+    ],
+    "9a65dc13e49ae1cc": [
+      "train/images_train/train_30297.png",
+      "train/images_train/train_32342.png"
+    ],
+    "fb8a40e05a754b76": [
+      "train/images_train/train_30409.png",
+      "train/images_train/train_30726.png"
+    ],
+    "ec3dc0c91c9e4796": [
+      "train/images_train/train_30547.png",
+      "train/images_train/train_33843.png"
+    ],
+    "85854fcf68ca266b": [
+      "train/images_train/train_30758.png",
+      "train/images_train/train_34371.png"
+    ],
+    "d27e4be53f102c07": [
+      "train/images_train/train_30908.png",
+      "train/images_train/train_31240.png"
+    ],
+    "8f30859f92ad1ab9": [
+      "train/images_train/train_30930.png",
+      "train/images_train/train_33603.png"
+    ],
+    "c01f4f3a2a7037b9": [
+      "train/images_train/train_31019.png",
+      "train/images_train/train_31512.png"
+    ],
+    "d53acfc1fcc4620c": [
+      "train/images_train/train_31285.png",
+      "train/images_train/train_31780.png"
+    ],
+    "dd20da09e1cce0fe": [
+      "train/images_train/train_31509.png",
+      "train/images_train/train_34083.png"
+    ],
+    "b865d44ac89941ff": [
+      "train/images_train/train_31763.png",
+      "train/images_train/train_33468.png"
+    ],
+    "85961f622d5a349f": [
+      "train/images_train/train_31820.png",
+      "train/images_train/train_34024.png"
+    ],
+    "c0c0b13e8f659b73": [
+      "train/images_train/train_31844.png",
+      "train/images_train/train_34223.png"
+    ],
+    "fd72d821f00c32f9": [
+      "train/images_train/train_31876.png",
+      "train/images_train/train_33599.png"
+    ],
+    "a01b9479d3c76b86": [
+      "train/images_train/train_33604.png",
+      "train/images_train/train_34068.png"
+    ]
+  }
+}
