@@ -1,0 +1,40 @@
+{
+  "clean_accuracy": 0.9595,
+  "attacks": [
+    {
+      "attack": "fgsm",
+      "epsilon": 0.01,
+      "step_size": null,
+      "steps": null,
+      "accuracy": 0.8455
+    },
+    {
+      "attack": "fgsm",
+      "epsilon": 0.03,
+      "step_size": null,
+      "steps": null,
+      "accuracy": 0.72
+    },
+    {
+      "attack": "fgsm",
+      "epsilon": 0.07,
+      "step_size": null,
+      "steps": null,
+      "accuracy": 0.477
+    },
+    {
+      "attack": "pgd",
+      "epsilon": 0.03,
+      "step_size": 0.0075,
+      "steps": 10,
+      "accuracy": 0.1715
+    },
+    {
+      "attack": "pgd",
+      "epsilon": 0.07,
+      "step_size": 0.0175,
+      "steps": 10,
+      "accuracy": 0.0235
+    }
+  ]
+}

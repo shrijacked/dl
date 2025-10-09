@@ -1,0 +1,23 @@
+{
+  "train": {
+    "split": "train",
+    "samples": 512,
+    "mean_low_freq": 73.0646858625114,
+    "mean_high_freq": 0.646524703304749,
+    "high_to_low_ratio": 0.008946219597920817
+  },
+  "val": {
+    "split": "val",
+    "samples": 512,
+    "mean_low_freq": 74.88701258599758,
+    "mean_high_freq": 0.6534784882096574,
+    "high_to_low_ratio": 0.008833942682739751
+  },
+  "test": {
+    "split": "test",
+    "samples": 512,
+    "mean_low_freq": 71.19235471636057,
+    "mean_high_freq": 2.402956433943473,
+    "high_to_low_ratio": 0.03491979830004045
+  }
+}
