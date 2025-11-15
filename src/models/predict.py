@@ -96,7 +96,7 @@ def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingCo
 
 
 @torch.no_grad()
-def _infer_model(model_name: str, build_fn: Callable[[int], nn.Module], cfg: TrainingConfig) -> None:
+def _infer_model(model_name: str, build_fn: Callable[[int], nn.Module], cfg: TrainingConfig, run_tag: str | None = None) -> None:
     ensure_output_directories()
 
     device = torch.device(
@@ -107,27 +107,37 @@ def _infer_model(model_name: str, build_fn: Callable[[int], nn.Module], cfg: Tra
     # Build and load weights
     num_classes = 11
     model = build_fn(num_classes).to(device)
-    weights_path = OUTPUT_CONFIG.models_root / f"{model_name}_weights.pth"
     state_dict = None
-    if weights_path.exists():
-        try:
-            state_dict = torch.load(weights_path, map_location=device, weights_only=True)
-        except TypeError:
-            state_dict = torch.load(weights_path, map_location=device)
-    else:
-        # Fallback: locate latest best checkpoint under training_logs/<model_name>/**/best_*.pth
+    # Priority 1: explicit run_tag -> load its best checkpoint
+    if run_tag is not None:
         from pathlib import Path as _P
-        logs_root = _P(__file__).resolve().parents[2] / "training_logs" / model_name
-        try:
-            candidates = sorted(logs_root.rglob("best_*.pth"), key=lambda p: p.stat().st_mtime, reverse=True)
-        except Exception:
-            candidates = []
-        if candidates:
-            ckpt_path = candidates[0]
-            state = torch.load(ckpt_path, map_location=device)
-            state_dict = state.get("model_state", None)
+        ckpt_path = _P(__file__).resolve().parents[2] / "training_logs" / model_name / run_tag / f"best_{run_tag}.pth"
+        if not ckpt_path.exists():
+            raise FileNotFoundError(f"Checkpoint not found for run_tag: {ckpt_path}")
+        state = torch.load(ckpt_path, map_location=device)
+        state_dict = state.get("model_state", None)
+    else:
+        # Priority 2: weights file under analysis_outputs/models
+        weights_path = OUTPUT_CONFIG.models_root / f"{model_name}_weights.pth"
+        if weights_path.exists():
+            try:
+                state_dict = torch.load(weights_path, map_location=device, weights_only=True)
+            except TypeError:
+                state_dict = torch.load(weights_path, map_location=device)
         else:
-            raise FileNotFoundError(f"Weights not found for {model_name}: {weights_path} and no best_*.pth under {logs_root}")
+            # Fallback: locate latest best checkpoint under training_logs/<model_name>/**/best_*.pth
+            from pathlib import Path as _P
+            logs_root = _P(__file__).resolve().parents[2] / "training_logs" / model_name
+            try:
+                candidates = sorted(logs_root.rglob("best_*.pth"), key=lambda p: p.stat().st_mtime, reverse=True)
+            except Exception:
+                candidates = []
+            if candidates:
+                ckpt_path = candidates[0]
+                state = torch.load(ckpt_path, map_location=device)
+                state_dict = state.get("model_state", None)
+            else:
+                raise FileNotFoundError(f"No weights or checkpoints found for {model_name}")
 
     if isinstance(state_dict, dict):
         model.load_state_dict(state_dict)
@@ -164,7 +174,11 @@ def _infer_model(model_name: str, build_fn: Callable[[int], nn.Module], cfg: Tra
         probs.extend(list(probabilities))
 
     # Save outputs per model
-    out_dir = OUTPUT_CONFIG.models_root / "predictions" / model_name
+    # If run_tag provided, nest under that run; else default to model_name root
+    if run_tag is not None:
+        out_dir = OUTPUT_CONFIG.models_root / "predictions" / model_name / run_tag
+    else:
+        out_dir = OUTPUT_CONFIG.models_root / "predictions" / model_name
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # Submission
@@ -183,6 +197,7 @@ def main() -> None:
     parser.add_argument("--model", type=str, choices=list(registry.keys()))
     parser.add_argument("--all", action="store_true", help="Run predictions for all models")
     parser.add_argument("--num-workers", type=int, default=2)
+    parser.add_argument("--run-tag", type=str, default=None, help="Specific training run tag to load and to name output folder")
     args = parser.parse_args()
 
     if not args.all and not args.model:
@@ -193,7 +208,7 @@ def main() -> None:
             cfg = defaults
             cfg.num_workers = args.num_workers
             try:
-                _infer_model(name, builder, cfg)
+                _infer_model(name, builder, cfg, run_tag=None)
             except FileNotFoundError as e:
                 print(f"[predict] Skipping {name}: {e}")
                 continue
@@ -203,7 +218,7 @@ def main() -> None:
     builder, defaults = registry[name]
     defaults.num_workers = args.num_workers
     try:
-        _infer_model(name, builder, defaults)
+        _infer_model(name, builder, defaults, run_tag=args.run_tag)
     except FileNotFoundError as e:
         raise SystemExit(
             f"{e}. Train the model first, e.g.: 'python -m src.models.train --model {name}'"
