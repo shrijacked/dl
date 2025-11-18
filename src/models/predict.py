@@ -23,6 +23,11 @@ from .convnext_tiny import build_convnext_tiny
 from .resnext50_32x4d import build_resnext50_32x4d
 from .resnext101_32x8d import build_resnext101_32x8d
 from .densenet121_adaptive import build_densenet121_adaptive
+from ..model_architectures import (
+    build_vit_s16 as _build_vit_s16_arch,
+    build_vit_b16 as _build_vit_b16_arch,
+    build_swin_tiny as _build_swin_tiny_arch,
+)
 
 
 class PredictDataset(Dataset):
@@ -91,6 +96,19 @@ def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingCo
         "convnext_tiny": (
             build_convnext_tiny,
             TrainingConfig(model_name="convnext_tiny", input_channels=1, input_size=224),
+        ),
+        # Vision Transformer & Swin variants built via shared model_architectures
+        "vit_s16": (
+            lambda num_classes: _build_vit_s16_arch(num_classes=num_classes, pretrained=False)[0],
+            TrainingConfig(model_name="vit_s16", input_channels=1, input_size=224),
+        ),
+        "vit_b16": (
+            lambda num_classes: _build_vit_b16_arch(num_classes=num_classes, pretrained=False)[0],
+            TrainingConfig(model_name="vit_b16", input_channels=1, input_size=224),
+        ),
+        "swin_tiny": (
+            lambda num_classes: _build_swin_tiny_arch(num_classes=num_classes, pretrained=False)[0],
+            TrainingConfig(model_name="swin_tiny", input_channels=1, input_size=224),
         ),
     }
 

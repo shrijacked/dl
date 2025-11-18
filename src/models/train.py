@@ -14,6 +14,9 @@ from .densenet121 import build_densenet121
 from .convnext_tiny import build_convnext_tiny
 from .resnext50_32x4d import build_resnext50_32x4d
 from .resnext101_32x8d import build_resnext101_32x8d
+from .vit_s16 import build_vit_s16
+from .vit_b16 import build_vit_b16
+from .swin_tiny import build_swin_tiny
 
 
 def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingConfig]]:
@@ -132,6 +135,57 @@ def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingCo
                 momentum=0.9,
                 weight_decay=1e-4,
                 step_size=10,
+                gamma=0.1,
+                num_workers=4,
+                seed=42,
+            ),
+        ),
+        "vit_s16": (
+            build_vit_s16,
+            TrainingConfig(
+                model_name="vit_s16",
+                input_channels=1,
+                input_size=224,
+                epochs=50,
+                batch_size=64,
+                lr=5e-4,
+                momentum=0.9,
+                weight_decay=5e-2,
+                step_size=20,
+                gamma=0.1,
+                num_workers=4,
+                seed=42,
+            ),
+        ),
+        "vit_b16": (
+            build_vit_b16,
+            TrainingConfig(
+                model_name="vit_b16",
+                input_channels=1,
+                input_size=224,
+                epochs=50,
+                batch_size=32,
+                lr=3e-4,
+                momentum=0.9,
+                weight_decay=5e-2,
+                step_size=20,
+                gamma=0.1,
+                num_workers=4,
+                seed=42,
+            ),
+        ),
+        "swin_tiny": (
+            build_swin_tiny,
+            TrainingConfig(
+                model_name="swin_tiny",
+                input_channels=1,
+                input_size=224,
+                epochs=50,
+                batch_size=64,
+                lr=5e-4,
+                momentum=0.9,
+                weight_decay=5e-2,
+                step_size=20,
                 gamma=0.1,
                 num_workers=4,
                 seed=42,

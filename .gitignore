@@ -69,3 +69,4 @@ dataset/test/
 *.tar.gz
 *.tgz
 
+hpc/hpc_config.sh
