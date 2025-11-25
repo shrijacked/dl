@@ -105,16 +105,16 @@ class ParallelConvBranch(nn.Module):
             cls_token = None
             patch_tokens = x
         
-        # Reshape to 2D spatial: (B, H, W, C) -> (B, C, H, W)
+        # Reshape to 2D spatial: (B, N-1, C) -> (B, C, H, W)
         H = W = self.num_patches_side
-        spatial = patch_tokens.transpose(1, 2).view(B, C, H, W)
+        spatial = patch_tokens.transpose(1, 2).contiguous().view(B, C, H, W)
         
         # Apply conv block
         conv_out = self.conv_block(spatial)
         conv_out = self.se(conv_out)
         
         # Reshape back to sequence: (B, C, H, W) -> (B, N-1, C)
-        conv_out = conv_out.view(B, C, -1).transpose(1, 2)
+        conv_out = conv_out.view(B, C, -1).transpose(1, 2).contiguous()
         
         # Reattach CLS token (zeros for conv path - CLS is global)
         if has_cls_token:
@@ -588,4 +588,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
+    
+    
