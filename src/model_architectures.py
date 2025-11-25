@@ -9,6 +9,7 @@ from torchvision import models
 import timm
 
 from .models.densenet121_adaptive import build_densenet121_adaptive as _build_dn121_adaptive
+from .models.dense_vit import build_dense_vit as _build_dense_vit_arch
 
 @dataclass(frozen=True)
 class ModelRecipe:
@@ -361,6 +362,27 @@ def build_swin_tiny(num_classes: int = 11, pretrained: bool = True) -> Tuple[nn.
     return model, recipe
 
 
+def build_dense_vit(num_classes: int = 11, pretrained: bool = True) -> Tuple[nn.Module, ModelRecipe]:
+    """DenseViT: Vision Transformer with Dense Connections and Parallel Conv Branches.
+    
+    Key innovations:
+    - Dense connections between transformer blocks (DenseNet-style feature reuse)
+    - Parallel CNN branches for local feature extraction
+    - Adaptive fusion of global (attention) and local (conv) pathways
+    - Higher LR recommended for dense connection modules
+    """
+    model = _build_dense_vit_arch(num_classes=num_classes, pretrained=pretrained)
+    recipe = ModelRecipe(
+        name="dense_vit",
+        input_size=(224, 224),
+        default_lr=5e-4,  # Higher LR works well with dense connections
+        default_weight_decay=5e-2,
+        default_batch_size=24,  # Slightly smaller due to dense architecture
+        classifier_dropout=0.1,
+    )
+    return model, recipe
+
+
 def build_all_models(num_classes: int = 11, pretrained: bool = True) -> Dict[str, Tuple[nn.Module, ModelRecipe]]:
     builders = [
         build_resnet50,
@@ -374,6 +396,7 @@ def build_all_models(num_classes: int = 11, pretrained: bool = True) -> Dict[str
         build_vit_s16,
         build_vit_b16,
         build_swin_tiny,
+        build_dense_vit,
     ]
     out: Dict[str, Tuple[nn.Module, ModelRecipe]] = {}
     for fn in builders:
