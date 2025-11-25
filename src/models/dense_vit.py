@@ -47,8 +47,8 @@ class SEBlock(nn.Module):
         b, c = x.shape[:2]
         # Handle both 2D (B, C, H, W) and 1D (B, N, C) inputs
         if x.dim() == 4:
-            y = self.avg_pool(x).view(b, c)
-            y = self.fc(y).view(b, c, 1, 1)
+            y = self.avg_pool(x).reshape(b, c)
+            y = self.fc(y).reshape(b, c, 1, 1)
             return x * y.expand_as(x)
         else:
             # For sequence input (B, N, C), average over sequence
@@ -107,14 +107,14 @@ class ParallelConvBranch(nn.Module):
         
         # Reshape to 2D spatial: (B, N-1, C) -> (B, C, H, W)
         H = W = self.num_patches_side
-        spatial = patch_tokens.transpose(1, 2).contiguous().view(B, C, H, W)
+        spatial = patch_tokens.transpose(1, 2).reshape(B, C, H, W)
         
         # Apply conv block
         conv_out = self.conv_block(spatial)
         conv_out = self.se(conv_out)
         
         # Reshape back to sequence: (B, C, H, W) -> (B, N-1, C)
-        conv_out = conv_out.view(B, C, -1).transpose(1, 2).contiguous()
+        conv_out = conv_out.reshape(B, C, -1).transpose(1, 2)
         
         # Reattach CLS token (zeros for conv path - CLS is global)
         if has_cls_token:
