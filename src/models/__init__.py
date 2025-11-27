@@ -12,7 +12,6 @@ __all__ = [
     "build_convnext_tiny",
     "build_resnext50_32x4d",
     "build_resnext101_32x8d",
-    "build_dense_vit",
 ]
 
 
@@ -48,11 +47,6 @@ def build_resnext50_32x4d(*args, **kwargs):
 
 def build_resnext101_32x8d(*args, **kwargs):
     from .resnext101_32x8d import build_resnext101_32x8d as _fn
-    return _fn(*args, **kwargs)
-
-
-def build_dense_vit(*args, **kwargs):
-    from .dense_vit import build_dense_vit as _fn
     return _fn(*args, **kwargs)
 
 

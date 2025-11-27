@@ -49,12 +49,14 @@ class SEBlock(nn.Module):
         if x.dim() == 4:
             y = self.avg_pool(x).reshape(b, c)
             y = self.fc(y).reshape(b, c, 1, 1)
-            return x * y.expand_as(x)
+            # Use broadcasting instead of expand_as to avoid non-contiguous issues
+            return x * y
         else:
             # For sequence input (B, N, C), average over sequence
             y = x.mean(dim=1)  # (B, C)
             y = self.fc(y).unsqueeze(1)  # (B, 1, C)
-            return x * y.expand_as(x)
+            # Use broadcasting instead of expand_as
+            return x * y
 
 
 class ParallelConvBranch(nn.Module):
@@ -107,19 +109,22 @@ class ParallelConvBranch(nn.Module):
         
         # Reshape to 2D spatial: (B, N-1, C) -> (B, C, H, W)
         H = W = self.num_patches_side
-        spatial = patch_tokens.transpose(1, 2).reshape(B, C, H, W)
+        # Use permute + contiguous + view for reliable memory layout
+        spatial = patch_tokens.permute(0, 2, 1).contiguous()
+        spatial = spatial.view(B, C, H, W)
         
         # Apply conv block
         conv_out = self.conv_block(spatial)
         conv_out = self.se(conv_out)
         
         # Reshape back to sequence: (B, C, H, W) -> (B, N-1, C)
-        conv_out = conv_out.reshape(B, C, -1).transpose(1, 2)
+        conv_out = conv_out.contiguous().view(B, C, -1)
+        conv_out = conv_out.permute(0, 2, 1).contiguous()
         
         # Reattach CLS token (zeros for conv path - CLS is global)
         if has_cls_token:
             cls_conv = torch.zeros_like(cls_token)
-            conv_out = torch.cat([cls_conv, conv_out], dim=1)
+            conv_out = torch.cat([cls_conv, conv_out], dim=1).contiguous()
         
         return conv_out
 
@@ -232,22 +237,25 @@ class DenseTransformerBlock(nn.Module):
             output: Full-dim output for next block input (B, N, dim)
             growth: Compressed features for dense concatenation (B, N, growth_rate)
         """
+        # Ensure input is contiguous
+        x = x.contiguous()
+        
         # Attention pathway (global)
         normed = self.norm1(x)
         attn_out, _ = self.attn(normed, normed, normed)
-        global_feat = self.drop(attn_out)
+        global_feat = self.drop(attn_out).contiguous()
         
         # Conv pathway (local) - operates on same normalized input
-        local_feat = self.conv_branch(normed, has_cls_token=True)
+        local_feat = self.conv_branch(normed.contiguous(), has_cls_token=True)
         
         # Adaptive fusion of pathways
         fused = self.fusion(global_feat, local_feat)
         
         # Residual connection for stability
-        x = x + fused
+        x = (x + fused).contiguous()
         
         # MLP
-        x = x + self.mlp(self.norm2(x))
+        x = (x + self.mlp(self.norm2(x))).contiguous()
         
         # Generate compressed growth features for dense connection
         growth = self.bottleneck(x)
@@ -396,11 +404,13 @@ class DenseViT(nn.Module):
         
         # Patch embedding with conv stem
         x = self.patch_embed(x)  # (B, embed_dim, H', W')
-        x = x.flatten(2).transpose(1, 2)  # (B, num_patches, embed_dim)
+        # Flatten and transpose with contiguous for backward compatibility
+        x = x.flatten(2)  # (B, embed_dim, num_patches)
+        x = x.permute(0, 2, 1).contiguous()  # (B, num_patches, embed_dim)
         
-        # Add cls token
-        cls_tokens = self.cls_token.expand(B, -1, -1)
-        x = torch.cat([cls_tokens, x], dim=1)  # (B, num_patches+1, embed_dim)
+        # Add cls token - use repeat instead of expand for contiguous memory
+        cls_tokens = self.cls_token.repeat(B, 1, 1)
+        x = torch.cat([cls_tokens, x], dim=1).contiguous()  # (B, num_patches+1, embed_dim)
         
         # Add positional embedding
         x = x + self.pos_embed
@@ -415,10 +425,10 @@ class DenseViT(nn.Module):
             growth_features.append(growth)
             
             # Dense connection: concatenate current output with growth
-            x_dense = torch.cat([x_out, growth], dim=-1)
+            x_dense = torch.cat([x_out, growth], dim=-1).contiguous()
             
             # Compress back to embed_dim
-            x = compression(x_dense)
+            x = compression(x_dense).contiguous()
         
         # Multi-scale aggregation: weighted sum of growth features from all blocks
         # Focus on CLS token for classification
@@ -545,12 +555,12 @@ def main() -> None:
         input_channels=1,
         input_size=224,
         epochs=50,
-        batch_size=24,  # Slightly smaller due to dense connections
-        lr=1e-4,  # Base LR (dense modules will get 5x)
+        batch_size=32,
+        lr=5e-5,  # Lower LR for stable training (was oscillating at higher values)
         momentum=0.9,
-        weight_decay=5e-2,
-        step_size=15,
-        gamma=0.1,
+        weight_decay=0.1,  # Stronger regularization to prevent overfitting
+        step_size=10,  # More frequent LR decay
+        gamma=0.5,  # Gentler decay (50% instead of 90%)
         num_workers=4,
         seed=42,
     )
@@ -560,28 +570,10 @@ def main() -> None:
     parser.add_argument(
         "--dense-lr-mult",
         type=float,
-        default=5.0,
-        help="Learning rate multiplier for dense/fusion modules (default: 5x)"
+        default=2.0,  # Reduced from 5.0 to prevent dense modules learning too fast
+        help="Learning rate multiplier for dense/fusion modules (default: 2x)"
     )
     args = parser.parse_args()
-    
-    # Note: For differential LR, we'd need to modify train_utils.run_training
-    # For now, we use a higher base LR that works well with dense connections
-    # Update: Use AdamW-compatible higher LR
-    defaults = TrainingConfig(
-        model_name="dense_vit",
-        input_channels=1,
-        input_size=224,
-        epochs=50,
-        batch_size=24,
-        lr=5e-4,  # Higher LR as discussed for dense connections
-        momentum=0.9,
-        weight_decay=5e-2,
-        step_size=15,
-        gamma=0.1,
-        num_workers=4,
-        seed=42,
-    )
     
     run_training(build_dense_vit, defaults)
 
