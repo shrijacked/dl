@@ -29,6 +29,7 @@ from ..model_architectures import (
     build_swin_tiny as _build_swin_tiny_arch,
 )
 from .finetune_swin_tiny import build_swin_tiny_finetune
+from .finetune_convnext_tiny import build_convnext_tiny_finetune
 
 
 class PredictDataset(Dataset):
@@ -114,6 +115,10 @@ def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingCo
         "swin_tiny_finetuned": (
             lambda num_classes: build_swin_tiny_finetune(num_classes=num_classes),
             TrainingConfig(model_name="swin_tiny_finetuned", input_channels=1, input_size=224),
+        ),
+        "convnext_tiny_finetuned": (
+            lambda num_classes: build_convnext_tiny_finetune(num_classes=num_classes),
+            TrainingConfig(model_name="convnext_tiny_finetuned", input_channels=1, input_size=224),
         ),
     }
 
