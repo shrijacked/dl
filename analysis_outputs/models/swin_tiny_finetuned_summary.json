@@ -1,0 +1,21 @@
+{
+  "model_name": "swin_tiny_finetuned",
+  "base_model": "swin_tiny",
+  "epochs": 25,
+  "batch_size": 32,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.05,
+  "label_smoothing": 0.1,
+  "mixup_alpha": 0.4,
+  "cutmix_alpha": 1.0,
+  "use_ema": true,
+  "ema_decay": 0.9998,
+  "drop_path_rate": 0.1,
+  "train_samples": 34561,
+  "val_samples": 6491,
+  "best_val_accuracy": 0.9969188106609151,
+  "best_ema_accuracy": 0.9958403943922354,
+  "tta_accuracy": 0.9979972269295948,
+  "input_size": 224,
+  "input_channels": 1
+}
