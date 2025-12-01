@@ -1,0 +1,22 @@
+{
+  "model_name": "convnext_tiny_finetuned",
+  "base_model": "convnext_tiny",
+  "epochs": 30,
+  "batch_size": 32,
+  "learning_rate": 5e-05,
+  "weight_decay": 0.05,
+  "label_smoothing": 0.1,
+  "mixup_alpha": 0.4,
+  "cutmix_alpha": 1.0,
+  "use_ema": true,
+  "ema_decay": 0.9998,
+  "drop_path_rate": 0.2,
+  "train_samples": 34561,
+  "val_samples": 6491,
+  "best_val_accuracy": 0.9959944538591896,
+  "best_ema_accuracy": 0.9939916807887845,
+  "tta_accuracy": 0.9958403943922354,
+  "ema_tta_accuracy": 0.994299799722693,
+  "input_size": 224,
+  "input_channels": 1
+}
