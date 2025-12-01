@@ -12,6 +12,7 @@ __all__ = [
     "build_convnext_tiny",
     "build_resnext50_32x4d",
     "build_resnext101_32x8d",
+    "build_swin_multiscale",
 ]
 
 
@@ -47,6 +48,11 @@ def build_resnext50_32x4d(*args, **kwargs):
 
 def build_resnext101_32x8d(*args, **kwargs):
     from .resnext101_32x8d import build_resnext101_32x8d as _fn
+    return _fn(*args, **kwargs)
+
+
+def build_swin_multiscale(*args, **kwargs):
+    from .swin_multiscale import build_swin_multiscale as _fn
     return _fn(*args, **kwargs)
 
 

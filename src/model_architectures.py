@@ -361,6 +361,33 @@ def build_swin_tiny(num_classes: int = 11, pretrained: bool = True) -> Tuple[nn.
     return model, recipe
 
 
+def build_swin_multiscale(num_classes: int = 11, pretrained: bool = True) -> Tuple[nn.Module, ModelRecipe]:
+    """Swin Transformer with Multi-Scale Feature Fusion for 224×224 grayscale.
+    
+    Extracts features from all 4 Swin stages and fuses them with attention
+    weighting for improved classification. Includes optional deep supervision
+    via auxiliary heads.
+    """
+    from .models.swin_multiscale import build_swin_multiscale as _build_swin_ms
+    
+    model = _build_swin_ms(
+        num_classes=num_classes,
+        pretrained=pretrained,
+        use_aux_heads=True,
+        fusion_dim=512,
+    )
+    
+    recipe = ModelRecipe(
+        name="swin_multiscale",
+        input_size=(224, 224),
+        default_lr=5e-4,
+        default_weight_decay=5e-2,
+        default_batch_size=48,
+        classifier_dropout=0.1,
+    )
+    return model, recipe
+
+
 def build_all_models(num_classes: int = 11, pretrained: bool = True) -> Dict[str, Tuple[nn.Module, ModelRecipe]]:
     builders = [
         build_resnet50,
@@ -374,6 +401,7 @@ def build_all_models(num_classes: int = 11, pretrained: bool = True) -> Dict[str
         build_vit_s16,
         build_vit_b16,
         build_swin_tiny,
+        build_swin_multiscale,
     ]
     out: Dict[str, Tuple[nn.Module, ModelRecipe]] = {}
     for fn in builders:
