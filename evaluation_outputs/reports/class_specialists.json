@@ -1,0 +1,57 @@
+{
+  "Bladder": [
+    "swin_tiny_finetuned",
+    "resnext50_32x4d",
+    "resnet50"
+  ],
+  "Femur (L)": [
+    "resnet50",
+    "resnet101",
+    "resnext50_32x4d"
+  ],
+  "Femur (R)": [
+    "resnet50",
+    "resnet101",
+    "resnext50_32x4d"
+  ],
+  "Heart": [
+    "efficientnet_b3",
+    "convnext_tiny_finetuned",
+    "resnet101"
+  ],
+  "Kidney (L)": [
+    "resnext101_32x8d",
+    "swin_tiny_finetuned",
+    "convnext_tiny_finetuned"
+  ],
+  "Kidney (R)": [
+    "efficientnet_b3",
+    "swin_tiny",
+    "resnet101"
+  ],
+  "Liver": [
+    "resnet50",
+    "resnet101",
+    "resnext50_32x4d"
+  ],
+  "Lung (L)": [
+    "efficientnet_b3",
+    "resnet101",
+    "densenet121"
+  ],
+  "Lung (R)": [
+    "swin_tiny_finetuned",
+    "densenet121",
+    "swin_tiny"
+  ],
+  "Spleen": [
+    "resnet101",
+    "resnext50_32x4d",
+    "densenet121"
+  ],
+  "Pancreas": [
+    "resnet50",
+    "efficientnet_b3",
+    "swin_tiny_finetuned"
+  ]
+}
