@@ -9,6 +9,7 @@ from torchvision import models
 import timm
 
 from .models.densenet121_adaptive import build_densenet121_adaptive as _build_dn121_adaptive
+from .models.convtransgfusion import build_convtransgfusion as _build_convtransgfusion
 
 @dataclass(frozen=True)
 class ModelRecipe:
@@ -388,6 +389,30 @@ def build_swin_multiscale(num_classes: int = 11, pretrained: bool = True) -> Tup
     return model, recipe
 
 
+def build_convtransgfusion(num_classes: int = 11, pretrained: bool = True) -> Tuple[nn.Module, ModelRecipe]:
+    """ConvTransGFusion: Hybrid CNN-Transformer with Attention-Guided Feature Fusion.
+    
+    Combines ConvNeXt branch for local features with Swin Transformer branch for
+    global attention, fused via Attention-Guided Feature Fusion (AGFF) module.
+    """
+    model = _build_convtransgfusion(
+        num_classes=num_classes,
+        pretrained=pretrained,
+        drop_path_rate=0.1,
+        dropout=0.1,
+    )
+    
+    recipe = ModelRecipe(
+        name="convtransgfusion",
+        input_size=(224, 224),
+        default_lr=5e-4,
+        default_weight_decay=5e-2,
+        default_batch_size=32,  # Reduced due to dual-branch memory usage
+        classifier_dropout=0.1,
+    )
+    return model, recipe
+
+
 def build_all_models(num_classes: int = 11, pretrained: bool = True) -> Dict[str, Tuple[nn.Module, ModelRecipe]]:
     builders = [
         build_resnet50,
@@ -402,6 +427,7 @@ def build_all_models(num_classes: int = 11, pretrained: bool = True) -> Dict[str
         build_vit_b16,
         build_swin_tiny,
         build_swin_multiscale,
+        build_convtransgfusion,
     ]
     out: Dict[str, Tuple[nn.Module, ModelRecipe]] = {}
     for fn in builders:
