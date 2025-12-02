@@ -1,39 +1,31 @@
-# 🏆 Model Evaluation Guide
+# 🏆 Complete Model Evaluation Guide
 
-This guide explains all evaluation outputs from your model comparison experiments. It covers model rankings, robustness testing, per-class performance, and more.
-
----
-
-## Table of Contents
-
-### Reports (JSON)
-1. [Robustness Ranking](#1-robustness-ranking)
-2. [Class Specialists](#2-class-specialists)
-
-### Tables (CSV)
-3. [Model Comparison Table](#3-model-comparison-table)
-4. [Per-Class Performance](#4-per-class-performance)
-5. [Corruption Robustness (All Models)](#5-corruption-robustness-all-models)
-6. [Model Diversity Correlation](#6-model-diversity-correlation)
-
-### Figures (PNG)
-7. [Visualization Guide](#7-visualization-guide)
-
-### Confusion Matrices
-8. [Per-Model Confusion Matrices](#8-per-model-confusion-matrices)
+All evaluation artifacts live under `evaluation_outputs/`. This guide mirrors the “teach me everything” style used for figures/tables/reports: for each JSON/CSV/PNG you’ll get **what it measures, the key numbers, and how to act on them**.
 
 ---
 
-## 1. Robustness Ranking
+## Contents Overview
+
+1. [Robustness Ranking Report](#1-robustness-ranking-report)  
+2. [Class Specialists Report](#2-class-specialists-report)  
+3. [Model Comparison Table](#3-model-comparison-table)  
+4. [Per-Class Performance Table](#4-per-class-performance-table)  
+5. [Corruption Robustness Table](#5-corruption-robustness-table)  
+6. [Model Diversity Correlation](#6-model-diversity-correlation)  
+7. [Evaluation Figures](#7-evaluation-figures)  
+8. [Per-Model Confusion Matrices](#8-per-model-confusion-matrices)  
+9. [Summary & Recommended Actions](#9-summary--recommended-actions)  
+10. [File Reference](#10-file-reference)
+
+---
+
+## 1. Robustness Ranking Report
 
 **File:** `reports/robustness_ranking.json`
 
-### What is it?
-Comprehensive robustness evaluation of all 11 models tested against 15 types of image corruptions.
+**What it contains:** Clean accuracy, mean corruption accuracy (15 corruptions), and relative robustness (corruption/clean) for all 11 models.
 
----
-
-### Overall Model Rankings
+### Overall leaderboard
 
 | Rank | Model | Clean Acc | Corruption Acc | Relative Robustness |
 |------|-------|-----------|----------------|---------------------|
@@ -49,147 +41,40 @@ Comprehensive robustness evaluation of all 11 models tested against 15 types of 
 | 10 | resnet50 | 99.14% | 72.44% | 73.07% |
 | 11 | vit_s16 | 98.43% | **70.28%** | 71.40% |
 
-### Key Metrics Explained:
-- **Clean Accuracy:** Performance on unperturbed validation images
-- **Mean Corruption Accuracy:** Average accuracy across all 15 corruption types
-- **Relative Robustness:** Corruption accuracy / Clean accuracy (how well it maintains performance)
+### Category winners
+
+| Category | Best Model(s) | Notes |
+|----------|---------------|-------|
+| Noise (Gaussian/Shot/Impulse) | convnext_tiny_finetuned (74.9%), efficientnet_b3 (74.2%) | Noise is hardest overall. |
+| Blur | convnext_tiny_finetuned (76.0%) | Swin finetuned is close (74.7%). |
+| Weather | convnext_tiny_finetuned (77.5%) | Handles brightness/fog well. |
+| Digital | convnext_tiny_finetuned (78.7%) | Also best on JPEG (81%). |
+
+**Specialists per corruption:** ConvNeXt-Tiny finetuned dominates 13/15 corruptions; EfficientNet-B3 wins shot noise; Swin-Tiny finetuned wins glass blur.
+
+**Why it matters:** Choose models based on deployment constraints—ConvNeXt FT for robustness-first, Swin FT for accuracy, EfficientNet-B3 when speed + robustness balance is needed.
 
 ---
 
-### Category Rankings
-
-#### 🔊 Noise Corruptions
-*Gaussian noise, shot noise, impulse noise*
-
-| Rank | Model | Accuracy |
-|------|-------|----------|
-| 1 | convnext_tiny_finetuned | 74.92% |
-| 2 | efficientnet_b3 | 74.17% |
-| 3 | densenet121 | 73.20% |
-| 4 | swin_tiny_finetuned | 72.63% |
-| 5 | swin_tiny | 72.26% |
-
-#### 🌫️ Blur Corruptions
-*Defocus blur, glass blur, motion blur, zoom blur*
-
-| Rank | Model | Accuracy |
-|------|-------|----------|
-| 1 | convnext_tiny_finetuned | 76.00% |
-| 2 | swin_tiny_finetuned | 74.67% |
-| 3 | resnext101_32x8d | 74.49% |
-| 4 | resnet101 | 74.12% |
-| 5 | convnext_tiny | 74.02% |
-
-#### 🌧️ Weather Corruptions
-*Snow, frost, fog, brightness*
-
-| Rank | Model | Accuracy |
-|------|-------|----------|
-| 1 | convnext_tiny_finetuned | 77.46% |
-| 2 | swin_tiny_finetuned | 76.63% |
-| 3 | swin_tiny | 75.60% |
-| 4 | resnext101_32x8d | 74.29% |
-| 5 | efficientnet_b3 | 74.01% |
-
-#### 💻 Digital Corruptions
-*Contrast, elastic transform, pixelate, JPEG compression*
-
-| Rank | Model | Accuracy |
-|------|-------|----------|
-| 1 | convnext_tiny_finetuned | 78.66% |
-| 2 | swin_tiny_finetuned | 76.83% |
-| 3 | efficientnet_b3 | 76.72% |
-| 4 | swin_tiny | 76.12% |
-| 5 | convnext_tiny | 75.96% |
-
----
-
-### Corruption Specialists
-
-Which model is best for each specific corruption?
-
-| Corruption | Best Model | Accuracy |
-|------------|------------|----------|
-| gaussian_noise | convnext_tiny_finetuned | 77.52% |
-| shot_noise | efficientnet_b3 | 74.26% |
-| impulse_noise | convnext_tiny_finetuned | 73.20% |
-| defocus_blur | convnext_tiny_finetuned | 78.41% |
-| glass_blur | swin_tiny_finetuned | 71.82% |
-| motion_blur | convnext_tiny_finetuned | 77.36% |
-| zoom_blur | convnext_tiny_finetuned | 76.64% |
-| snow | convnext_tiny_finetuned | 75.60% |
-| frost | convnext_tiny_finetuned | 75.92% |
-| fog | convnext_tiny_finetuned | 77.82% |
-| **brightness** | convnext_tiny_finetuned | **80.52%** |
-| contrast | convnext_tiny_finetuned | 79.29% |
-| elastic_transform | convnext_tiny_finetuned | 75.24% |
-| pixelate | convnext_tiny_finetuned | 79.08% |
-| **jpeg_compression** | convnext_tiny_finetuned | **81.03%** |
-
-### Key Takeaways:
-- 🏆 **ConvNeXt-Tiny (finetuned) dominates** - Best on 13 of 15 corruptions
-- EfficientNet-B3 excels at shot noise
-- Swin-Tiny (finetuned) excels at glass blur
-- **Brightness & JPEG compression** are easiest corruptions (>80% accuracy)
-- **Glass blur & impulse noise** are hardest (<73% accuracy)
-
----
-
-### Summary Statistics
-
-| Metric | Value |
-|--------|-------|
-| Most Robust Model | convnext_tiny_finetuned |
-| Most Robust Accuracy | 76.88% |
-| Least Robust Model | vit_s16 |
-| Least Robust Accuracy | 70.28% |
-| Mean Across Models | 73.91% |
-| Std Across Models | 1.59% |
-
----
-
-## 2. Class Specialists
+## 2. Class Specialists Report
 
 **File:** `reports/class_specialists.json`
 
-### What is it?
-Identifies which models perform best for each anatomical class (organ).
+**Purpose:** Lists the top 3 models for each organ class (based on accuracy/F1).
 
-### Best Models by Class (Top 3):
+| Class | Top Model | Runners-Up | Interpretation |
+|-------|-----------|------------|----------------|
+| Bladder | swin_tiny_finetuned | resnext50_32x4d, resnet50 | Swin FT locks 100% accuracy. |
+| Femur (L/R) | resnet50 / resnet101 | resnext50 | ResNet family excels at bones. |
+| Heart | efficientnet_b3 | convnext_tiny_finetuned, resnet101 | EfficientNet handles high contrast regions. |
+| Kidney (L) | resnext101_32x8d | swin_tiny_finetuned, convnext_tiny_finetuned | Larger receptive fields help. |
+| Kidney (R) | efficientnet_b3 | swin_tiny, resnet101 | EfficientNet best on asymmetric organs. |
+| Lung (L/R) | efficientnet_b3 / swin_tiny_finetuned | densenet121 | Attention-driven models win on lungs. |
+| Pancreas | resnet50 | efficientnet_b3, swin_tiny_finetuned | Residual models catch subtle textures. |
 
-| Class | #1 Model | #2 Model | #3 Model |
-|-------|----------|----------|----------|
-| **Bladder** | swin_tiny_finetuned | resnext50_32x4d | resnet50 |
-| **Femur (L)** | resnet50 | resnet101 | resnext50_32x4d |
-| **Femur (R)** | resnet50 | resnet101 | resnext50_32x4d |
-| **Heart** | efficientnet_b3 | convnext_tiny_finetuned | resnet101 |
-| **Kidney (L)** | resnext101_32x8d | swin_tiny_finetuned | convnext_tiny_finetuned |
-| **Kidney (R)** | efficientnet_b3 | swin_tiny | resnet101 |
-| **Liver** | resnet50 | resnet101 | resnext50_32x4d |
-| **Lung (L)** | efficientnet_b3 | resnet101 | densenet121 |
-| **Lung (R)** | swin_tiny_finetuned | densenet121 | swin_tiny |
-| **Spleen** | resnet101 | resnext50_32x4d | densenet121 |
-| **Pancreas** | resnet50 | efficientnet_b3 | swin_tiny_finetuned |
-
-### Model Appearances as Specialist:
-
-| Model | Times in Top 3 | Primary Strength |
-|-------|----------------|------------------|
-| resnet50 | 6 | Femurs, Liver, Pancreas |
-| resnet101 | 6 | Femurs, Spleen, Lungs |
-| resnext50_32x4d | 5 | Femurs, Liver, Bladder |
-| efficientnet_b3 | 4 | Heart, Kidneys, Lungs |
-| swin_tiny_finetuned | 4 | Bladder, Kidneys, Lungs |
-| densenet121 | 3 | Lungs, Spleen |
-| swin_tiny | 2 | Kidney (R), Lung (R) |
-| convnext_tiny_finetuned | 2 | Heart, Kidney (L) |
-| resnext101_32x8d | 1 | Kidney (L) |
-
-### Key Takeaways:
-- **ResNet family excels at bones** (Femurs) and dense organs (Liver)
-- **EfficientNet-B3 excels at soft organs** (Heart, Kidneys, Lungs)
-- **Swin-Tiny (finetuned) excels at Bladder and Lung (R)**
-- Consider **ensemble strategies** combining specialists
+**Use cases:**  
+- Build ensembles that mix specialists (e.g., EfficientNet-B3 for soft organs + Swin FT for bladder + ResNet50 for bones).  
+- Prioritize data augmentation for organs without a dominant specialist.
 
 ---
 
@@ -197,150 +82,88 @@ Identifies which models perform best for each anatomical class (organ).
 
 **File:** `tables/model_comparison_table.csv`
 
-### What is it?
-Comprehensive comparison of all 11 models on key metrics.
+| Model | Val Acc | Macro F1 | Params (M) | FLOPs (G) | Inference (ms) | Worst Class | Best Class |
+|-------|---------|----------|------------|-----------|----------------|-------------|------------|
+| **swin_tiny_finetuned** | **99.69%** | 0.998 | 27.5 | 4.5 | 1.17 | Heart (99.23%) | Bladder (100%) |
+| swin_tiny | 99.63% | 0.996 | 27.5 | 4.5 | 1.17 | Heart (98.98%) | Femur L (100%) |
+| **densenet121** | 99.61% | 0.996 | **7.0** | **2.9** | **0.94** | Heart (98.72%) | Femur L (100%) |
+| convnext_tiny_finetuned | 99.60% | 0.996 | 27.8 | 4.5 | 1.17 | Spleen (98.3%) | Femur L (100%) |
+| **efficientnet_b3** | 99.32% | 0.994 | 10.7 | 1.8 | **0.77** | Lung R (96.53%) | Femur L (100%) |
+| resnet101 | 99.15% | 0.993 | 42.5 | 7.8 | 1.67 | Lung R (96.13%) | Femur L (100%) |
+| resnet50 | 99.14% | 0.991 | 23.5 | 4.1 | 1.11 | Heart (97.19%) | Femur L (100%) |
+| resnext50_32x4d | 98.94% | 0.991 | 23.0 | 4.2 | 1.13 | Lung R (96.23%) | Femur L (100%) |
+| resnext101_32x8d | 98.94% | 0.991 | **86.7** | **16.4** | **2.96** | Lung R (95.04%) | Femur L (100%) |
+| vit_s16 | 98.43% | 0.986 | 21.7 | 4.6 | 1.19 | Lung R (94.85%) | Liver (100%) |
+| convnext_tiny | 97.32% | 0.974 | 27.8 | 4.5 | 1.17 | Heart (89.80%) | Femur L (100%) |
 
-### Full Comparison:
-
-| Model | Val Acc | Macro F1 | Params (M) | FLOPs (G) | Inference (ms) | Worst Class | Worst Acc | Best Class | Best Acc |
-|-------|---------|----------|------------|-----------|----------------|-------------|-----------|------------|----------|
-| swin_tiny_finetuned | **99.69%** | 0.998 | 27.5 | 4.5 | 1.17 | Heart | 99.23% | Bladder | 100% |
-| swin_tiny | 99.63% | 0.996 | 27.5 | 4.5 | 1.17 | Heart | 98.98% | Femur (L) | 100% |
-| densenet121 | 99.61% | 0.996 | **7.0** | **2.9** | **0.94** | Heart | 98.72% | Femur (L) | 100% |
-| convnext_tiny_finetuned | 99.60% | 0.996 | 27.8 | 4.5 | 1.17 | Spleen | 98.30% | Femur (L) | 100% |
-| efficientnet_b3 | 99.32% | 0.994 | 10.7 | 1.8 | **0.77** | Lung (R) | 96.53% | Femur (L) | 100% |
-| resnet101 | 99.15% | 0.993 | 42.5 | 7.8 | 1.67 | Lung (R) | 96.13% | Femur (L) | 100% |
-| resnet50 | 99.14% | 0.991 | 23.5 | 4.1 | 1.11 | Heart | 97.19% | Femur (L) | 100% |
-| resnext50_32x4d | 98.94% | 0.991 | 23.0 | 4.2 | 1.13 | Lung (R) | 96.23% | Femur (L) | 100% |
-| resnext101_32x8d | 98.94% | 0.991 | **86.7** | **16.4** | **2.96** | Lung (R) | 95.04% | Femur (L) | 100% |
-| vit_s16 | 98.43% | 0.986 | 21.7 | 4.6 | 1.19 | Lung (R) | 94.85% | Liver | 100% |
-| convnext_tiny | 97.32% | 0.974 | 27.8 | 4.5 | 1.17 | Heart | 89.80% | Femur (L) | 100% |
-
-### Efficiency Analysis:
-
-#### Best Accuracy/Parameter Ratio:
-1. **DenseNet121** - 99.61% with only 7M params
-2. **EfficientNet-B3** - 99.32% with 10.7M params
-3. **Swin-Tiny-Finetuned** - 99.69% with 27.5M params
-
-#### Best Accuracy/Inference Ratio:
-1. **EfficientNet-B3** - 99.32% @ 0.77ms
-2. **DenseNet121** - 99.61% @ 0.94ms
-3. **ResNet50** - 99.14% @ 1.11ms
-
-#### Largest Model:
-- **ResNeXt101-32x8d** - 86.7M params, 16.4 GFLOPs, 2.96ms
-
-### Key Takeaways:
-- 🏆 **Swin-Tiny (finetuned) has highest accuracy** (99.69%)
-- ⚡ **EfficientNet-B3 is fastest** (0.77ms inference)
-- 💾 **DenseNet121 is most compact** (7M params with 99.61% acc)
-- ❌ **Heart and Lung (R) are hardest classes** for most models
+**Reading tips**
+- Choose DenseNet121 when memory/speed-constrained.  
+- EfficientNet-B3 is the inference-speed champion (0.77 ms).  
+- ConvNeXt Tiny (non-finetuned) lags both in accuracy and robustness—only use after finetuning.
 
 ---
 
-## 4. Per-Class Performance
+## 4. Per-Class Performance Table
 
 **File:** `tables/per_class_performance.csv`
 
-### What is it?
-Detailed accuracy and F1 score for each class across all 11 models.
+**Best model per class**
 
-### Class-wise Best Models:
+| Class | Best Accuracy | Best Model |
+|-------|---------------|------------|
+| 0 (Bladder) | 100% | swin_tiny_finetuned |
+| 1 (Femur L) | 100% | resnet50 (+ others) |
+| 2 (Femur R) | 100% | resnet50 (+ others) |
+| 3 (Heart) | 100% | efficientnet_b3 |
+| 4 (Kidney L) | 100% | resnext101_32x8d |
+| 5 (Kidney R) | 100% | efficientnet_b3 |
+| 6 (Liver) | 100% | many |
+| 7 (Lung L) | 100% | efficientnet_b3 |
+| 8 (Lung R) | 99.6% | swin_tiny_finetuned |
+| 9 (Spleen) | 100% | resnet101 |
+| 10 (Pancreas) | 100% | resnet50 (+ others) |
 
-| Class ID | Class Name | Best Model | Best Accuracy |
-|----------|------------|------------|---------------|
-| 0 | Bladder | swin_tiny_finetuned | **100%** |
-| 1 | Femur (L) | resnet50 (+ 7 others) | **100%** |
-| 2 | Femur (R) | resnet50 (+ 6 others) | **100%** |
-| 3 | Heart | efficientnet_b3 | **100%** |
-| 4 | Kidney (L) | resnext101_32x8d | **100%** |
-| 5 | Kidney (R) | efficientnet_b3 | **100%** |
-| 6 | Liver | resnet50 (+ 8 others) | **100%** |
-| 7 | Lung (L) | efficientnet_b3 | **100%** |
-| 8 | Lung (R) | swin_tiny_finetuned | **99.60%** |
-| 9 | Spleen | resnet101 | **100%** |
-| 10 | Pancreas | resnet50 (+ 2 others) | **100%** |
+**Hard classes (average across models):**
 
-### Class Difficulty Analysis:
+| Class | Avg Acc | Reason |
+|-------|---------|--------|
+| Heart | 97.36% | High contrast, limited samples. |
+| Lung (R) | 97.00% | Bilateral confusion + texture shift. |
+| Pancreas | 99.45% | Thin structure, benefits from residual nets. |
 
-| Class | Avg Accuracy | Hardest Model | Hardest Acc |
-|-------|--------------|---------------|-------------|
-| Femur (L) | 99.96% | vit_s16 | 99.57% |
-| Femur (R) | 99.80% | vit_s16 | 98.67% |
-| Liver | 100% | All | 100% |
-| Pancreas | 99.45% | convnext_tiny | 97.06% |
-| Bladder | 99.33% | vit_s16 | 98.44% |
-| Kidney (L) | 99.12% | convnext_tiny | 98.06% |
-| Kidney (R) | 99.14% | convnext_tiny | 97.80% |
-| Spleen | 99.35% | convnext_tiny_finetuned | 98.30% |
-| Lung (L) | 99.49% | convnext_tiny | 97.77% |
-| **Lung (R)** | **97.00%** | convnext_tiny | 93.66% |
-| **Heart** | **97.36%** | convnext_tiny | 89.80% |
-
-### Key Takeaways:
-- ✅ **Liver achieves 100% accuracy** across ALL models
-- ✅ **Femurs are easy** - All models score >98.5%
-- ⚠️ **Heart is hardest** - Average 97.36%, ConvNeXt-Tiny only 89.80%
-- ⚠️ **Lung (R) is second hardest** - Average 97.00%
-- ConvNeXt-Tiny (non-finetuned) struggles most across classes
+**Takeaway:** Deploy class-aware monitoring (especially Heart/Lung R) even with top models.
 
 ---
 
-## 5. Corruption Robustness (All Models)
+## 5. Corruption Robustness Table
 
 **File:** `tables/corruption_robustness_all_models.csv`
 
-### What is it?
-Complete breakdown of each model's accuracy on all 15 corruption types.
+**Columns:** clean accuracy, mean corruption accuracy, relative robustness, per-category averages (noise/blur/weather/digital), plus every individual corruption.
 
-### Columns Explained:
-| Column | Description |
-|--------|-------------|
-| `model` | Model name |
-| `clean_accuracy` | Accuracy on original images |
-| `mean_corruption_accuracy` | Average across all corruptions |
-| `relative_robustness` | mean_corruption / clean |
-| `noise_accuracy` | Average of noise corruptions |
-| `blur_accuracy` | Average of blur corruptions |
-| `weather_accuracy` | Average of weather corruptions |
-| `digital_accuracy` | Average of digital corruptions |
-| *Individual corruptions* | Accuracy on each specific corruption |
+### Corruption difficulty (averaged over all models)
 
-### Corruption Difficulty Ranking (Averaged Across Models):
+| Rank | Corruption | Avg Accuracy |
+|------|------------|--------------|
+| 1 (easiest) | JPEG compression | 77.76% |
+| 2 | Brightness | 76.21% |
+| 3 | Contrast | 76.14% |
+| … | … | … |
+| 14 | Glass blur | 69.74% |
+| 15 (hardest) | Impulse noise | 69.64% |
 
-| Rank | Corruption | Avg Accuracy | Category |
-|------|------------|--------------|----------|
-| 1 (Easiest) | jpeg_compression | 77.76% | Digital |
-| 2 | brightness | 76.21% | Weather |
-| 3 | contrast | 76.14% | Digital |
-| 4 | defocus_blur | 75.82% | Blur |
-| 5 | pixelate | 75.53% | Digital |
-| 6 | fog | 74.76% | Weather |
-| 7 | motion_blur | 74.69% | Blur |
-| 8 | elastic_transform | 72.63% | Digital |
-| 9 | zoom_blur | 74.04% | Blur |
-| 10 | frost | 73.21% | Weather |
-| 11 | snow | 72.05% | Weather |
-| 12 | gaussian_noise | 73.00% | Noise |
-| 13 | shot_noise | 71.75% | Noise |
-| 14 | glass_blur | 69.74% | Blur |
-| 15 (Hardest) | impulse_noise | 69.64% | Noise |
+### Model stability (std dev across corruptions)
 
-### Model Stability (Std Dev Across Corruptions):
+| Model | Mean Corruption | Std Dev |
+|-------|-----------------|---------|
+| convnext_tiny_finetuned | 76.88% | 2.15% |
+| swin_tiny_finetuned | 75.36% | 2.31% |
+| efficientnet_b3 | 74.57% | 2.18% |
+| vit_s16 | 70.28% | 2.29% |
 
-| Model | Mean Acc | Std Dev | Interpretation |
-|-------|----------|---------|----------------|
-| convnext_tiny_finetuned | 76.88% | 2.15% | Most stable |
-| swin_tiny_finetuned | 75.36% | 2.31% | Very stable |
-| efficientnet_b3 | 74.57% | 2.18% | Stable |
-| vit_s16 | 70.28% | 2.29% | Least accurate |
-
-### Key Takeaways:
-- **JPEG compression is easiest** - Models handle it best
-- **Impulse noise & glass blur are hardest** - <70% average accuracy
-- Weather corruptions are generally easier than noise
-- Finetuned models are more stable across corruptions
+**Usage:**  
+- When benchmarking new augmentations, compare them against this table.  
+- Use per-corruption columns to target synthetic data generation (e.g., add impulse noise, glass blur).
 
 ---
 
@@ -348,110 +171,43 @@ Complete breakdown of each model's accuracy on all 15 corruption types.
 
 **File:** `tables/model_diversity_correlation.csv`
 
-### What is it?
-Correlation matrix showing how similar/different model predictions are. Useful for **ensemble selection**.
+**Interpretation:** Pearson correlation of prediction vectors; low/negative values = diverse behavior → better ensembles.
 
-### How to Read:
-- **1.0** = Identical predictions (diagonal)
-- **High positive (>0.7)** = Models agree often
-- **Low/Negative (<0.3)** = Models disagree (good for ensemble diversity)
+| Notable Pairs | Correlation | Insight |
+|---------------|-------------|---------|
+| efficientnet_b3 ↔ resnet101 | **0.94** | Very similar outputs; redundant in ensemble. |
+| convnext_tiny_finetuned ↔ resnet50 | **0.08** | Highly diverse; good ensemble combo. |
+| convnext_tiny_finetuned ↔ convnext_tiny | **-0.07** | Finetuning dramatically alters decisions. |
+| swin_tiny ↔ convnext_tiny_finetuned | 0.08 | Another diverse pair. |
 
-### Full Correlation Matrix:
-
-|  | resnet50 | resnet101 | resnext50 | resnext101 | dense121 | eff_b3 | vit_s16 | swin | swin_ft | convnext | convnext_ft |
-|--|----------|-----------|-----------|------------|----------|--------|---------|------|---------|----------|-------------|
-| resnet50 | 1.00 | 0.61 | 0.69 | 0.48 | 0.80 | 0.45 | 0.69 | 0.70 | 0.70 | 0.84 | **0.08** |
-| resnet101 | 0.61 | 1.00 | 0.91 | 0.89 | 0.31 | 0.94 | 0.78 | 0.45 | 0.23 | 0.47 | 0.24 |
-| resnext50 | 0.69 | 0.91 | 1.00 | 0.92 | 0.32 | 0.85 | 0.80 | 0.38 | 0.53 | 0.64 | 0.28 |
-| resnext101 | 0.48 | 0.89 | 0.92 | 1.00 | 0.19 | 0.94 | 0.83 | 0.33 | 0.42 | 0.49 | 0.42 |
-| densenet121 | 0.80 | 0.31 | 0.32 | 0.19 | 1.00 | 0.20 | 0.50 | 0.65 | 0.50 | 0.67 | 0.16 |
-| efficientnet_b3 | 0.45 | 0.94 | 0.85 | 0.94 | 0.20 | 1.00 | 0.75 | 0.39 | 0.22 | 0.32 | 0.48 |
-| vit_s16 | 0.69 | 0.78 | 0.80 | 0.83 | 0.50 | 0.75 | 1.00 | 0.66 | 0.62 | 0.79 | 0.22 |
-| swin_tiny | 0.70 | 0.45 | 0.38 | 0.33 | 0.65 | 0.39 | 0.66 | 1.00 | 0.39 | 0.54 | **0.08** |
-| swin_tiny_ft | 0.70 | 0.23 | 0.53 | 0.42 | 0.50 | 0.22 | 0.62 | 0.39 | 1.00 | 0.83 | 0.27 |
-| convnext_tiny | 0.84 | 0.47 | 0.64 | 0.49 | 0.67 | 0.32 | 0.79 | 0.54 | 0.83 | 1.00 | **-0.07** |
-| **convnext_ft** | **0.08** | 0.24 | 0.28 | 0.42 | 0.16 | 0.48 | 0.22 | **0.08** | 0.27 | **-0.07** | 1.00 |
-
-### Most Similar Model Pairs:
-| Pair | Correlation | Implication |
-|------|-------------|-------------|
-| efficientnet_b3 ↔ resnext101 | **0.94** | Very similar predictions |
-| efficientnet_b3 ↔ resnet101 | **0.94** | Very similar predictions |
-| resnext50 ↔ resnext101 | **0.92** | Same architecture family |
-| resnet101 ↔ resnext50 | **0.91** | ResNet variants cluster |
-
-### Most Diverse Model Pairs (Best for Ensemble):
-| Pair | Correlation | Implication |
-|------|-------------|-------------|
-| convnext_tiny ↔ convnext_ft | **-0.07** | Opposite predictions! |
-| convnext_ft ↔ resnet50 | **0.08** | Very different |
-| convnext_ft ↔ swin_tiny | **0.08** | Very different |
-| convnext_ft ↔ densenet121 | **0.16** | Very different |
-
-### Recommended Ensemble Combinations:
-
-1. **Diverse Trio (Best):**
-   - convnext_tiny_finetuned + densenet121 + swin_tiny
-   - Low correlation (0.16, 0.08, 0.65)
-
-2. **Accuracy-Focused:**
-   - swin_tiny_finetuned + efficientnet_b3 + convnext_tiny_finetuned
-   - Top performers with moderate diversity
-
-3. **Speed-Focused:**
-   - efficientnet_b3 + densenet121 + resnet50
-   - Fast inference with diversity
-
-### Key Takeaways:
-- 🎯 **ConvNeXt-Tiny (finetuned) is most unique** - Negative/low correlation with all others
-- ResNet family members correlate highly (0.61-0.94)
-- Finetuning significantly changes prediction patterns
-- Use diverse models for ensembles, not similar ones
+**Recommended ensembles**
+1. **Diverse/robust:** convnext_tiny_finetuned + densenet121 + swin_tiny.  
+2. **Speed-focused:** efficientnet_b3 + densenet121 + resnet50.  
+3. **Accuracy-focused:** swin_tiny_finetuned + convnext_tiny_finetuned + efficientnet_b3.
 
 ---
 
-## 7. Visualization Guide
+## 7. Evaluation Figures
 
-**Directory:** `figures/`
+**Directory:** `evaluation_outputs/figures/`
 
-### Available Figures:
+| Figure | What to inspect |
+|--------|-----------------|
+| `corruption_heatmap.png` | Visual row/column patterns → hardest corruptions (vertical) & weak models (horizontal). |
+| `robustness_ranking.png` | Bar chart of mean corruption accuracy, easier to show in slides. |
+| `per_class_model_performance.png` | Which model dominates each organ. |
+| `inference_time_comparison.png` | Speed vs architecture; pair with deployment constraints. |
+| `model_diversity_heatmap.png` | Visual version of correlation matrix; look for cool colors to pick ensemble members. |
 
-| Figure | Description |
-|--------|-------------|
-| `corruption_heatmap.png` | Heatmap showing each model's accuracy on each corruption type |
-| `inference_time_comparison.png` | Bar chart comparing model inference times |
-| `model_diversity_heatmap.png` | Visual representation of the correlation matrix |
-| `per_class_model_performance.png` | How each model performs on each anatomical class |
-| `robustness_ranking.png` | Visual ranking of models by robustness |
-
-### What to Look For:
-
-#### corruption_heatmap.png
-- **Bright colors** = High accuracy
-- **Dark colors** = Low accuracy
-- Look for **vertical patterns** (corruption difficulty)
-- Look for **horizontal patterns** (model strengths)
-
-#### inference_time_comparison.png
-- Compare model speed vs accuracy trade-offs
-- Identify fastest models for deployment
-
-#### model_diversity_heatmap.png
-- **Blue** = High correlation (similar)
-- **Red** = Low/negative correlation (diverse)
-- Identify ensemble candidates
-
-#### per_class_model_performance.png
-- Spot which models excel at specific organs
-- Identify problematic classes needing attention
+Use these PNGs for presentations or to quickly sanity-check numeric tables.
 
 ---
 
 ## 8. Per-Model Confusion Matrices
 
-**Directory:** `confusion_matrices/`
+**Directory:** `evaluation_outputs/confusion_matrices/`
 
-### Available Files:
+Available PNGs:
 ```
 confusion_matrix_convnext_tiny_finetuned.png
 confusion_matrix_convnext_tiny.png
@@ -466,81 +222,38 @@ confusion_matrix_swin_tiny.png
 confusion_matrix_vit_s16.png
 ```
 
-### How to Read Confusion Matrices:
-- **Rows** = Actual/True labels
-- **Columns** = Predicted labels
-- **Diagonal** = Correct predictions (should be dark/high)
-- **Off-diagonal** = Misclassifications (should be light/low)
-
-### What to Look For:
-1. **Strong diagonal** = Good model performance
-2. **Off-diagonal clusters** = Systematic confusion between classes
-3. **Empty rows** = Class never predicted correctly
-4. **Empty columns** = Class never predicted
-
-### Common Patterns Found:
-- **Heart ↔ Other classes** - Most common confusion
-- **Lung (L) ↔ Lung (R)** - Bilateral organ confusion
-- **Kidney (L) ↔ Kidney (R)** - Bilateral organ confusion
+**What to look for**
+1. Diagonal strength → overall accuracy.  
+2. Row-specific leaks → problematic true classes.  
+3. Compare matrices between base vs finetuned variants (e.g., convnext tiny) to see where improvements occurred.  
+4. Validate class specialist claims visually (e.g., EfficientNet’s heart row).
 
 ---
 
-## 📈 Summary: Key Findings
+## 9. Summary & Recommended Actions
 
-### 🏆 Model Rankings
-
-| Category | Best Model | Metric |
-|----------|------------|--------|
-| **Overall Accuracy** | swin_tiny_finetuned | 99.69% |
-| **Robustness** | convnext_tiny_finetuned | 76.88% corruption acc |
-| **Efficiency (Params)** | densenet121 | 7M params |
-| **Efficiency (Speed)** | efficientnet_b3 | 0.77ms |
-| **Ensemble Diversity** | convnext_tiny_finetuned | -0.07 to 0.48 correlations |
-
-### ⚠️ Problem Areas
-
-| Issue | Details | Recommendation |
-|-------|---------|----------------|
-| Heart classification | 89-100% range, most variable | More Heart samples, data augmentation |
-| Lung (R) classification | 93-99.6% range | Balance with Lung (L) samples |
-| Impulse noise | 65.6-73.2% accuracy | Train with noise augmentation |
-| Glass blur | 66-72% accuracy | Include blur augmentation |
-
-### 🔧 Recommendations
-
-1. **For Production (Accuracy):** Use `swin_tiny_finetuned`
-2. **For Production (Speed):** Use `efficientnet_b3`
-3. **For Robustness:** Use `convnext_tiny_finetuned`
-4. **For Ensemble:** Combine `convnext_tiny_finetuned` + `densenet121` + `swin_tiny`
-5. **For Edge Devices:** Use `densenet121` (smallest, fast, accurate)
+| Topic | Insight | Next Step |
+|-------|---------|-----------|
+| Accuracy champion | Swin-Tiny finetuned hits 99.69% | Use as baseline for accuracy-critical deployments. |
+| Robustness champion | ConvNeXt-Tiny finetuned: 76.9% mean corruption | Prefer when noise/weather robustness is key. |
+| Efficiency champion | DenseNet121 (7M params, 0.94 ms) / EfficientNet-B3 (0.77 ms) | Ideal for edge devices. |
+| Weak classes | Heart & Lung (R) across many models | Collect more samples, apply class-specific augmentation, monitor post-deployment. |
+| Hard corruptions | Impulse noise, glass blur | Augment training data with synthetic impulse noise and blur kernels. |
+| Ensemble planning | ConvNeXt FT has lowest correlation with others | Combine with DenseNet121 or Swin for diverse committees. |
 
 ---
 
-## 📁 File Reference
+## 10. File Reference
 
-### Reports (JSON)
-| File | Purpose |
-|------|---------|
-| `robustness_ranking.json` | Full robustness analysis with rankings |
-| `class_specialists.json` | Best models per class |
-
-### Tables (CSV)
-| File | Rows | Purpose |
+| Type | File | Purpose |
 |------|------|---------|
-| `model_comparison_table.csv` | 13 | Full model comparison |
-| `per_class_performance.csv` | 13 | Class-wise accuracy/F1 |
-| `corruption_robustness_all_models.csv` | 13 | 15 corruption accuracies |
-| `model_diversity_correlation.csv` | 13 | 11×11 correlation matrix |
+| Report | `reports/robustness_ranking.json` | All robustness metrics + rankings. |
+| Report | `reports/class_specialists.json` | Per-organ model specialists. |
+| Table | `tables/model_comparison_table.csv` | Accuracy/efficiency summary. |
+| Table | `tables/per_class_performance.csv` | Per-class accuracy/F1 by model. |
+| Table | `tables/corruption_robustness_all_models.csv` | Accuracy per corruption type. |
+| Table | `tables/model_diversity_correlation.csv` | Prediction correlation matrix. |
+| Figures | `figures/*.png` | Visual summaries (heatmaps, rankings, speed). |
+| Figures | `confusion_matrices/*.png` | Model-specific confusion matrices. |
 
-### Figures (PNG)
-| File | Purpose |
-|------|---------|
-| `corruption_heatmap.png` | Corruption accuracy heatmap |
-| `inference_time_comparison.png` | Speed comparison |
-| `model_diversity_heatmap.png` | Correlation visualization |
-| `per_class_model_performance.png` | Per-class performance |
-| `robustness_ranking.png` | Robustness ranking chart |
-
-### Confusion Matrices (PNG)
-11 individual confusion matrix visualizations, one per model.
-
+Keep this guide handy when comparing new models or preparing reports—you can jump directly to the relevant section for clean metrics, robustness behavior, or ensemble design.

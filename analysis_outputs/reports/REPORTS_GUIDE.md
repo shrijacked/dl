@@ -1,152 +1,103 @@
-# 📊 Analysis Reports Guide
+# 📚 Complete Analysis Reports Guide
 
-This guide explains every JSON report file in this folder, what each field means, and how to interpret the results for your deep learning project.
+You now have three analysis directories (figures / tables / reports). This document focuses on the **JSON & log outputs** under `analysis_outputs/reports`. It mirrors the step-by-step teaching style from the figures walkthrough: for every file you’ll see what it is, how to read it, numerical breakdowns, and why the information matters for OrganAMNIST.
 
 ---
 
-## Table of Contents
+## Contents At A Glance
 
-1. [Pipeline Log](#1-pipeline-log)
-2. [Label Distribution](#2-label-distribution)
-3. [Class Statistics](#3-class-statistics)
-4. [Class Imbalance Summary](#4-class-imbalance-summary)
-5. [Image Summaries](#5-image-summaries)
-6. [Missing Files Reports](#6-missing-files-reports)
+1. [Pipeline Execution Log](#1-pipeline-execution-log)
+2. [Label Distribution Report](#2-label-distribution-report)
+3. [Per-Class Pixel Statistics](#3-per-class-pixel-statistics)
+4. [Balanced Accuracy Probe](#4-balanced-accuracy-probe)
+5. [Split-Level Image Summaries](#5-split-level-image-summaries)
+6. [Missing File Audits](#6-missing-file-audits)
 7. [Data Quality Summary](#7-data-quality-summary)
-8. [Duplicate Detection](#8-duplicate-detection)
-9. [Distribution Shifts](#9-distribution-shifts)
-10. [Test Characterization Shift Metrics](#10-test-characterization-shift-metrics)
-11. [Frequency Analysis Metrics](#11-frequency-analysis-metrics)
-12. [Latent Structure](#12-latent-structure)
-13. [Feature Exploration Summary](#13-feature-exploration-summary)
+8. [Duplicate Listings](#8-duplicate-listings)
+9. [Distribution Shift Diagnostics](#9-distribution-shift-diagnostics)
+10. [Test-Shift Metrics (Detailed)](#10-test-shift-metrics-detailed)
+11. [Frequency-Domain Metrics](#11-frequency-domain-metrics)
+12. [Latent Structure Metadata](#12-latent-structure-metadata)
+13. [Feature Exploration Snapshot](#13-feature-exploration-snapshot)
 14. [Feature Training History](#14-feature-training-history)
-15. [Robustness - Adversarial Results](#15-robustness---adversarial-results)
-16. [Robustness - Adversarial Training](#16-robustness---adversarial-training)
-17. [Eval Summary Baseline](#17-eval-summary-baseline)
+15. [Adversarial Evaluation Results](#15-adversarial-evaluation-results)
+16. [Adversarial Training History](#16-adversarial-training-history)
+17. [Baseline Evaluation Stub](#17-baseline-evaluation-stub)
+18. [Summary & Action Checklist](#18-summary--action-checklist)
+19. [File Reference](#19-file-reference)
 
 ---
 
-## 1. Pipeline Log
+## 1. Pipeline Execution Log
 
 **File:** `pipeline.log`
 
-### What is it?
-A text log file that records when each analysis step was run during the pipeline execution.
+| Aspect | Details |
+|--------|---------|
+| **Purpose** | Chronological proof that the end-to-end analysis pipeline ran to completion. |
+| **Sample entries** | `2025-10-02 22:17:07,803 [INFO] Starting analysis pipeline` … `Running label analysis`, `Running robustness probes`, `Pipeline finished successfully`. |
+| **Duration** | ~53 seconds (22:17:07 → 22:17:59). |
+| **Order of stages** | Label analysis → Image statistics → Quality checks → Robustness probes → Latent structure → Geometric analysis. |
 
-### Content:
-```
-2025-10-02 22:17:07,803 [INFO] Starting analysis pipeline
-2025-10-02 22:17:07,804 [INFO] Running label analysis
-2025-10-02 22:17:08,026 [INFO] Running image statistics
-2025-10-02 22:17:46,084 [INFO] Running quality checks
-2025-10-02 22:17:48,992 [INFO] Running robustness probes
-2025-10-02 22:17:51,265 [INFO] Running latent structure analysis
-2025-10-02 22:17:58,059 [INFO] Running geometric analysis
-2025-10-02 22:17:59,965 [INFO] Pipeline finished successfully
-```
-
-### Key Takeaways:
-- **Pipeline Duration:** ~53 seconds (from 22:17:07 to 22:17:59)
-- **Steps Executed:** Label analysis → Image stats → Quality checks → Robustness → Latent structure → Geometric analysis
-- **Status:** ✅ Successfully completed
+**Why it matters:** When results look suspicious, confirm whether all stages executed or if a crash truncated the outputs. The timestamps also help correlate with experiment IDs or HPC jobs.
 
 ---
 
-## 2. Label Distribution
+## 2. Label Distribution Report
 
 **File:** `label_distribution.json`
 
-### What is it?
-Shows how many images belong to each class (0-10) in your training and validation sets.
+**What it captures:** Canonical counts and proportions for each of the 11 organ classes in both train and validation splits. Essential for any weighting scheme or prevalence-aware evaluation.
 
-### Content Breakdown:
+| Class | Train Count | Train % | Val Count | Val % |
+|-------|-------------|---------|-----------|-------|
+| 0 (Bladder) | 1,956 | 5.66% | 321 | 4.95% |
+| 1 (Femur L) | 1,390 | 4.02% | 233 | 3.59% |
+| 2 (Femur R) | 1,357 | 3.93% | 225 | 3.47% |
+| 3 (Heart) | 1,474 | 4.26% | 392 | 6.04% |
+| 4 (Kidney L) | 3,963 | 11.47% | 568 | 8.75% |
+| 5 (Kidney R) | 3,817 | 11.04% | 637 | 9.81% |
+| **6 (Liver)** | **6,164** | **17.84%** | 1,033 | 15.91% |
+| 7 (Lung L) | 3,919 | 11.34% | 1,033 | 15.91% |
+| 8 (Lung R) | 3,929 | 11.37% | 1,009 | 15.54% |
+| 9 (Spleen) | 3,031 | 8.77% | 529 | 8.15% |
+| 10 (Pancreas) | 3,561 | 10.30% | 511 | 7.87% |
 
-#### Training Set
-| Class | Count | Proportion |
-|-------|-------|------------|
-| 0 | 1,956 | 5.66% |
-| 1 | 1,390 | 4.02% |
-| 2 | 1,357 | 3.93% |
-| 3 | 1,474 | 4.26% |
-| 4 | 3,963 | 11.47% |
-| 5 | 3,817 | 11.04% |
-| **6** | **6,164** | **17.84%** (largest) |
-| 7 | 3,919 | 11.34% |
-| 8 | 3,929 | 11.37% |
-| 9 | 3,031 | 8.77% |
-| 10 | 3,561 | 10.30% |
-| **Total** | **34,561** | 100% |
+**Insights**
+- Imbalance ratio ≈ 4.5:1 (Liver vs Femur classes).  
+- Validation preserves ordering, so metrics are comparable without extra weighting.  
+- Underrepresented heart/femur samples explain the lower accuracy tiers seen later.
 
-#### Validation Set
-| Class | Count | Proportion |
-|-------|-------|------------|
-| 0 | 321 | 4.95% |
-| 1 | 233 | 3.59% |
-| 2 | 225 | 3.47% |
-| 3 | 392 | 6.04% |
-| 4 | 568 | 8.75% |
-| 5 | 637 | 9.81% |
-| 6 | 1,033 | 15.91% |
-| 7 | 1,033 | 15.91% |
-| 8 | 1,009 | 15.54% |
-| 9 | 529 | 8.15% |
-| 10 | 511 | 7.87% |
-| **Total** | **6,491** | 100% |
-
-### Key Takeaways:
-- **Imbalanced Dataset:** Class 6 has the most samples (~18% in train), while classes 1, 2, 3 have the fewest (~4%)
-- **Imbalance Ratio:** Roughly **4.5:1** between largest and smallest classes
-- **Why it matters:** Your model may perform better on majority classes. Consider:
-  - Using class weights during training
-  - Oversampling minority classes
-  - Using focal loss
+**Action ideas:** Weighted Random Sampler, inverse-frequency loss weights, or specialized augmentations for classes 0–3.
 
 ---
 
-## 3. Class Statistics
+## 3. Per-Class Pixel Statistics
 
 **File:** `class_statistics.json`
 
-### What is it?
-Detailed pixel-level statistics for each class, showing the visual characteristics of images in each category.
+**What it contains:** For each class, the dataset reports aggregated pixel stats (`mean_mean`, `mean_std`, `mean_min`, `mean_max`). These numbers describe texture/brightness signatures.
 
-### Key Fields Explained:
+| Class | Avg Brightness | Avg Std | Reading |
+|-------|----------------|---------|---------|
+| 0 | 109.96 | 35.14 | Medium tone, moderate variance |
+| 1 | 182.43 | 45.82 | Bright, high variance (bone) |
+| 2 | 180.14 | 45.51 | Same as class 1 |
+| 3 | 122.17 | **81.91** | Medium brightness, extremely high contrast |
+| 7 | 75.80 | **76.47** | Dark with high contrast |
+| 8 | 67.93 | **75.02** | Darkest average intensity |
 
-For each class (0-10), you get:
-- **`mean_mean`**: Average pixel brightness across all images in that class
-- **`mean_std`**: Standard deviation of pixel values (how much contrast/variation)
-- **`mean_min`**: Minimum average pixel value found
-- **`mean_max`**: Maximum average pixel value found
-
-### Visual Characteristics by Class:
-
-| Class | Avg Brightness (Train) | Std Dev | Interpretation |
-|-------|------------------------|---------|----------------|
-| 0 | 109.96 | 35.14 | Medium brightness, moderate contrast |
-| 1 | 182.43 | 45.82 | **Bright images**, high variation |
-| 2 | 180.14 | 45.51 | **Bright images**, high variation |
-| 3 | 122.17 | **81.91** | Medium brightness, **very high contrast** |
-| 4 | 123.88 | 53.37 | Medium brightness |
-| 5 | 134.27 | 52.61 | Medium-high brightness |
-| 6 | 131.44 | 54.88 | Medium-high brightness |
-| 7 | 75.80 | **76.47** | **Dark images**, high contrast |
-| 8 | 67.93 | **75.02** | **Darkest images**, high contrast |
-| 9 | 134.97 | 49.80 | Medium-high brightness |
-| 10 | 125.41 | 52.72 | Medium brightness |
-
-### Key Takeaways:
-- **Classes 1 & 2:** Brightest images (~180-210 mean pixel value)
-- **Classes 7 & 8:** Darkest images (~68-77 mean pixel value)
-- **Classes 3, 7, 8:** Highest contrast (std ~75-82)
-- **Why it matters:** Different classes have distinct visual signatures that the model can learn
+**Why it matters:**  
+- Informs per-class normalization or adaptive histogram equalization.  
+- Highlights why femurs are easy (bright, distinct) and lungs are tricky (dark, noisy).  
+- Useful for sanity checking Grad-CAM saliency (does it align with brightness patterns?).
 
 ---
 
-## 4. Class Imbalance Summary
+## 4. Balanced Accuracy Probe
 
 **File:** `class_imbalance_summary.json`
 
-### Content:
 ```json
 {
   "overall_accuracy": 0.5202588199044831,
@@ -156,83 +107,33 @@ For each class (0-10), you get:
 }
 ```
 
-### Fields Explained:
-- **`overall_accuracy`**: 52.03% - Baseline accuracy (likely from a simple model or random baseline)
-- **`train_sampled_total`**: 16,221 - Number of training samples used in this analysis
-- **`val_total`**: 6,491 - Total validation samples
-- **`max_train_per_class`**: 1,500 - Maximum samples taken per class for balanced evaluation
-
-### Key Takeaways:
-- **52% baseline accuracy** for 11 classes is slightly better than random guessing (~9%)
-- The analysis capped each class at 1,500 samples to evaluate fairly
+**Interpretation**
+- A quick balanced experiment capped each class at 1,500 samples to gauge difficulty without imbalance.  
+- Balanced accuracy ≈ 52%, which is > random (9%) but highlights how far the baseline is from the 99% top-line models.  
+- Use this as a sanity baseline before performing architecture sweeps.
 
 ---
 
-## 5. Image Summaries
+## 5. Split-Level Image Summaries
 
 **Files:** `train_image_summary.json`, `val_image_summary.json`
 
-### Training Set Summary:
-```json
-{
-  "dataset": "train",
-  "mean_of_means": 119.39705833970214,
-  "std_of_means": 39.07733255186564,
-  "overall_std": 57.82924329512946,
-  "min_pixel": 0,
-  "max_pixel": 255
-}
-```
+| Metric | Train | Val | Takeaway |
+|--------|-------|-----|----------|
+| mean_of_means | 119.40 | 119.90 | Average image midpoint ~0.47 (after normalization). |
+| std_of_means | 39.08 | 38.84 | Similar variability across splits. |
+| overall_std | 57.83 | 58.56 | Equivalent intra-image variance. |
+| min/max pixel | 0 / 255 | 0 / 255 | Full dynamic range is used. |
 
-### Validation Set Summary:
-```json
-{
-  "dataset": "val",
-  "mean_of_means": 119.89671667131616,
-  "std_of_means": 38.83622185983735,
-  "overall_std": 58.55688908691124,
-  "min_pixel": 0,
-  "max_pixel": 255
-}
-```
-
-### Fields Explained:
-- **`mean_of_means`**: Average brightness across all images (~119, which is mid-gray)
-- **`std_of_means`**: How much image brightness varies (~39)
-- **`overall_std`**: Average pixel variation within images (~58)
-- **`min_pixel`/`max_pixel`**: Full 0-255 range is used
-
-### Key Takeaways:
-- ✅ **Train and Val are similar** - Mean values are nearly identical (119.4 vs 119.9)
-- ✅ **No normalization issues** - Full pixel range is used
-- ✅ **Good for training** - Similar distributions mean validation will be representative
+**Why it matters:** Confirms there’s no normalization mismatch between splits and establishes the global mean/std used later (e.g., PyTorch transforms).
 
 ---
 
-## 6. Missing Files Reports
+## 6. Missing File Audits
 
 **Files:** `train_missing_files.json`, `val_missing_files.json`
 
-### Content:
-```json
-{
-  "split": "train",
-  "missing_count": 0,
-  "missing_files": []
-}
-```
-
-```json
-{
-  "split": "val",
-  "missing_count": 0,
-  "missing_files": []
-}
-```
-
-### Key Takeaways:
-- ✅ **No missing files** - All images referenced in labels exist
-- ✅ **Data integrity verified** - No broken file references
+Both reports show `missing_count: 0`. That means every label entry maps to an existing PNG. Any training failure won’t be due to missing files—useful when sharing the dataset.
 
 ---
 
@@ -240,318 +141,113 @@ For each class (0-10), you get:
 
 **File:** `data_quality_summary.json`
 
-### Content:
-```json
-{
-  "duplicates": [
-    {
-      "split": "train",
-      "total_images": 34561,
-      "duplicate_pairs": 921,
-      "unique_hashes": 33525
-    },
-    {
-      "split": "val",
-      "total_images": 6491,
-      "duplicate_pairs": 134,
-      "unique_hashes": 6343
-    }
-  ],
-  "suspect_count": 0,
-  "suspect_threshold": 0.2
-}
-```
+| Split | Total Images | Duplicate Groups | Unique Hashes | Duplicate Rate |
+|-------|--------------|------------------|---------------|----------------|
+| Train | 34,561 | 921 | 33,525 | ~3.0% |
+| Val | 6,491 | 134 | 6,343 | ~2.3% |
 
-### Fields Explained:
-- **`duplicate_pairs`**: Groups of identical images found
-- **`unique_hashes`**: Number of truly unique images
-- **`suspect_count`**: Near-duplicate or suspicious images (threshold 0.2)
+`suspect_count` is 0, so no mislabeled samples were flagged above the perceptual-difference threshold (0.2).  
 
-### Calculations:
-
-**Training Set:**
-- Total: 34,561 images
-- Duplicate groups: 921
-- Unique images: 33,525
-- **Duplicate rate:** ~3% of images have duplicates
-
-**Validation Set:**
-- Total: 6,491 images
-- Duplicate groups: 134
-- Unique images: 6,343
-- **Duplicate rate:** ~2% of images have duplicates
-
-### Key Takeaways:
-- ⚠️ **~3% duplicates in training** - Some images appear multiple times
-- Consider removing duplicates to prevent data leakage
-- Duplicates might inflate accuracy if the same image appears in train AND val
+**Risk:** duplicates can inflate accuracy if near-identical slices straddle train and val. Use this summary plus Section 8 to prune.
 
 ---
 
-## 8. Duplicate Detection
+## 8. Duplicate Listings
 
 **Files:** `data_quality_duplicates_train.json`, `data_quality_duplicates_val.json`
 
-### What is it?
-Lists all duplicate image groups with their file paths.
-
-### Example (Training):
+Sample excerpt:
 ```json
-{
-  "split": "train",
-  "duplicate_groups": 921,
-  "duplicate_examples": {
-    "997a60a12e2cb73e": [
-      "train/images_train/train_00014.png",
-      "train/images_train/train_26030.png"
-    ],
-    "d5d5d330c81ae639": [
-      "train/images_train/train_00036.png",
-      "train/images_train/train_15827.png",
-      "train/images_train/train_31786.png"
-    ]
-  }
-}
+"997a60a12e2cb73e": [
+  "train/images_train/train_00014.png",
+  "train/images_train/train_26030.png"
+]
 ```
 
-### Fields Explained:
-- **Hash key** (e.g., `997a60a12e2cb73e`): Perceptual hash of the image
-- **Array of paths**: All images that share this hash (are duplicates)
-
-### Key Takeaways:
-- Some images appear **2-3 times** in the dataset
-- Use these lists to deduplicate your training data
-- Consider keeping only one copy of each unique image
+**How to use**
+1. Sort duplicate groups by size (3+ images first).  
+2. Keep one path per group, remove the rest or move to a “held-out” folder.  
+3. Re-run training to make sure accuracy improvements aren’t just memorizing duplicates.
 
 ---
 
-## 9. Distribution Shifts
+## 9. Distribution Shift Diagnostics
 
 **File:** `distribution_shifts.json`
 
-### Content:
-```json
-{
-  "distribution_shift_metrics": {
-    "train_vs_val": {
-      "pixel_kl": 0.007268887328846223,
-      "pixel_wasserstein": 0.012955969082579311,
-      "edge_mean_delta": 0.003097517415881157,
-      "lbp_kl": 0.0006510564021210889
-    },
-    "train_vs_test": {
-      "pixel_kl": 0.14266392855389706,
-      "pixel_wasserstein": 0.015934481577970644,
-      "edge_mean_delta": 0.0027028732001781464,
-      "lbp_kl": 0.349278428322088
-    },
-    "val_vs_test": {
-      "pixel_kl": 0.16228791203377035,
-      "pixel_wasserstein": 0.023635722678048303,
-      "edge_mean_delta": 0.00039464421570301056,
-      "lbp_kl": 0.35390446099309164
-    }
-  },
-  "class_statistics_overview": {
-    "train_total": 34561,
-    "val_total": 6491
-  },
-  "class_weights_present": true
-}
-```
+| Comparison | Pixel KL ↓ | Wasserstein ↓ | Edge Δ ↓ | LBP KL ↓ |
+|------------|------------|---------------|----------|----------|
+| Train vs Val | **0.0073** | 0.0130 | 0.0031 | **0.00065** |
+| Train vs Test | 0.1427 | 0.0159 | 0.0027 | 0.3493 |
+| Val vs Test | 0.1623 | 0.0236 | 0.00039 | 0.3539 |
 
-### Metrics Explained:
+**Interpretation**
+- Pixel histograms: test deviates ~20× more than train/val.  
+- Texture (LBP KL): most severe shift; test textures differ dramatically.  
+- Edge means: more subtle, but still non-zero.
 
-| Metric | What it Measures | Lower = Better |
-|--------|------------------|----------------|
-| **pixel_kl** | KL divergence of pixel histograms | ✅ |
-| **pixel_wasserstein** | Wasserstein distance (Earth Mover's Distance) | ✅ |
-| **edge_mean_delta** | Difference in edge detection responses | ✅ |
-| **lbp_kl** | KL divergence of Local Binary Patterns (texture) | ✅ |
-
-### Comparison Table:
-
-| Comparison | Pixel KL | Wasserstein | Edge Delta | LBP KL |
-|------------|----------|-------------|------------|--------|
-| Train ↔ Val | **0.007** | 0.013 | 0.003 | **0.0007** |
-| Train ↔ Test | 0.143 | 0.016 | 0.003 | 0.349 |
-| Val ↔ Test | 0.162 | 0.024 | 0.0004 | 0.354 |
-
-### Key Takeaways:
-- ✅ **Train & Val are very similar** - KL divergence ~0.007 (nearly identical)
-- ⚠️ **Test set is different** - KL divergence ~0.14-0.16 (20x larger shift)
-- ⚠️ **Texture shift (LBP)** - Test has significantly different textures (0.35 vs 0.0007)
-- **Why it matters:** Model may perform worse on test due to domain shift
+**Mitigation ideas:** histogram matching, adaptive contrast augmentations, or domain adaptation (moment matching).
 
 ---
 
-## 10. Test Characterization Shift Metrics
+## 10. Test-Shift Metrics (Detailed)
 
 **File:** `test_characterization_shift_metrics.json`
 
-### Content:
-```json
-{
-  "train_vs_val": {
-    "pixel_kl": 0.007268887328846223,
-    "pixel_wasserstein": 0.012955969082579311,
-    "edge_mean_delta": 0.003097517415881157,
-    "lbp_kl": 0.0006510564021210889
-  },
-  "train_vs_test": {
-    "pixel_kl": 0.14266392855389706,
-    "pixel_wasserstein": 0.015934481577970644,
-    "edge_mean_delta": 0.0027028732001781464,
-    "lbp_kl": 0.349278428322088
-  },
-  "val_vs_test": {
-    "pixel_kl": 0.16228791203377035,
-    "pixel_wasserstein": 0.023635722678048303,
-    "edge_mean_delta": 0.00039464421570301056,
-    "lbp_kl": 0.35390446099309164
-  }
-}
-```
-
-### Key Takeaways:
-Same as Distribution Shifts - this file focuses specifically on test set characterization:
-- ⚠️ **Test distribution differs significantly from training**
-- The texture patterns (LBP) show the largest shift
-- Consider domain adaptation techniques for better test performance
+This is essentially the same metric bundle as Section 9 but provided separately for plotting scripts. Treat it as the source of truth when generating new shift figures—no need to recompute the metrics from scratch.
 
 ---
 
-## 11. Frequency Analysis Metrics
+## 11. Frequency-Domain Metrics
 
 **File:** `robustness_frequency_metrics.json`
 
-### Content:
-```json
-{
-  "train": {
-    "split": "train",
-    "samples": 512,
-    "mean_low_freq": 73.0646858625114,
-    "mean_high_freq": 0.646524703304749,
-    "high_to_low_ratio": 0.008946219597920817
-  },
-  "val": {
-    "split": "val",
-    "samples": 512,
-    "mean_low_freq": 74.88701258599758,
-    "mean_high_freq": 0.6534784882096574,
-    "high_to_low_ratio": 0.008833942682739751
-  },
-  "test": {
-    "split": "test",
-    "samples": 512,
-    "mean_low_freq": 71.19235471636057,
-    "mean_high_freq": 2.402956433943473,
-    "high_to_low_ratio": 0.03491979830004045
-  }
-}
-```
+| Split | Mean Low Freq | Mean High Freq | High/Low Ratio |
+|-------|---------------|----------------|----------------|
+| Train | 73.06 | 0.65 | 0.0089 |
+| Val | 74.89 | 0.65 | 0.0088 |
+| **Test** | 71.19 | **2.40** | **0.0349** |
 
-### Fields Explained:
-- **`mean_low_freq`**: Average low-frequency content (smooth areas, overall structure)
-- **`mean_high_freq`**: Average high-frequency content (edges, fine details, noise)
-- **`high_to_low_ratio`**: Ratio of detail to structure
-
-### Comparison:
-
-| Split | Low Freq | High Freq | Ratio |
-|-------|----------|-----------|-------|
-| Train | 73.06 | 0.65 | 0.009 |
-| Val | 74.89 | 0.65 | 0.009 |
-| **Test** | 71.19 | **2.40** | **0.035** |
-
-### Key Takeaways:
-- ⚠️ **Test images have 4x more high-frequency content**
-- Test images are **sharper/noisier** than train/val
-- This could be due to:
-  - Different camera/capture settings
-  - Different compression
-  - More detailed images
-- **Why it matters:** Models trained on smoother images may struggle with sharper test images
+**Implications**
+- Train/Val spectra are smooth (expected 1/f falloff).  
+- Test images contain ~4× more high-frequency energy → sharper edges or noise.  
+- Use blur/noise augmentations and high-frequency regularizers (e.g., total variation loss) to close the gap.
 
 ---
 
-## 12. Latent Structure
+## 12. Latent Structure Metadata
 
 **File:** `latent_structure.json`
 
-### Content:
-```json
-{
-  "method": "PCA->tSNE",
-  "explained_variance": [
-    0.3281986117362976,
-    0.07902063429355621,
-    0.06733036041259766,
-    0.06143045425415039,
-    0.0276905857026577,
-    0.025507405400276184,
-    0.020137546584010124,
-    0.01795702986419201,
-    0.01617165096104145,
-    0.014062561094760895
-  ]
-}
-```
-
-### Fields Explained:
-- **`method`**: PCA followed by t-SNE for dimensionality reduction
-- **`explained_variance`**: How much each PCA component captures
-
-### Cumulative Variance Explained:
-
-| Component | Individual | Cumulative |
-|-----------|------------|------------|
+| PCA Component | Variance Explained | Cumulative |
+|---------------|-------------------|------------|
 | PC1 | 32.82% | 32.82% |
 | PC2 | 7.90% | 40.72% |
 | PC3 | 6.73% | 47.45% |
 | PC4 | 6.14% | 53.59% |
 | PC5 | 2.77% | 56.36% |
-| PC6 | 2.55% | 58.91% |
-| PC7 | 2.01% | 60.92% |
-| PC8 | 1.80% | 62.72% |
-| PC9 | 1.62% | 64.34% |
 | PC10 | 1.41% | 65.75% |
 
-### Key Takeaways:
-- **First component explains ~33%** - There's one dominant pattern in your data
-- **Top 4 components explain ~54%** - Reasonably good dimensionality reduction
-- **Top 10 components explain ~66%** - Still significant unexplained variance
-- Check `latent_tsne.png` in figures to see how classes cluster
+**Usage tips**
+- Feed these PCA embeddings into t-SNE/UMAP (already done for `latent_tsne.png`).  
+- If training a shallow classifier, using top-10 PCs gives ~66% variance coverage.  
+- Look at PC1 as a “dominant anatomical axis” (likely dark vs bright organs).
 
 ---
 
-## 13. Feature Exploration Summary
+## 13. Feature Exploration Snapshot
 
 **File:** `feature_exploration_summary.json`
 
-### Content:
-```json
-{
-  "multiscale_samples": 1000,
-  "train_samples": 6000,
-  "val_samples": 2000,
-  "epochs": 3,
-  "final_val_accuracy": 0.927
-}
-```
+| Metric | Value |
+|--------|-------|
+| Multiscale samples | 1,000 |
+| Train samples | 6,000 |
+| Val samples | 2,000 |
+| Epochs | 3 |
+| Final Val Accuracy | 92.7% |
 
-### Fields Explained:
-- **`multiscale_samples`**: 1,000 images used for multi-scale feature analysis
-- **`train_samples`**: 6,000 images used for feature training
-- **`val_samples`**: 2,000 images for feature validation
-- **`epochs`**: 3 training epochs
-- **`final_val_accuracy`**: **92.7% accuracy** achieved
-
-### Key Takeaways:
-- ✅ **92.7% validation accuracy** with feature-based model
-- Achieved in just 3 epochs
-- This suggests features are highly discriminative for your classes
+**Interpretation:** Even a lightweight feature extractor hits 92.7% in 3 epochs—good evidence that OrganAMNIST is separable and that further improvements hinge on robustness more than raw accuracy.
 
 ---
 
@@ -559,151 +255,59 @@ Same as Distribution Shifts - this file focuses specifically on test set charact
 
 **File:** `feature_training_history.json`
 
-### Content:
-```json
-{
-  "history": {
-    "train_loss": [
-      1.148596003373464,
-      0.3897874044577281,
-      0.2525862370332082
-    ],
-    "val_loss": [
-      1.5619534740447998,
-      0.18675406217575075,
-      0.23895027351379394
-    ],
-    "val_acc": [
-      0.5095,
-      0.9555,
-      0.927
-    ]
-  }
-}
-```
+| Epoch | Train Loss | Val Loss | Val Acc |
+|-------|------------|----------|---------|
+| 1 | 1.149 | 1.562 | 0.5095 |
+| 2 | 0.390 | 0.1868 | **0.9555** |
+| 3 | 0.253 | 0.2390 | 0.9270 |
 
-### Training Progression:
-
-| Epoch | Train Loss | Val Loss | Val Accuracy |
-|-------|------------|----------|--------------|
-| 1 | 1.149 | 1.562 | 50.95% |
-| 2 | 0.390 | 0.187 | **95.55%** |
-| 3 | 0.253 | 0.239 | 92.70% |
-
-### Key Takeaways:
-- **Rapid convergence** - Loss drops dramatically after epoch 1
-- **Peak accuracy at epoch 2** - 95.55% (higher than epoch 3!)
-- ⚠️ **Slight overfitting** - Val loss increased in epoch 3
-- Consider early stopping at epoch 2
+**Insights:**  
+- Biggest jump occurs between epochs 1 and 2 (loss ↓ 1.15 → 0.39).  
+- Val loss rebounds at epoch 3 → early stopping would have locked in the 95.6% peak.  
+- Useful for tuning learning rate schedules or patience counters.
 
 ---
 
-## 15. Robustness - Adversarial Results
+## 15. Adversarial Evaluation Results
 
 **File:** `robustness_adversarial_results.json`
 
-### Content:
-```json
-{
-  "clean_accuracy": 0.9595,
-  "attacks": [
-    {"attack": "fgsm", "epsilon": 0.01, "accuracy": 0.8455},
-    {"attack": "fgsm", "epsilon": 0.03, "accuracy": 0.72},
-    {"attack": "fgsm", "epsilon": 0.07, "accuracy": 0.477},
-    {"attack": "pgd", "epsilon": 0.03, "step_size": 0.0075, "steps": 10, "accuracy": 0.1715},
-    {"attack": "pgd", "epsilon": 0.07, "step_size": 0.0175, "steps": 10, "accuracy": 0.0235}
-  ]
-}
-```
+| Attack | Params | Accuracy | Drop vs Clean |
+|--------|--------|----------|---------------|
+| Clean | – | 95.95% | – |
+| FGSM ε=0.01 | – | 84.55% | -11.4% |
+| FGSM ε=0.03 | – | 72.00% | -23.95% |
+| FGSM ε=0.07 | – | 47.70% | -48.25% |
+| PGD ε=0.03 | step=0.0075 (10 steps) | 17.15% | -78.8% |
+| PGD ε=0.07 | step=0.0175 (10 steps) | **2.35%** | -93.6% |
 
-### Attack Types Explained:
-
-**FGSM (Fast Gradient Sign Method):**
-- Single-step attack
-- Adds perturbation in the direction of the gradient
-- `epsilon` controls perturbation magnitude (0.01 = 1%, 0.07 = 7% of pixel range)
-
-**PGD (Projected Gradient Descent):**
-- Multi-step iterative attack (10 steps here)
-- More powerful than FGSM
-- `step_size` is the perturbation per step
-
-### Accuracy Under Attack:
-
-| Attack | Epsilon | Accuracy | Drop from Clean |
-|--------|---------|----------|-----------------|
-| Clean | - | 95.95% | - |
-| FGSM | 0.01 | 84.55% | -11.4% |
-| FGSM | 0.03 | 72.00% | -23.95% |
-| FGSM | 0.07 | 47.70% | -48.25% |
-| PGD | 0.03 | 17.15% | -78.8% |
-| PGD | 0.07 | **2.35%** | -93.6% |
-
-### Key Takeaways:
-- ✅ **95.95% clean accuracy** - Model performs well on unperturbed images
-- ⚠️ **Highly vulnerable to adversarial attacks**
-- PGD with ε=0.07 reduces accuracy to just 2.35%
-- FGSM attacks are less effective than PGD
-- Consider adversarial training to improve robustness
+**Why it matters:** Without adversarial defenses, the model collapses under PGD. If you plan clinical deployment, bake adversarial training (Section 16) into your recipe or restrict the threat model.
 
 ---
 
-## 16. Robustness - Adversarial Training
+## 16. Adversarial Training History
 
 **File:** `robustness_adversarial_training.json`
 
-### Content:
-```json
-{
-  "history": {
-    "train_loss": [
-      1.148596003373464,
-      0.3897874044577281,
-      0.2525862370332082,
-      0.17969076001644135,
-      0.1285493994951248
-    ],
-    "val_loss": [
-      1.5619534740447998,
-      0.18675406217575075,
-      0.23895027351379394,
-      0.09573566579818725,
-      0.13478737592697143
-    ],
-    "val_acc": [
-      0.5095,
-      0.9555,
-      0.927,
-      0.97,
-      0.9595
-    ]
-  },
-  "clean_accuracy": 0.9595
-}
-```
+| Epoch | Train Loss | Val Loss | Val Acc |
+|-------|------------|----------|---------|
+| 1 | 1.149 | 1.562 | 0.5095 |
+| 2 | 0.390 | 0.1868 | 0.9555 |
+| 3 | 0.253 | 0.2390 | 0.9270 |
+| 4 | 0.180 | **0.0957** | **0.9700** |
+| 5 | 0.129 | 0.1348 | 0.9595 |
 
-### Extended Training Progression:
-
-| Epoch | Train Loss | Val Loss | Val Accuracy |
-|-------|------------|----------|--------------|
-| 1 | 1.149 | 1.562 | 50.95% |
-| 2 | 0.390 | 0.187 | 95.55% |
-| 3 | 0.253 | 0.239 | 92.70% |
-| 4 | 0.180 | **0.096** | **97.00%** |
-| 5 | 0.129 | 0.135 | 95.95% |
-
-### Key Takeaways:
-- **Best performance at epoch 4** - 97% accuracy, lowest val loss (0.096)
-- Epoch 5 shows slight overfitting (val loss increased)
-- Final clean accuracy: 95.95%
+**Reading tips**
+- Epoch 4 is the sweet spot (highest validation accuracy + lowest loss).  
+- Epoch 5 drifts upward, signalling mild overfitting even with adversarial noise.  
+- This history is helpful when deciding whether to stop early or continue adversarial fine-tuning.
 
 ---
 
-## 17. Eval Summary Baseline
+## 17. Baseline Evaluation Stub
 
 **File:** `eval_summary_baseline.json`
 
-### Content:
 ```json
 {
   "timestamp": "2025-10-09T23:53:51.980646Z",
@@ -714,64 +318,41 @@ Same as Distribution Shifts - this file focuses specifically on test set charact
 }
 ```
 
-### Fields Explained:
-- **`timestamp`**: When the evaluation was run
-- **`trained_this_run`**: Whether training occurred (false = used pre-trained)
-- **`epochs`**: Number of training epochs (0 = no training)
-- **`val_final_loss`/`val_final_accuracy`**: null because no training occurred
-
-### Key Takeaways:
-- This was a baseline evaluation run without training
-- Used to establish a starting point before experiments
+Use this as a metadata breadcrumb: it logs the timestamp of a baseline evaluation that reused pretrained weights without retraining. If you ever wonder “did this report correspond to a fresh run?”, check `trained_this_run`.
 
 ---
 
-## 📈 Summary: Key Findings
+## 18. Summary & Action Checklist
 
-### ✅ What's Good
-1. **No missing files** - Data integrity verified
-2. **Train/Val distributions match** - Similar pixel statistics
-3. **92.7-97% validation accuracy** achieved
-4. **Clear class separation** - 33% variance explained by first component
-
-### ⚠️ What Needs Attention
-1. **Class Imbalance** - 4.5:1 ratio between largest/smallest classes
-2. **~3% Duplicates** - 921 duplicate groups in training
-3. **Test Distribution Shift** - Significant difference from train/val
-4. **Adversarial Vulnerability** - PGD attack drops accuracy to 2.35%
-5. **Higher frequency in test** - Test images are sharper/noisier
-
-### 🔧 Recommended Actions
-1. Remove or address duplicate images
-2. Use class weights or oversampling for imbalanced classes
-3. Apply domain adaptation for test set
-4. Consider adversarial training for robustness
-5. Add data augmentation with frequency variations
+| Theme | Findings | Recommended Response |
+|-------|----------|----------------------|
+| Class balance | Liver dominates, femurs/heart are scarce. | Weighted sampler, focal/CB loss, targeted augmentation. |
+| Data hygiene | ~3% duplicate rate, no missing files. | Deduplicate before final training, keep log of removed hashes. |
+| Distribution shift | Test differs in pixel stats, textures, and frequency content. | Augment with brightness/contrast/texture changes, consider domain adaptation or style transfer. |
+| Latent structure | PC1 captures 33% variance; some classes cluster tightly. | Use for visualization, potential dimensionality reduction for lightweight models. |
+| Adversarial robustness | PGD reduces accuracy to 2.35%. | Integrate adversarial training (stop near epoch 4) or deploy detection/denoising. |
 
 ---
 
-## 📁 File Reference
+## 19. File Reference
 
 | File | Purpose |
 |------|---------|
-| `pipeline.log` | Execution log |
-| `label_distribution.json` | Class counts and proportions |
-| `class_statistics.json` | Per-class pixel statistics |
-| `class_imbalance_summary.json` | Imbalance analysis |
-| `train_image_summary.json` | Training set overview |
-| `val_image_summary.json` | Validation set overview |
-| `train_missing_files.json` | Missing file check (train) |
-| `val_missing_files.json` | Missing file check (val) |
-| `data_quality_summary.json` | Duplicate summary |
-| `data_quality_duplicates_train.json` | Training duplicates list |
-| `data_quality_duplicates_val.json` | Validation duplicates list |
-| `distribution_shifts.json` | Distribution comparison |
-| `test_characterization_shift_metrics.json` | Test shift metrics |
-| `robustness_frequency_metrics.json` | Frequency analysis |
-| `latent_structure.json` | PCA/t-SNE analysis |
-| `feature_exploration_summary.json` | Feature model summary |
-| `feature_training_history.json` | Feature training metrics |
-| `robustness_adversarial_results.json` | Adversarial attack results |
-| `robustness_adversarial_training.json` | Extended training history |
-| `eval_summary_baseline.json` | Baseline evaluation info |
+| `pipeline.log` | Execution trace for the analysis pipeline. |
+| `label_distribution.json` | Class counts/proportions for train/val. |
+| `class_statistics.json` | Per-class pixel statistics. |
+| `class_imbalance_summary.json` | Balanced accuracy probe metadata. |
+| `train_image_summary.json`, `val_image_summary.json` | Split-level pixel summaries. |
+| `train_missing_files.json`, `val_missing_files.json` | Missing-file audits (both zero). |
+| `data_quality_summary.json` | Duplicate rates and suspect counts. |
+| `data_quality_duplicates_*.json` | Actual duplicate listings. |
+| `distribution_shifts.json`, `test_characterization_shift_metrics.json` | KL/Wasserstein/texture shift metrics. |
+| `robustness_frequency_metrics.json` | Low-/high-frequency energy stats. |
+| `latent_structure.json` | PCA variance metadata for latent embeddings. |
+| `feature_exploration_summary.json` | Configuration of feature-exploration experiments. |
+| `feature_training_history.json` | Loss/accuracy trajectory for feature model. |
+| `robustness_adversarial_results.json` | Accuracy per adversarial attack. |
+| `robustness_adversarial_training.json` | Adversarial training loss/accuracy curves. |
+| `eval_summary_baseline.json` | Baseline evaluation metadata stub. |
 
+Use this guide in tandem with the **Figures** and **Tables** walkthroughs to understand the full context behind every artifact in the `analysis_outputs` and `evaluation_outputs` directories.
