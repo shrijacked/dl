@@ -798,3 +798,323 @@ print(f"Predicted class: {pred}, Confidence: {prob:.4f}")
 6. **Comprehensive Evaluation**: Clean accuracy + 15 corruption types
 7. **Full Analysis Suite**: From data quality to adversarial robustness
 
+
+# ⚙️ Complete Source Code Guide
+
+This is the “teach me every module” reference for the entire `src/` tree. Use it when you need to understand how training, evaluation, analysis, and inference pieces connect. Pair it with the figures/tables/reports guides for the full story.
+
+---
+
+## Contents
+
+1. [Orientation Map](#1-orientation-map)  
+2. [Execution Flows](#2-execution-flows)  
+3. [Model Registry (`model_architectures.py`)](#3-model-registry-model_architecturespy)  
+4. [Data Pipeline (`data_pipeline/`)](#4-data-pipeline-data_pipeline)  
+5. [Training Stack (`training/`)](#5-training-stack-training)  
+6. [Model Implementations (`models/`)](#6-model-implementations-models)  
+7. [Evaluation Suite (`evaluation/`)](#7-evaluation-suite-evaluation)  
+8. [Analysis Suite (`analysis/`)](#8-analysis-suite-analysis)  
+9. [Utilities (`utils/`)](#9-utilities-utils)  
+10. [End-to-End Workflows](#10-end-to-end-workflows)  
+11. [Quick File Reference](#11-quick-file-reference)
+
+---
+
+## 1. Orientation Map
+
+```
+src/
+├── __init__.py
+├── model_architectures.py        # Model builder registry
+├── data_pipeline/                # Dataset + DataLoader factories
+├── training/                     # Engines, experiments, scripts
+├── models/                       # Architecture-specific trainers/predictors
+├── evaluation/                   # Clean + corruption evaluation
+├── analysis/                     # Exploratory & diagnostic pipeline
+└── utils/                        # Shared helpers
+```
+
+Always start with the registry (`model_architectures.py`) and flow outward: dataloaders feed the training engine, which produces checkpoints that evaluation & analysis consume.
+
+---
+
+## 2. Execution Flows
+
+| Flow | Command | Touches | Outputs |
+|------|---------|---------|---------|
+| **Baseline training** | `python -m src.training.run_baselines` | Registry → dataloaders → `training/engine.py` | `training_logs/`, checkpoints |
+| **Experiment sweep** | `python -m src.training.run_experiments` | Adds sweep grid + logging | Multiple runs with varied hparams |
+| **Custom trainer** | `python -m src.models.swin_multiscale --epochs 50` | Uses architecture-specific script | Checkpoints tuned for that model |
+| **Evaluation** | `python -m src.evaluation.run_evaluation --clean --robust` | Loads checkpoints → evaluation suite | `evaluation_outputs/` tables & figs |
+| **Analysis** | `python -m src.analysis.run_pipeline` | Sequenced analysis modules | `analysis_outputs/` across reports/tables/figs |
+| **Inference** | `python -m src.models.predict --model swin_tiny_finetuned` | Loads model, runs dataloaders/inference | Submission CSV or console predictions |
+
+---
+
+## 3. Model Registry (`model_architectures.py`)
+
+### 3.1 ModelRecipe
+```python
+@dataclass(frozen=True)
+class ModelRecipe:
+    name: str
+    input_size: Tuple[int, int]
+    default_lr: float
+    default_weight_decay: float
+    default_batch_size: int
+    classifier_dropout: float | None = None
+```
+
+### 3.2 Builders (selection)
+
+| Builder | Backbone | Highlights |
+|---------|----------|------------|
+| `build_resnet50()` | ResNet-50 | 224² input, SGD LR 0.05 |
+| `build_densenet121()` | DenseNet-121 | 7M params, 0.94 ms inference |
+| `build_densenet121_adaptive()` | DenseNet + SE + gating | Adds adaptive per-layer scaling |
+| `build_efficientnet_b3()` | EfficientNet-B3 | 300² input, fastest inference |
+| `build_convnext_tiny()` | ConvNeXt-Tiny | Modern CNN with LayerNorm |
+| `build_vit_s16()` / `build_vit_b16()` | Vision Transformers | Patch size 16, dropout-ready |
+| `build_swin_tiny()` | Swin Transformer | Shifted-window attention |
+| `build_swin_multiscale()` | Custom Swin | Stage fusion + auxiliary heads |
+| `build_convtransgfusion()` | ConvNeXt + Swin hybrid | Attention-guided fusion |
+
+Every builder:
+1. Loads pretrained ImageNet weights.  
+2. Calls `_replace_first_conv()` to average RGB kernels → grayscale.  
+3. Installs an 11-class classifier.  
+4. Returns `(model, recipe)` so training scripts know the defaults.
+
+### 3.3 Quick usage
+```python
+from src.model_architectures import build_resnet50
+model, recipe = build_resnet50(num_classes=11, pretrained=True)
+```
+
+---
+
+## 4. Data Pipeline (`data_pipeline/`)
+
+### 4.1 Dataset (`organamnist_dataset.py`)
+
+| Feature | Description |
+|---------|-------------|
+| Multi-mode | Works with folder structures or CSV manifests. |
+| Returns | `(tensor, label, relative_path)` for debugging duplicate detection or mislabels. |
+| Formats | Accepts PNG/JPG/TIFF/BMP and forces grayscale conversion. |
+
+Constructor signature:
+```python
+OrganAMNISTDataset(
+    root_dir, split, transform, manifest_csv=None, class_to_index=None
+)
+```
+
+### 4.2 Dataloaders (`dataloaders.py`)
+
+| Option | Effect |
+|--------|--------|
+| `aug_strength` | `weak` (resize/flip), `medium` (crop + ±15°), `strong` (affine, ±20°). |
+| `use_weighted_sampler` | Enables `WeightedRandomSampler` based on class counts. |
+| `input_size` | Pulled from `ModelRecipe`; ensures consistent resizing. |
+
+```python
+from src.data_pipeline.dataloaders import build_dataloaders
+dls = build_dataloaders(
+    data_root="dataset",
+    input_size=recipe.input_size,
+    batch_size=recipe.default_batch_size,
+    aug_strength="strong",
+    use_weighted_sampler=True,
+)
+```
+
+---
+
+## 5. Training Stack (`training/`)
+
+### 5.1 Engine (`training/engine.py`)
+
+| Function | Job |
+|----------|-----|
+| `train_model()` | High-level orchestrator (warmup, scheduler, logging, checkpointing). |
+| `train_one_epoch()` | Forward/backward pass, optional MixUp/CutMix, AMP, grad clipping. |
+| `evaluate()` | Validation loop returning `EpochMetrics`. |
+| `resolve_device()` | Picks CUDA / MPS / CPU. |
+
+**Features supported:** label smoothing, cosine/step schedulers, warmup epochs, automatic mixed precision, MixUp, CutMix, EMA (via scripts), gradient clipping.
+
+### 5.2 Scripts
+
+| Script | Description |
+|--------|-------------|
+| `run_baselines.py` | Trains a curated set of models with default recipes. |
+| `run_experiments.py` | Sweeps architectures × optimizers × learning rates × augment strength. |
+| `run_adaptive_*.py` | Architecture-specific fine-tuning scripts. |
+| `train_convtransgfusion.py` | Hybrid CNN/Transformer training entry. |
+| `evaluate_best_on_test.py` | Loads best checkpoint, runs inference on test set. |
+
+Each script imports the registry + dataloaders + engine—meaning you can drop in new architectures with minimal glue.
+
+---
+
+## 6. Model Implementations (`models/`)
+
+### 6.1 Standard wrappers
+Files such as `resnet50.py`, `efficientnet_b3.py`, `vit_s16.py`, and `convnext_tiny.py`:
+1. Parse CLI args (epochs, LR, output dir).  
+2. Build model/recipe via registry.  
+3. Build dataloaders with recipe defaults.  
+4. Call `train_model()` and log metrics.
+
+### 6.2 Enhanced/custom scripts
+
+| File | Why open it |
+|------|-------------|
+| `densenet121_adaptive.py` | Contains SE blocks, per-layer gating, adaptive fusion logic. |
+| `swin_multiscale.py` | Multi-stage feature collection, attention-weighted fusion, auxiliary head training. |
+| `convtransgfusion.py` | Dual-branch (ConvNeXt + Swin) with attention-guided feature fusion. |
+| `finetune_swin_tiny.py` | Adds layer-wise LR decay, MixUp/CutMix, EMA for high-accuracy Swin fine-tuning. |
+| `predict*.py` | Inference helpers for specific models (plain Swin, finetuned ConvNeXt, etc.). |
+
+### 6.3 Shared helpers (`models/train_utils.py`)
+Defines `TrainingConfig`, dataset prep functions, and a `run_training()` wrapper for scripts that want a simpler API.
+
+---
+
+## 7. Evaluation Suite (`evaluation/`)
+
+| Component | Description |
+|-----------|-------------|
+| `run_evaluation.py` | CLI entry: `--clean`, `--robust`, `--models resnet50 swin_tiny`. Loads checkpoints automatically. |
+| `clean_performance.py` | Computes accuracy, macro F1, per-class accuracy, confusion matrices, inference time. |
+| `corruption_robustness.py` | Applies 15 corruptions (noise/blur/weather/digital) and records accuracy + relative robustness. |
+| `corruption_testing.py` | Individual corruption generators (Gaussian noise, motion blur, fog, pixelate, etc.). |
+| `config.py` | Points to checkpoint directory and output paths. |
+
+Outputs populate `evaluation_outputs/` (tables, reports, heatmaps) which are explained in the evaluation guide outside `src/`.
+
+---
+
+## 8. Analysis Suite (`analysis/`)
+
+| Module | Output |
+|--------|--------|
+| `run_pipeline.py` | Orchestrates the full pipeline: label stats → quality → robustness → latent structure → geometric features. |
+| `label_analysis.py` | `label_distribution.json`, bar charts. |
+| `class_statistics.py` | Per-class pixel stats. |
+| `class_imbalance.py` | Balanced accuracy probes, confusion matrices. |
+| `image_stats.py` | `train_image_stats.csv`, `val_image_stats.csv`. |
+| `data_quality.py` | Duplicate detection, suspect label reports. |
+| `quality_checks.py` | Sample grids, missing file audits. |
+| `robustness.py` | Perturbation PSNR/SSIM metrics + example grids. |
+| `robustness_deepdive.py` | FGSM/PGD adversarial evaluation. |
+| `latent_structure.py` | PCA variance, t-SNE embeddings. |
+| `geometric.py` | Edge density + flip difference tables. |
+| `feature_exploration.py` | Grad-CAMs, multi-scale stats. |
+| `test_characterization.py` | Train/val/test shift metrics (pixel, edge, LBP). |
+
+Configuration lives in `analysis/config.py`, which defines dataset paths and output directories (overridable via `DATASET_ROOT`, `OUTPUT_ROOT` env vars).
+
+---
+
+## 9. Utilities (`utils/`)
+
+| File | Purpose |
+|------|---------|
+| `metrics.py` | Defines `EpochMetrics`, `compute_accuracy`, `compute_per_class_accuracy`, and aggregators used by training/eval loops. |
+| `checkpointing.py` | `save_checkpoint`, `load_checkpoint`, and `ensure_dir` used globally. |
+
+Keep utility code minimal here; anything model-specific belongs in `models/` or `training/`.
+
+---
+
+## 10. End-to-End Workflows
+
+### 10.1 Train a baseline
+```python
+from src.model_architectures import build_resnet50
+from src.data_pipeline.dataloaders import build_dataloaders
+from src.training.engine import train_model
+
+model, recipe = build_resnet50(num_classes=11, pretrained=True)
+dls = build_dataloaders(
+    data_root="dataset",
+    input_size=recipe.input_size,
+    batch_size=recipe.default_batch_size,
+    aug_strength="strong",
+    use_weighted_sampler=True,
+)
+train_model(
+    model=model,
+    dataloaders=dls,
+    num_classes=11,
+    out_dir="checkpoints/",
+    epochs=50,
+    optimizer_name="sgd",
+    lr=recipe.default_lr,
+    weight_decay=recipe.default_weight_decay,
+    label_smoothing=0.1,
+    run_tag="resnet50_v1",
+)
+```
+
+### 10.2 Run experiment sweep
+```bash
+python -m src.training.run_experiments \
+  --architectures resnet50 densenet121 swin_tiny \
+  --learning-rates 0.01 0.001 \
+  --aug-strength medium
+```
+
+### 10.3 Full analysis + evaluation
+```bash
+python -m src.analysis.run_pipeline
+python -m src.evaluation.run_evaluation --clean --robust
+```
+
+### 10.4 Advanced scripts
+```bash
+python -m src.models.densenet121_adaptive --epochs 50
+python -m src.models.swin_multiscale --epochs 50 --aux-weight 0.4
+python -m src.training.train_convtransgfusion
+```
+
+### 10.5 Inference snippet
+```python
+from src.model_architectures import build_swin_tiny
+from torchvision import transforms
+from PIL import Image
+import torch
+
+model, recipe = build_swin_tiny(num_classes=11)
+model.load_state_dict(torch.load("checkpoints/swin_tiny_best.pth"))
+model.eval()
+
+tfm = transforms.Compose([
+    transforms.Grayscale(1),
+    transforms.Resize(recipe.input_size),
+    transforms.ToTensor(),
+    transforms.Normalize([0.5], [0.5]),
+])
+x = tfm(Image.open("sample.png")).unsqueeze(0)
+with torch.no_grad():
+    pred = torch.softmax(model(x), dim=1).argmax(dim=1).item()
+```
+
+---
+
+## 11. Quick File Reference
+
+| Directory | Files to know | Why |
+|-----------|---------------|-----|
+| Root | `model_architectures.py` | Add/modify model recipes, grayscale adaptation logic. |
+| `data_pipeline/` | `organamnist_dataset.py`, `dataloaders.py` | Adjust augmentation, sampler, normalization. |
+| `training/` | `engine.py`, `run_experiments.py`, `run_baselines.py` | Modify training loop, add schedules, launch sweeps. |
+| `models/` | `densenet121_adaptive.py`, `swin_multiscale.py`, `convtransgfusion.py`, `predict*.py` | Explore custom architectures and inference helpers. |
+| `evaluation/` | `run_evaluation.py`, `clean_performance.py`, `corruption_robustness.py` | Generate clean + corruption metrics. |
+| `analysis/` | `run_pipeline.py`, `label_analysis.py`, `robustness.py`, etc. | Produce figures/tables/reports for data/model diagnostics. |
+| `utils/` | `metrics.py`, `checkpointing.py` | Shared helpers used by training/eval/analysis. |
+
+With this guide you can jump from any high-level question (“where do MixUp settings live?”) to the exact file and section in seconds.
