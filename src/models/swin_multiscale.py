@@ -233,8 +233,23 @@ class SwinMultiScale(nn.Module):
         
         # Global average pooling per stage
         pooled_features = []
-        for feat in stage_features:
-            pooled = F.adaptive_avg_pool2d(feat, 1).flatten(1)  # (B, C_i)
+        for i, feat in enumerate(stage_features):
+            # timm's features_only returns (B, H, W, C) format, need to convert to (B, C, H, W)
+            if feat.dim() == 4:
+                # Check if channels are last dimension (B, H, W, C)
+                if feat.shape[-1] == self.stage_channels[i]:
+                    # Permute from (B, H, W, C) to (B, C, H, W)
+                    feat = feat.permute(0, 3, 1, 2)
+                # Now feat is (B, C, H, W)
+                pooled = F.adaptive_avg_pool2d(feat, 1)  # (B, C, 1, 1)
+                pooled = pooled.squeeze(-1).squeeze(-1)  # (B, C)
+            elif feat.dim() == 2:
+                # Already flattened, use as is
+                pooled = feat
+            else:
+                # Handle unexpected dimensions - flatten all but batch dim
+                pooled = feat.view(feat.size(0), -1)
+            
             pooled_features.append(pooled)
         
         # Fuse multi-scale features
