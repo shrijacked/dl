@@ -17,6 +17,7 @@ from .resnext101_32x8d import build_resnext101_32x8d
 from .vit_s16 import build_vit_s16
 from .vit_b16 import build_vit_b16
 from .swin_tiny import build_swin_tiny
+from .swin_multiscale import build_swin_multiscale, run_training_multiscale
 
 
 def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingConfig]]:
@@ -191,6 +192,23 @@ def _models_registry() -> Dict[str, Tuple[Callable[[int], nn.Module], TrainingCo
                 seed=42,
             ),
         ),
+        "swin_multiscale": (
+            build_swin_multiscale,
+            TrainingConfig(
+                model_name="swin_multiscale",
+                input_channels=1,
+                input_size=224,
+                epochs=50,
+                batch_size=48,  # Slightly reduced due to multi-scale overhead
+                lr=5e-4,
+                momentum=0.9,
+                weight_decay=5e-2,
+                step_size=15,
+                gamma=0.1,
+                num_workers=4,
+                seed=42,
+            ),
+        ),
     }
 
 
@@ -242,14 +260,22 @@ def main() -> None:
     if args.all:
         for name, (builder, defaults) in registry.items():
             os.environ["MODEL_NAME"] = name
-            run_training(builder, defaults)
+            if name == "swin_multiscale":
+                # Use custom training loop for swin_multiscale (supports auxiliary heads)
+                run_training_multiscale(builder, defaults, use_aux_heads=True, aux_weight=0.4)
+            else:
+                run_training(builder, defaults)
         return
 
     # Single model
     name = args.model
     builder, defaults = registry[name]
     os.environ["MODEL_NAME"] = name
-    run_training(builder, defaults)
+    if name == "swin_multiscale":
+        # Use custom training loop for swin_multiscale (supports auxiliary heads)
+        run_training_multiscale(builder, defaults, use_aux_heads=True, aux_weight=0.4)
+    else:
+        run_training(builder, defaults)
 
 
 if __name__ == "__main__":
