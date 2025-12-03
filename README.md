@@ -37,4 +37,5 @@ Submission (high-level)
 
 Notes
 - If you see placeholders or missing CLI examples, check the scripts’ docstrings for usage and arguments.
+- Pixel histogram reproduction details now live in `HOW.md` (“HOW: Pixel Intensity Histograms”).
 
