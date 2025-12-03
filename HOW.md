@@ -287,7 +287,282 @@ This section provides in-depth explanations of key model architectures used in t
 
 ---
 
-## Swin Transformer Tiny
+## Quick Architecture Summaries
+
+### DenseNet-121 (Efficiency Champion: 7M params, 90.92% accuracy)
+
+**Core Innovation**: Dense connections where each layer receives inputs from ALL previous layers in the block.
+
+**Key Components**:
+- **4 Dense Blocks**: (6, 12, 24, 16 layers) with growth rate = 32 channels
+- **Dense Layer**: BN → ReLU → Conv1×1(128ch) → BN → ReLU → Conv3×3(32ch)
+- **Concatenation**: Output = concat(all previous feature maps in block)
+- **Transition Layers**: BN → ReLU → Conv1×1(half channels) → AvgPool2×2
+
+**Why it works**:
+- **Feature reuse**: Each layer accesses raw features from ALL previous layers (no forgetting)
+- **Gradient flow**: 1024 paths for gradients to flow (vs 1 path in ResNet)
+- **Compact**: Only 7M parameters because layers stay narrow (32 channels/layer)
+- **Regularization**: Implicit deep supervision (early layers directly influence output)
+
+**Architecture flow**:
+```
+Input (224×224) 
+  ↓
+Initial Conv (64 channels) + MaxPool
+  ↓
+Dense Block 1 (6 layers) → 64 + 6×32 = 256 channels
+  ↓
+Transition 1 (halve channels) → 128 channels
+  ↓
+Dense Block 2 (12 layers) → 128 + 12×32 = 512 channels
+  ↓
+Transition 2 → 256 channels
+  ↓
+Dense Block 3 (24 layers) → 256 + 24×32 = 1024 channels
+  ↓
+Transition 3 → 512 channels
+  ↓
+Dense Block 4 (16 layers) → 512 + 16×32 = 1024 channels
+  ↓
+GlobalAvgPool → Linear(1024 → 11)
+```
+
+**Pros**:
+- ✅ Most parameter-efficient (7M vs ResNet's 23M)
+- ✅ Strong gradient flow (alleviates vanishing gradients)
+- ✅ Excellent feature reuse (no redundant learning)
+- ✅ Fast inference (2.9 GFLOPs, 0.94ms)
+
+**Cons**:
+- ❌ High memory during training (must store all intermediate features)
+- ❌ Concatenation overhead (grows linearly with depth)
+
+**Best for**: Edge devices, mobile deployment, resource-constrained environments
+
+---
+
+### ConvNeXt-Tiny (Robustness Champion: 92.97% accuracy, 93% under corruptions)
+
+**Core Innovation**: Modernized CNN using transformer design principles but staying fully convolutional.
+
+**Key Components**:
+- **ConvNeXt Block**: DepthwiseConv7×7 → LayerNorm → Linear(C→4C) → GELU → Linear(4C→C) → LayerScale → DropPath
+- **Patchify Stem**: Conv4×4 stride=4 (like ViT's patch embedding)
+- **4 Stages**: (3, 3, 9, 3 blocks) with channels (96, 192, 384, 768)
+- **Downsampling**: LayerNorm → Conv2×2 stride=2 (between stages)
+
+**Why it works**:
+- **Large kernels (7×7)**: Larger receptive field (transformer idea) but efficient via depthwise conv
+- **LayerNorm not BatchNorm**: More stable, works better with attention modules downstream
+- **Inverted bottleneck (C→4C→C)**: Same expansion ratio as transformer MLP blocks
+- **GELU activation**: Smoother than ReLU, better gradients (from transformers)
+- **Layer Scale**: Learnable per-channel scalar (~1e-6 init) helps deep network training
+- **Drop Path**: Stochastic depth regularization (drops entire layers randomly)
+
+**Architecture flow**:
+```
+Input (224×224)
+  ↓
+Stem: Conv4×4 stride=4 → 96 channels at 56×56
+  ↓
+Stage 1: 3 blocks (96 channels, 56×56)
+  ↓
+Downsample: LayerNorm → Conv2×2 stride=2 → 192 channels at 28×28
+  ↓
+Stage 2: 3 blocks (192 channels, 28×28)
+  ↓
+Downsample → 384 channels at 14×14
+  ↓
+Stage 3: 9 blocks (384 channels, 14×14) ← Most capacity here
+  ↓
+Downsample → 768 channels at 7×7
+  ↓
+Stage 4: 3 blocks (768 channels, 7×7)
+  ↓
+GlobalAvgPool → LayerNorm → Linear(768 → 11)
+```
+
+**ConvNeXt Block (detailed)**:
+```
+Input (B, C, H, W)
+  ↓
+① Depthwise Conv 7×7 (groups=C) → captures local context per channel
+  ↓
+② Permute to (B, H, W, C) → prepare for LayerNorm
+  ↓
+③ LayerNorm(C) → normalize per sample (not per batch)
+  ↓
+④ Linear(C → 4C) → expand to higher-dimensional space
+  ↓
+⑤ GELU → smooth activation
+  ↓
+⑥ Linear(4C → C) → project back
+  ↓
+⑦ Layer Scale: γ ⊙ features → learnable scaling (γ ≈ 1e-6 initially)
+  ↓
+⑧ Permute back to (B, C, H, W)
+  ↓
+⑨ Residual: input + DropPath(transformed)
+```
+
+**Pros**:
+- ✅ Best corruption robustness (76.88% mean across 15 corruptions)
+- ✅ Modern design (transformer ideas + CNN efficiency)
+- ✅ Strong inductive bias (better than pure transformers on small datasets)
+- ✅ Stable training (LayerNorm + Layer Scale)
+
+**Cons**:
+- ❌ Larger model (27.8M params)
+- ❌ Needs finetuning for best results (base model 91.62%, finetuned 92.97%)
+
+**Best for**: Real-world deployment with noisy/corrupted data, production systems with variable image quality
+
+---
+
+### Vision Transformer Small (ViT-S/16) (Pure Attention: 91.15% accuracy)
+
+**Core Innovation**: Pure attention-based architecture with NO convolutions. Treats image as a sequence of patches.
+
+**Key Components**:
+- **Patch Embedding**: Split 224×224 image into 16×16 patches → 196 patch tokens
+- **[CLS] Token**: Learnable token prepended to sequence (used for classification)
+- **Positional Embeddings**: Learnable position encodings added to each patch
+- **12 Transformer Blocks**: Multi-Head Self-Attention + MLP
+- **Embedding Dimension**: 384 with 6 attention heads (64 dims per head)
+
+**Architecture flow**:
+```
+Input Image (1×224×224)
+  ↓
+Split into 16×16 patches → 196 patches of size 16×16
+  ↓
+Linear Projection: Each patch → 384-dim embedding
+  ↓
+Prepend [CLS] token + Add Positional Embeddings → 197 tokens
+  ↓
+┌─────────────────────────────────────┐
+│ Transformer Block (×12 repeats)    │
+│                                     │
+│  Input tokens (197, 384)            │
+│    ↓                                │
+│  LayerNorm                          │
+│    ↓                                │
+│  Multi-Head Self-Attention (6 heads)│
+│    • Q, K, V = Linear(384 → 384)   │
+│    • Attention(Q,K,V) = softmax(QK'/√64)V │
+│    • All 197 tokens attend to all  │
+│    ↓                                │
+│  Residual: input + attention        │
+│    ↓                                │
+│  LayerNorm                          │
+│    ↓                                │
+│  MLP: Linear(384→1536) → GELU → Linear(1536→384) │
+│    ↓                                │
+│  Residual: input + MLP              │
+└─────────────────────────────────────┘
+  ↓
+Extract [CLS] token (1, 384)
+  ↓
+LayerNorm → Linear(384 → 11)
+```
+
+**How Self-Attention Works**:
+```
+For each token (e.g., patch 42):
+  1. Create Query (Q), Key (K), Value (V) vectors
+  2. Compute attention scores with ALL other 196 patches:
+     score[i] = dot(Q_patch42, K_patch_i) / √64
+  3. Softmax → attention weights (which patches to focus on)
+  4. Weighted sum: output = Σ(attention_weights[i] × V_patch_i)
+  
+Result: Each patch "sees" the entire image context
+```
+
+**Why it works differently than CNNs**:
+- **Global receptive field from layer 1**: Every patch attends to every other patch immediately
+- **No inductive bias**: Doesn't assume spatial locality (CNNs do via convolutions)
+- **Data-driven**: Learns spatial relationships from data rather than hard-coding them
+- **Flexible**: Can attend to distant regions (e.g., correlate top-left with bottom-right)
+
+**Multi-Head Attention (6 heads)**:
+```
+Input: 384 dims
+  ↓
+Split into 6 heads of 64 dims each
+  ↓
+Head 1: Attend to low-level patterns (edges, textures)
+Head 2: Attend to medium-level patterns (organ boundaries)
+Head 3: Attend to high-level patterns (organ shapes)
+Head 4-6: Learn complementary attention patterns
+  ↓
+Concatenate outputs → 6×64 = 384 dims
+  ↓
+Linear projection → 384 dims
+```
+
+**Why 6 heads**: Different heads specialize in different relationships (like having 6 experts look at the image from different perspectives)
+
+**MLP Block (Feed-Forward Network)**:
+```
+Input: 384 dims
+  ↓
+Linear: 384 → 1536 (4× expansion)
+  ↓
+GELU activation
+  ↓
+Dropout(0.1)
+  ↓
+Linear: 1536 → 384 (projection back)
+  ↓
+Dropout(0.1)
+```
+
+**Why 4× expansion**: Provides capacity for complex non-linear transformations after attention
+
+**Positional Embeddings**:
+- **Problem**: Attention has no notion of position (shuffling patches gives same result)
+- **Solution**: Add learnable position encodings (197×384 matrix)
+- **Why learnable**: Model learns best positional representation for medical images
+- **Example**: Patch at (10, 5) gets unique position embedding added to its content
+
+**Pros**:
+- ✅ Global context from first layer (sees entire image immediately)
+- ✅ Flexible attention (can learn any spatial relationship)
+- ✅ Strong when pretrained (learns general visual features on ImageNet)
+- ✅ Scales well with data (performance improves with more training data)
+
+**Cons**:
+- ❌ Data-hungry (needs 100M+ images to train from scratch)
+- ❌ No spatial inductive bias (must learn locality from data)
+- ❌ Sensitive to corruptions (70.28% under corruption vs 76.88% for ConvNeXt)
+- ❌ Quadratic complexity: O(197²) = 38,809 attention computations per block
+- ❌ Poor with small datasets like OrganAMNIST (only 34K images)
+
+**Why ViT struggles on medical imaging**:
+1. **Small dataset**: 34K images not enough to learn spatial relationships from scratch
+2. **Local corruptions**: Noise/blur on individual patches disrupts global attention
+3. **No CNN priors**: Doesn't know boundaries should be spatially coherent
+4. **Attention dilution**: 196 patches compete for attention (vs CNN's focused 7×7 kernels)
+
+**ViT-S/16 vs Swin-Tiny**:
+| Aspect | ViT-S/16 | Swin-Tiny |
+|--------|----------|-----------|
+| Attention | Global (all-to-all) | Local windows (7×7) |
+| Complexity | O(N²) | O(N) |
+| Accuracy | 91.15% | 94.52% |
+| Robustness | 70.28% | 74.55% |
+| Params | 21.7M | 27.5M |
+
+**Best for**: Large datasets (100K+ images), research with pretrained models, tasks requiring global context
+
+**Not recommended for**: Small medical datasets, corrupted/noisy data, edge deployment without pretraining
+
+---
+
+## Detailed Architecture Deep Dives
+
+### Swin Transformer Tiny
 
 ### Overview
 
