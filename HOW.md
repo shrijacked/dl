@@ -418,6 +418,108 @@ Input (B, C, H, W)
 
 **Best for**: Real-world deployment with noisy/corrupted data, production systems with variable image quality
 
+#### ConvNeXt-Tiny Finetuned (92.97% accuracy - Why It's Better)
+
+**What is finetuning?**: Taking a trained model and continuing training with adjusted hyperparameters.
+
+**Our finetuning approach**:
+```
+Base ConvNeXt-Tiny (91.62% accuracy)
+  ↓
+Continue training with:
+  • Lower learning rate: 5e-5 (vs 0.01 base)
+  • Smaller batch size: 32 (vs 64 base)
+  • Stronger weight decay: 0.05 (vs 1e-4 base)
+  • More regularization: Drop path, Layer Scale
+  ↓
+Finetuned ConvNeXt-Tiny (92.97% accuracy)
+```
+
+**Why finetuning improves performance**:
+
+1. **Lower learning rate (5e-5 vs 0.01)**:
+   - Base training: Large steps to learn overall patterns
+   - Finetuning: Small steps to refine decision boundaries
+   - Example: Instead of "this is probably kidney" → "this is kidney with 99.2% confidence"
+
+2. **Smaller batch size (32 vs 64)**:
+   - Noisier gradients → better generalization
+   - More frequent weight updates (2× per epoch)
+   - Escapes sharp minima (finds flatter, more robust solutions)
+
+3. **Stronger weight decay (0.05 vs 1e-4)**:
+   - 50× stronger regularization
+   - Forces model to use simpler features (no overfitting on spurious patterns)
+   - Medical insight: Learns "kidney = bean shape + renal pelvis" not "kidney = bright spot in row 3"
+
+4. **Extended training with regularization**:
+   - Base model: Fast convergence but potentially overfits
+   - Finetuned: Slow refinement ensures features generalize
+
+**Performance improvements**:
+```
+                    Base        Finetuned    Improvement
+Validation Acc:    91.62%      92.97%       +1.35%
+Corruption Robust: ~74%        76.88%       +2.88%
+Hard classes:      Better hard class performance (Heart, Lung-R)
+```
+
+**Why corruption robustness improves dramatically**:
+- Lower LR → Learns smoother decision boundaries (less sensitive to pixel noise)
+- Stronger regularization → Doesn't memorize training artifacts
+- Smaller batches → Sees more diverse examples per update
+
+**Training timeline**:
+```
+Epochs 0-50 (Base training):
+  • Learn: "What organs look like"
+  • Fast convergence: Loss drops quickly
+  • Result: 91.62% accuracy
+
+Epochs 50-100 (Finetuning):
+  • Refine: "Subtle differences between similar organs"
+  • Slow refinement: Loss drops slowly but steadily
+  • Result: 92.97% accuracy (+1.35%)
+```
+
+**What changed in the model**:
+- **Early layers**: Minimal change (edge/texture detectors already optimal)
+- **Middle layers**: Refined organ-part detectors (e.g., better at renal pelvis vs liver lobe)
+- **Late layers**: Sharpened class boundaries (better separation of Kidney-L vs Kidney-R)
+- **Classification head**: More confident predictions (calibrated probabilities)
+
+**Comparison with base model**:
+
+| Aspect | Base ConvNeXt | Finetuned ConvNeXt | Why Different |
+|--------|---------------|-------------------|---------------|
+| **Accuracy** | 91.62% | 92.97% | Refined boundaries |
+| **Robustness** | 74.10% | 76.88% | Smoother features |
+| **Learning Rate** | 0.01 | 5e-5 (200× smaller) | Precise adjustments |
+| **Batch Size** | 64 | 32 (2× smaller) | Better generalization |
+| **Weight Decay** | 1e-4 | 0.05 (500× stronger) | Prevents overfitting |
+| **Training Time** | 50 epochs | +50 epochs | Refinement phase |
+| **Hard Classes** | Struggles | Better | Focused learning |
+
+**Why not just train longer from scratch?**
+- High LR + long training = overfits
+- Finetuning = controlled refinement after coarse learning
+- Two-phase strategy: Fast convergence → Careful refinement
+
+**When to finetune vs train from scratch**:
+
+**Finetune when**:
+- ✅ Base model already good (>90% accuracy)
+- ✅ Want to squeeze last 1-2% accuracy
+- ✅ Need better robustness on hard examples
+- ✅ Have extra compute budget
+
+**Train from scratch when**:
+- ❌ Different dataset distribution
+- ❌ Different input size or architecture
+- ❌ Limited time (finetuning adds 50% more epochs)
+
+**Best for**: Production deployment where 1-2% accuracy matters, robustness-critical applications, when you have compute budget for extended training
+
 ---
 
 ### Vision Transformer Small (ViT-S/16) (Pure Attention: 91.15% accuracy)
