@@ -4,9 +4,8 @@
 
 ## 1. ResNet-50 (Residual Network)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **ResNet-50** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **ResNet-50** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -39,9 +38,8 @@ Create a detailed neural network architecture diagram for **ResNet-50** adapted 
 
 ## 2. ResNet-101 (Deeper Residual Network)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **ResNet-101** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **ResNet-101** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -64,9 +62,8 @@ Create a detailed neural network architecture diagram for **ResNet-101** adapted
 
 ## 3. ResNeXt-50 (32×4d)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **ResNeXt-50 (32×4d)** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **ResNeXt-50 (32×4d)** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -95,9 +92,8 @@ Create a detailed neural network architecture diagram for **ResNeXt-50 (32×4d)*
 
 ## 4. ResNeXt-101 (32×8d)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **ResNeXt-101 (32×8d)** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **ResNeXt-101 (32×8d)** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -119,9 +115,8 @@ Create a detailed neural network architecture diagram for **ResNeXt-101 (32×8d)
 
 ## 5. EfficientNet-B3
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **EfficientNet-B3** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **EfficientNet-B3** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×300×300 grayscale image (larger input size)
@@ -158,9 +153,8 @@ Create a detailed neural network architecture diagram for **EfficientNet-B3** ad
 
 ## 6. DenseNet-121 (Dense Connections)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **DenseNet-121** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **DenseNet-121** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -196,9 +190,8 @@ Create a detailed neural network architecture diagram for **DenseNet-121** adapt
 
 ## 7. DenseNet-121 Adaptive (Custom - With Attention)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **Adaptive DenseNet-121** - a custom architecture with attention mechanisms for grayscale medical image classification.
+Detailed neural network architecture diagram for **Adaptive DenseNet-121** - a custom architecture with attention mechanisms for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -239,9 +232,8 @@ Create a detailed neural network architecture diagram for **Adaptive DenseNet-12
 
 ## 8. ConvNeXt-Tiny
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **ConvNeXt-Tiny** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **ConvNeXt-Tiny** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -275,9 +267,8 @@ Create a detailed neural network architecture diagram for **ConvNeXt-Tiny** adap
 
 ## 9. Vision Transformer Small (ViT-S/16)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **Vision Transformer Small (ViT-S/16)** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **Vision Transformer Small (ViT-S/16)** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -323,9 +314,8 @@ Create a detailed neural network architecture diagram for **Vision Transformer S
 
 ## 10. Vision Transformer Base (ViT-B/16)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **Vision Transformer Base (ViT-B/16)** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **Vision Transformer Base (ViT-B/16)** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -350,9 +340,8 @@ Create a detailed neural network architecture diagram for **Vision Transformer B
 
 ## 11. Swin Transformer Tiny
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **Swin Transformer Tiny** adapted for grayscale medical image classification.
+Detailed neural network architecture diagram for **Swin Transformer Tiny** adapted for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -396,9 +385,8 @@ Create a detailed neural network architecture diagram for **Swin Transformer Tin
 
 ## 12. Swin-MultiScale (Custom - Multi-Scale Feature Fusion)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **Swin-MultiScale** - a custom architecture with multi-scale feature fusion for grayscale medical image classification.
+Detailed neural network architecture diagram for **Swin-MultiScale** - a custom architecture with multi-scale feature fusion for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -449,9 +437,8 @@ Create a detailed neural network architecture diagram for **Swin-MultiScale** - 
 
 ## 13. DenseViT (Custom - Dense Connections + Parallel Conv)
 
-**Prompt for Gemini:**
 
-Create a detailed neural network architecture diagram for **DenseViT** - a custom hybrid architecture combining Vision Transformer with DenseNet-style connections for grayscale medical image classification.
+Detailed neural network architecture diagram for **DenseViT** - a custom hybrid architecture combining Vision Transformer with DenseNet-style connections for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 1×224×224 grayscale image
@@ -537,9 +524,8 @@ Create a detailed neural network architecture diagram for **DenseViT** - a custo
 
 ## 14. ResNet-18 Baseline
 
-**Prompt for Gemini:**
 
-Create a simple neural network architecture diagram for **ResNet-18** baseline for grayscale medical image classification.
+Simple neural network architecture diagram for **ResNet-18** baseline for grayscale medical image classification.
 
 **Architecture Specifications:**
 - **Input**: 3×128×128 (grayscale expanded to 3 channels, smaller size for baseline)
@@ -568,7 +554,6 @@ Create a simple neural network architecture diagram for **ResNet-18** baseline f
 
 ## Summary Comparison Table
 
-**Prompt for Gemini:**
 
 Create a comparison table/infographic showing all 14 model architectures with the following attributes:
 
@@ -595,7 +580,6 @@ Create a comparison table/infographic showing all 14 model architectures with th
 
 ## Architecture Family Tree
 
-**Prompt for Gemini:**
 
 Create an architecture family tree showing the evolution and relationships:
 
