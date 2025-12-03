@@ -1,7 +1,3 @@
-# HOW: Pixel Intensity Histograms
-
-This README captures the exact procedure we use to generate the pixel-intensity histograms that live under `analysis_outputs/analysis/figures/`. It is meant to be a lightweight, always-up-to-date “how-to” so we do not have to reverse-engineer the workflow every time someone asks where those histograms came from.
-
 ## Prerequisites
 
 - Python 3.10+ with the repo dependencies installed: `pip install -r requirements.txt`
