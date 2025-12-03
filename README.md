@@ -879,61 +879,6 @@ class EpochMetrics:
 
 ---
 
-## 📚 Documentation
-
-### Comprehensive Guides
-
-1. **[SOURCE_CODE_GUIDE.md](src/SOURCE_CODE_GUIDE.md)** (1,120 lines)
-   - Complete codebase walkthrough
-   - Every module explained with usage examples
-   - Architecture deep dives with code snippets
-
-2. **[FIGURE_GUIDE.md](analysis_outputs/figures/FIGURE_GUIDE.md)** (302 lines)
-   - All 60+ analysis figures explained
-   - Key insights and interpretation
-   - Action items derived from visualizations
-
-3. **[REPORTS_GUIDE.md](analysis_outputs/reports/REPORTS_GUIDE.md)** (357 lines)
-   - 17 JSON reports documented
-   - Metric definitions and thresholds
-   - How to use reports for decision-making
-
-4. **[TABLES_GUIDE.md](analysis_outputs/tables/TABLES_GUIDE.md)** (273 lines)
-   - 14 CSV tables explained
-   - Column definitions and usage
-   - Quick action checklists
-
-5. **[EVALUATION_GUIDE.md](evaluation_outputs/EVALUATION_GUIDE.md)** (260 lines)
-   - Model comparison methodology
-   - Robustness evaluation details
-   - Ensemble design recommendations
-
-6. **[HOW.md](HOW.md)** (2,026 lines)
-   - Step-by-step tutorials
-   - Advanced usage patterns
-   - Architecture deep dives with mathematical details
-
-7. **[PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md)** (567 lines)
-   - High-level project overview
-   - Key achievements and results
-   - Technical implementation summary
-
-8. **[MODEL_ARCHITECTURE_DIAGRAMS_PROMPT.md](MODEL_ARCHITECTURE_DIAGRAMS_PROMPT.md)** (633 lines)
-   - Detailed architecture specifications
-   - Component-level breakdowns
-   - Diagram generation prompts
-
-### Quick Navigation
-
-**Want to understand...**
-- **The codebase?** → Start with `src/SOURCE_CODE_GUIDE.md`
-- **Analysis results?** → See `analysis_outputs/*/GUIDE.md` files
-- **Model performance?** → Read `evaluation_outputs/EVALUATION_GUIDE.md`
-- **How to train?** → Follow `HOW.md` tutorials
-- **Architecture details?** → Study `MODEL_ARCHITECTURE_DIAGRAMS_PROMPT.md`
-
----
-
 ## 🎓 Key Learnings & Best Practices
 
 ### What We Learned
@@ -1135,7 +1080,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 ## 📞 Contact
 
-**Author**: Shrijak Kumar
+**Author**: Shrijak Kumar, Arsalaan Alam, Atharv Raghuwanshi and Tanvi Sanghai
 
 **Project Repository**: [GitHub](https://github.com/yourusername/organamnist-dl-project)
 
@@ -1151,35 +1096,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 - **Trained Models**: 11 architectures × multiple configurations = 25+ checkpoints
 - **Training Time**: ~200 GPU-hours total
 - **Dataset Size**: 41,052 labeled images (34,561 train + 6,491 val)
-
----
-
-## 🗺️ Roadmap
-
-### Phase 1: Foundation (✅ Completed)
-- [x] Dataset analysis pipeline
-- [x] 13+ model architectures
-- [x] Comprehensive evaluation framework
-- [x] HPC deployment setup
-- [x] Complete documentation
-
-### Phase 2: Enhancement (🚧 In Progress)
-- [ ] Ensemble methods implementation
-- [ ] Knowledge distillation pipeline
-- [ ] Uncertainty quantification
-- [ ] Interactive visualization dashboard
-
-### Phase 3: Advanced Features (📋 Planned)
-- [ ] Self-supervised pretraining
-- [ ] Few-shot learning support
-- [ ] Domain adaptation techniques
-- [ ] Real-time inference API
-
-### Phase 4: Deployment (🔮 Future)
-- [ ] Web application interface
-- [ ] Mobile deployment (TensorFlow Lite)
-- [ ] Cloud inference service
-- [ ] Clinical validation study
 
 ---
 
