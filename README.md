@@ -10,6 +10,7 @@
 
 ## 📋 Table of Contents
 
+- [Demo Video](https://drive.google.com/file/d/14o-K7HI-SGNtp4oQjLoGfu3Tr9CSCU_m/view?usp=sharing)
 - [Overview](#-overview)
 - [Key Achievements](#-key-achievements)
 - [Dataset](#-dataset)
